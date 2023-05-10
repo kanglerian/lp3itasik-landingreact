@@ -15,6 +15,7 @@ import Facilities from './pages/Facilities';
 import Program from './pages/Program';
 import Student from './pages/Student';
 import ProgramDetail from './pages/ProgramDetail';
+import StudentDetail from './pages/StudentDetail';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
   {
     path: "/students",
     element: <Student/>
+  },
+  {
+    path: "/students/:uuid",
+    element: <StudentDetail/>
   },
 ]);
 

@@ -125,11 +125,11 @@ const Navbar = () => {
                       Organisasi Mahasiswa
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <a href="#" className="block md:inline py-2 pr-4 text-gray-900  md:hover:text-cyan-800 md:p-0">
                       Blog
                     </a>
-                  </li>
+                  </li> */}
                   <li>
                     <button id="dropdownNavbarLink" data-dropdown-toggle="service" className="flex items-center justify-between w-full py-2 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-cyan-700 md:p-0 md:w-auto">
                       Layanan

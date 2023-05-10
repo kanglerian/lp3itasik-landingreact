@@ -16,6 +16,7 @@ const ProgramDetail = () => {
   const [benefits, setBenefit] = useState([])
   const [careers, setCareer] = useState([])
   const [competences, setCompetence] = useState([])
+  const [alumnis, setAlumni] = useState([])
 
   const getProgram = async () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/programs/${uuid}`)
@@ -30,7 +31,8 @@ const ProgramDetail = () => {
   const getVision = async () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/visions/${uuid}`)
       .then((response) => {
-        setVision(response.data)
+        let data = response.data.filter(dat => dat.status == '1')
+        setVision(data)
       })
       .catch((error) => {
         console.log(error.message);
@@ -40,7 +42,8 @@ const ProgramDetail = () => {
   const getMision = async () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/misions/${uuid}`)
       .then((response) => {
-        setMision(response.data)
+        let data = response.data.filter(dat => dat.status == '1')
+        setMision(data)
       })
       .catch((error) => {
         console.log(error.message);
@@ -50,7 +53,8 @@ const ProgramDetail = () => {
   const getBenefit = async () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/benefits/${uuid}`)
       .then((response) => {
-        setBenefit(response.data)
+        let data = response.data.filter(dat => dat.status == '1')
+        setBenefit(data)
       })
       .catch((error) => {
         console.log(error.message);
@@ -60,7 +64,8 @@ const ProgramDetail = () => {
   const getCareer = async () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/careers/${uuid}`)
       .then((response) => {
-        setCareer(response.data)
+        let data = response.data.filter(dat => dat.status == '1')
+        setCareer(data)
       })
       .catch((error) => {
         console.log(error.message);
@@ -70,7 +75,19 @@ const ProgramDetail = () => {
   const getCompetence = async () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/competences/${uuid}`)
       .then((response) => {
-        setCompetence(response.data)
+        let data = response.data.filter(dat => dat.status == '1')
+        setCompetence(data)
+      })
+      .catch((error) => {
+        console.log(error.message);
+      })
+  }
+
+  const getAlumni = async () => {
+    await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/alumnis/${uuid}`)
+      .then((response) => {
+        let data = response.data.filter(dat => dat.status == '1')
+        setAlumni(data)
       })
       .catch((error) => {
         console.log(error.message);
@@ -127,6 +144,7 @@ const ProgramDetail = () => {
     getBenefit()
     getCareer()
     getCompetence()
+    getAlumni()
   }, []);
 
   return (
@@ -156,38 +174,53 @@ const ProgramDetail = () => {
             </ul>
           </nav>
           <section className="block py-5" id="visi">
-            {visions.length > 0 &&
-              <div className="flex flex-col md:flex-row items-center gap-5">
-                <div className="w-full md:w-1/2 space-y-3 order-2 md:order-none">
-                  <h3 className="font-bold text-3xl">Visi</h3>
-                  {visions.map((vision) =>
-                    <p className="text-slate-700">{vision.vision}</p>
-                  )}
-                </div>
-                <div className="w-full md:w-1/2 order-1 md:order-none">
-                  <img className="w-full object-cover rounded-xl" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
-                </div>
+            {visions.length > 0 || misions.length > 0 ? (
+              <>
+                {visions.length > 0 &&
+                  <div className="flex flex-col md:flex-row items-center gap-5">
+                    <div className="w-full md:w-1/2 space-y-3 order-2 md:order-none">
+                      <h3 className="font-bold text-3xl">Visi</h3>
+                      {visions.map((vision) =>
+                        <p className="text-slate-700">{vision.vision}</p>
+                      )}
+                    </div>
+                    <div className="w-full md:w-1/2 order-1 md:order-none">
+                      <img className="w-full object-cover rounded-xl" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
+                    </div>
+                  </div>
+                }
+                <hr className="my-5" />
+                {misions.length > 0 &&
+                  <div className="flex flex-col md:flex-row items-center gap-5">
+                    <div className="w-full md:w-1/2 order-1 md:order-none">
+                      <img className="w-full object-cover rounded-xl" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
+                    </div>
+                    <div className="w-full md:w-1/2 space-y-3 order-2 md:order-none">
+                      <h3 className="font-bold text-3xl">Misi</h3>
+                      <ol className="text-slate-700 list-decimal ml-5 space-y-3">
+                        {misions.map((mision) =>
+                          <li>{mision.mision}</li>
+                        )}
+                      </ol>
+                    </div>
+                  </div>
+                }
+              </>
+            ) : (
+              <div className="h-[500px] text-center flex justify-center items-center">
+                <Player
+                  autoplay
+                  loop
+                  src={emptyAnimate}
+                  style={{ height: 500, width: 500 }}
+                >
+                  <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
+                </Player>
               </div>
-            }
-            <hr className="my-5" />
-            {misions.length > 0 &&
-              <div className="flex flex-col md:flex-row items-center gap-5">
-                <div className="w-full md:w-1/2 order-1 md:order-none">
-                  <img className="w-full object-cover rounded-xl" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
-                </div>
-                <div className="w-full md:w-1/2 space-y-3 order-2 md:order-none">
-                  <h3 className="font-bold text-3xl">Misi</h3>
-                  <ol className="text-slate-700 list-decimal ml-5 space-y-3">
-                    {misions.map((mision) =>
-                      <li>{mision.mision}</li>
-                    )}
-                  </ol>
-                </div>
-              </div>
-            }
+            )}
           </section>
           <section className="hidden py-5" id="keunggulan">
-            {benefits.length > 0 &&
+            {benefits.length > 0 ? (
               <div className="flex flex-col md:flex-row items-center gap-5">
                 <div className="w-full md:w-1/2 order-1 md:order-none">
                   <img className="w-full object-cover rounded-xl" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
@@ -201,10 +234,21 @@ const ProgramDetail = () => {
                   </ol>
                 </div>
               </div>
-            }
+            ) : (
+              <div className="h-[500px] text-center flex justify-center items-center">
+                <Player
+                  autoplay
+                  loop
+                  src={emptyAnimate}
+                  style={{ height: 500, width: 500 }}
+                >
+                  <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
+                </Player>
+              </div>
+            )}
           </section>
           <section className="hidden py-5" id="kompetensi">
-            {competences.length > 0 &&
+            {competences.length > 0 ? (
               <div className="flex flex-col md:flex-row items-center gap-5">
                 <div className="w-full md:w-1/2 order-1 md:order-none">
                   <img className="w-full object-cover rounded-xl" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
@@ -218,10 +262,21 @@ const ProgramDetail = () => {
                   </ol>
                 </div>
               </div>
-            }
+            ) : (
+              <div className="h-[500px] text-center flex justify-center items-center">
+                <Player
+                  autoplay
+                  loop
+                  src={emptyAnimate}
+                  style={{ height: 500, width: 500 }}
+                >
+                  <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
+                </Player>
+              </div>
+            )}
           </section>
           <section className="hidden py-5" id="karir">
-            {careers.length > 0 &&
+            {careers.length > 0 ? (
               <div className="flex flex-wrap flex-row justify-center items-center">
                 {careers.map((career) =>
                   <div className="w-1/2 md:w-1/5 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
@@ -231,28 +286,51 @@ const ProgramDetail = () => {
                   </div>
                 )}
               </div>
-            }
+            ) : (
+              <div className="h-[500px] text-center flex justify-center items-center">
+                <Player
+                  autoplay
+                  loop
+                  src={emptyAnimate}
+                  style={{ height: 500, width: 500 }}
+                >
+                  <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
+                </Player>
+              </div>
+            )}
           </section>
           <section className="hidden py-5" id="alumni">
-            {/*?php if (!empty($alumnis)) { ?*/}
-            <div className="flex flex-wrap flex-row justify-center items-center">
-              {/*?php foreach ($alumnis as $number =*/} $alumni) : ?&gt;
-              <div className="w-full md:w-1/3 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
-                <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
-                  <span className="inline-block h-20 w-20 rounded-full bg-red-500" />
-                  <h3 className="text-lg">{/*?= $alumni-*/}name ?&gt;</h3>
-                  <hr />
-                  <ul className="text-[13px] text-slate-800">
-                    <li><span className="font-bold">Alumni</span> {/*?= $alumni-*/}school ?&gt;</li>
-                    <li><span className="font-bold">Bekerja</span> di {/*?= $alumni-*/}work ?&gt;</li>
-                    <li><span className="font-bold">Sebagai</span> {/*?= $alumni-*/}profession ?&gt;</li>
-                  </ul>
-                  <hr />
-                  <p className="text-slate-800"><i>"{/*?= $alumni-*/}quote ?&gt;."</i></p>
-                </div>
+            {alumnis.length > 0 ? (
+              <div className="flex flex-wrap flex-row justify-center items-center">
+                {alumnis.map((alumni) =>
+                  <div className="w-full md:w-1/3 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
+                    <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
+                      <span className="inline-block h-20 w-20 rounded-full bg-red-500" />
+                      <h3 className="text-lg">{alumni.name}</h3>
+                      <hr />
+                      <ul className="text-[13px] text-slate-800">
+                        <li><span className="font-bold">Alumni</span> {alumni.school}</li>
+                        <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
+                        <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
+                      </ul>
+                      <hr />
+                      <p className="text-slate-800"><i>"{alumni.quote}"</i></p>
+                    </div>
+                  </div>
+                )}
               </div>
-              {/*?php endforeach; ?*/}
-            </div>
+            ) : (
+              <div className="h-[500px] text-center flex justify-center items-center">
+                <Player
+                  autoplay
+                  loop
+                  src={emptyAnimate}
+                  style={{ height: 500, width: 500 }}
+                >
+                  <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
+                </Player>
+              </div>
+            )}
           </section>
         </div>
       </section>
