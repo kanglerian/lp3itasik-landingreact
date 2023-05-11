@@ -1,8 +1,8 @@
 <IfModule mod_headers.c>
   RewriteEngine On
-  RewriteBase /
+  RewriteBase /dist/
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteRule . /dist/index.html [L]
 </IfModule>
