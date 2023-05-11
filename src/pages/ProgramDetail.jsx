@@ -216,7 +216,7 @@ const ProgramDetail = () => {
                 }
               </>
             ) : (
-              <div className="h-[500px] text-center flex justify-center items-center">
+              <div className="h-[500px] text-center flex justify-center items-center overflow-x-hidden">
                 <Player
                   autoplay
                   loop
@@ -244,7 +244,7 @@ const ProgramDetail = () => {
                 </div>
               </div>
             ) : (
-              <div className="h-[500px] text-center flex justify-center items-center">
+              <div className="h-[500px] text-center flex justify-center items-center overflow-x-hidden">
                 <Player
                   autoplay
                   loop
@@ -272,7 +272,7 @@ const ProgramDetail = () => {
                 </div>
               </div>
             ) : (
-              <div className="h-[500px] text-center flex justify-center items-center">
+              <div className="h-[500px] text-center flex justify-center items-center overflow-x-hidden">
                 <Player
                   autoplay
                   loop
@@ -296,7 +296,7 @@ const ProgramDetail = () => {
                 )}
               </div>
             ) : (
-              <div className="h-[500px] text-center flex justify-center items-center">
+              <div className="h-[500px] text-center flex justify-center items-center overflow-x-hidden">
                 <Player
                   autoplay
                   loop
@@ -329,7 +329,7 @@ const ProgramDetail = () => {
                 )}
               </div>
             ) : (
-              <div className="h-[500px] text-center flex justify-center items-center">
+              <div className="h-[500px] text-center flex justify-center items-center overflow-x-hidden">
                 <Player
                   autoplay
                   loop
