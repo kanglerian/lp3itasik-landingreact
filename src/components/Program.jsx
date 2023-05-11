@@ -56,7 +56,7 @@ const Program = () => {
                     <img className="w-full object-cover rounded-lg" alt={tasik.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + tasik.image} />
                     <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-lp3i-200 rounded-lg opacity-0 group-hover:h-full group-hover:opacity-95 duration-500">
                       <h1 className="text-lg text-white">{tasik.title}</h1>
-                      <a href="#" role="button" className="mt-5 px-8 py-2 text-sm rounded-full bg-amber-400 hover:bg-amber-600 duration-300">
+                      <a href={`/programs/` + tasik.uuid} role="button" className="mt-5 px-8 py-2 text-sm rounded-full bg-amber-400 hover:bg-amber-600 duration-300">
                         Lihat selengkapnya
                       </a>
                     </div>
@@ -76,7 +76,7 @@ const Program = () => {
                     <img className="w-full object-cover rounded-lg" alt={vokasi.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + vokasi.image} />
                     <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-lp3i-200 rounded-lg opacity-0 group-hover:h-full group-hover:opacity-95 duration-500">
                       <h1 className="text-lg text-white">{vokasi.level} {vokasi.title}</h1>
-                      <a href="<?= base_url() ?>programs/<?= $college->id ?>" role="button" className="mt-5 px-8 py-2 text-sm rounded-full bg-amber-400 hover:bg-amber-600 duration-300">
+                      <a href={`/programs/` + vokasi.uuid} role="button" className="mt-5 px-8 py-2 text-sm rounded-full bg-amber-400 hover:bg-amber-600 duration-300">
                         Selengkapnya
                       </a>
                     </div>
@@ -101,7 +101,7 @@ const Program = () => {
                     <img className="w-full object-cover rounded-lg" alt={utama.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + utama.image} />
                     <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-lp3i-200 rounded-lg opacity-0 group-hover:h-full group-hover:opacity-95 duration-500">
                       <h1 className="text-lg text-white">{utama.title}</h1>
-                      <a href="#" role="button" className="mt-5 px-8 py-2 text-sm rounded-full bg-amber-400 hover:bg-amber-600 duration-300">
+                      <a href={`/programs/` + utama.uuid} role="button" className="mt-5 px-8 py-2 text-sm rounded-full bg-amber-400 hover:bg-amber-600 duration-300">
                         Lihat selengkapnya
                       </a>
                     </div>
@@ -112,7 +112,7 @@ const Program = () => {
           )}
         </div>
       ) : (
-        <div className="container mx-auto text-center text-white px-4">
+        <div className="container mx-auto text-center text-white px-4" data-aos="fade-up">
           <div role="status" className="flex items-center justify-center h-56 md:h-58 bg-lp3i-100 rounded-lg animate-pulse">
             <i className="fa-regular fa-images fa-3x text-gray-200"></i>
           </div>

@@ -71,7 +71,7 @@ const Media = () => {
             )}
           </>
         ) : (
-          <div className='flex items-center justify-center'>
+          <div className='flex items-center justify-center' data-aos="fade-up">
             <div className="w-[400px] flex flex-col items-start justify-start bg-gray-100 rounded-lg animate-pulse p-5">
               <div className='w-full h-24 rounded-lg bg-gray-200'></div>
               <div className='w-4/6 h-5 rounded-lg bg-gray-200 my-3'></div>

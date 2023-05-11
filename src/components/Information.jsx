@@ -109,7 +109,7 @@ const Information = () => {
             )}
           </div>
         ) : (
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4" data-aos="fade-up">
             <div className="w-full md:w-1/2 flex items-center justify-center h-56 md:h-80 bg-gray-200 rounded-lg animate-pulse">
               <i className="fa-regular fa-images fa-3x text-gray-300"></i>
             </div>

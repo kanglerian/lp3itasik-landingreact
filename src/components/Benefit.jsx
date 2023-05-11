@@ -50,12 +50,12 @@ const Benefit = () => {
             listBenefit
           ) : (
             <>
-              <div className="w-[400px] flex flex-col items-center justify-center bg-gray-100 rounded-lg animate-pulse p-5">
+              <div className="w-[400px] flex flex-col items-center justify-center bg-gray-100 rounded-lg animate-pulse p-5" data-aos="fade-up">
                 <div className='w-20 h-20 rounded-full bg-gray-200'></div>
                 <div className='w-full h-5 rounded-lg bg-gray-200 my-3'></div>
                 <div className='w-full h-20 rounded-lg bg-gray-200'></div>
               </div>
-              <div className="w-[400px] flex flex-col items-center justify-center bg-gray-100 rounded-lg animate-pulse p-5">
+              <div className="w-[400px] flex flex-col items-center justify-center bg-gray-100 rounded-lg animate-pulse p-5" data-aos="fade-up" data-aos-delay="100">
                 <div className='w-20 h-20 rounded-full bg-gray-200'></div>
                 <div className='w-full h-5 rounded-lg bg-gray-200 my-3'></div>
                 <div className='w-full h-20 rounded-lg bg-gray-200'></div>
