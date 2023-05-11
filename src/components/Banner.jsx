@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import bannerDefault from '../assets/img/banner-default.jpg'
 
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
@@ -30,7 +31,7 @@ const Banner = () => {
     <section className="container mx-auto mt-5 px-4">
       {isLoaded ? (
         <div className="relative z-0">
-          {banners.length > 0 && (
+          {banners.length > 0 ? (
             <div className="relative h-56 overflow-hidden rounded-lg md:h-[550px]">
               <OwlCarousel className='owl-theme' items={1} loop margin={10} autoplay>
                 {banners.map((banner, i) =>
@@ -39,6 +40,10 @@ const Banner = () => {
                   </div>
                 )}
               </OwlCarousel>
+            </div>
+          ) : (
+            <div className="relative h-56 overflow-hidden rounded-lg md:h-[550px]">
+              <img src={bannerDefault} alt="Beasiswa LP3I" className="rounded-lg shadow-lg" />
             </div>
           )}
         </div>
