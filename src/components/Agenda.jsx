@@ -58,7 +58,7 @@ const Agenda = () => {
               <div className="flex justify-center">
                 <OwlCarousel className='owl-theme' {...options} loop margin={10} autoplay dots={true}>
                   {agendas.map((agenda, i) =>
-                    <div className="item" key={i} data-aos="fade-up" data-aos-delay={i * 100}>
+                    <div className="item" key={i} data-aos="fade-up" data-aos-delay={i * 50}>
                       <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + agenda.image} alt={agenda.title} className="rounded-lg shadow-lg" />
                     </div>
                   )}

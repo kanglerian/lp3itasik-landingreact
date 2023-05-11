@@ -38,7 +38,7 @@ const Navbar = () => {
           <div className="container mx-auto px-4">
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
-                <button id="dropdownNavbarLink" data-dropdown-toggle="language" className="flex items-center justify-start w-auto py-2 text-white rounded">
+                <button id="dropdownNavbarLink" data-dropdown-toggle="language" className="flex items-center justify-start w-auto py-2 text-white rounded hidden lg:inline">
                   <img src={IDFlag} alt="Indonesia" className="inline-block w-6 rounded mr-2" />Indonesia
                   <i className="ml-2 fa-solid fa-chevron-down" /></button>
                 <div id="language" className="z-10 hidden font-normal bg-white rounded-lg shadow w-44">
@@ -51,7 +51,6 @@ const Navbar = () => {
                     </li>
                   </ul>
                 </div>
-                |
                 <span className="hidden md:inline"><i className="fa-solid fa-phone" /> (0265)311766</span>
                 <a href="https://bit.ly/InfoPMBLP3ITasik" target="_blank"><i className="fa-brands fa-whatsapp" /> 0813-1360-8558</a>
               </div>

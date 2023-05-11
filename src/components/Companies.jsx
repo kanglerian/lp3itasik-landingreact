@@ -35,7 +35,7 @@ const Companies = () => {
   }
 
   const listCompanies = companies.map((company, i) =>
-    <div className="item" key={i} data-aos="fade-up" data-aos-delay={i * 100}>
+    <div className="item" key={i} data-aos="fade-up" data-aos-delay={i * 50}>
       <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + company.image} alt={company.title} className="w-10 rounded-lg" />
     </div>
   )
