@@ -11,12 +11,14 @@ import emptyAnimate from '../assets/empty.json'
 
 const Organization = () => {
   const [organizations, setOrganization] = useState([])
-  
+  const [isLoaded, setIsLoaded] = useState(false)
+
   const getOrganization = async () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/organizations`)
       .then((response) => {
         let organizations = response.data.filter(org => org.status == '1')
         setOrganization(organizations)
+        setIsLoaded(true)
       })
       .catch((error) => {
         console.log(error.message);
@@ -50,20 +52,28 @@ const Organization = () => {
       <Navbar />
       <section className="my-20">
         <div className="container mx-auto px-4">
-          {organizations.length > 0 ? (
-            <div className="w-full flex-col justify-center items-center gap-5">
-              {listOrg}
-            </div>
+          {isLoaded ? (
+            <>
+              {organizations.length > 0 ? (
+                <div className="w-full flex-col justify-center items-center gap-5">
+                  {listOrg}
+                </div>
+              ) : (
+                <div className="h-[500px] text-center flex justify-center items-center">
+                  <Player
+                    autoplay
+                    loop
+                    src={emptyAnimate}
+                    style={{ height: 500, width: 500 }}
+                  >
+                    <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
+                  </Player>
+                </div>
+              )}
+            </>
           ) : (
-            <div className="h-[500px] text-center flex justify-center items-center">
-              <Player
-                autoplay
-                loop
-                src={emptyAnimate}
-                style={{ height: 500, width: 500 }}
-              >
-                <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
-              </Player>
+            <div role="status" className="flex items-center justify-center h-56 md:h-[550px] bg-gray-100 rounded-lg animate-pulse">
+              <i className="fa-regular fa-images fa-3x text-gray-200"></i>
             </div>
           )}
         </div>

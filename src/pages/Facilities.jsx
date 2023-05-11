@@ -12,12 +12,14 @@ import emptyAnimate from '../assets/empty.json'
 const Facilities = () => {
 
   const [facilities, setFacility] = useState([])
+  const [isLoaded, setIsLoaded] = useState(false)
 
   const getFacilities = async () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/facilities`)
       .then((response) => {
         let facilities = response.data.filter(facility => facility.status == '1')
         setFacility(facilities)
+        setIsLoaded(true)
       })
       .catch((error) => {
         console.log(error.message);
@@ -45,22 +47,34 @@ const Facilities = () => {
       <Navbar />
       <section className="my-14">
         <div className="container mx-auto px-4">
-          {facilities.length > 0 ? (
-            <div className="w-full flex justify-center flex-wrap gap-5">
-              {listFacilities}
-            </div>
+          {isLoaded ? (
+            <>
+              {facilities.length > 0 ? (
+                <div className="w-full flex justify-center flex-wrap gap-5">
+                  {listFacilities}
+                </div>
+              ) : (
+                <div className="h-[500px] text-center flex justify-center items-center">
+                  <Player
+                    autoplay
+                    loop
+                    src={emptyAnimate}
+                    style={{ height: 500, width: 500 }}
+                  >
+                    <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
+                  </Player>
+                </div>
+              )}
+            </>
           ) : (
-            <div className="h-[500px] text-center flex justify-center items-center">
-              <Player
-                autoplay
-                loop
-                src={emptyAnimate}
-                style={{ height: 500, width: 500 }}
-              >
-                <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
-              </Player>
+            <div className="w-full flex justify-center flex-wrap gap-5">
+              <div className="w-96 flex flex-col items-center justify-center bg-gray-100 rounded-lg animate-pulse p-5">
+                <div className='w-full h-40 rounded-lg bg-gray-200'></div>
+                <div className='w-3/6 h-5 rounded-lg bg-gray-200 mt-3'></div>
+              </div>
             </div>
           )}
+
         </div>
       </section>
       <Footer />

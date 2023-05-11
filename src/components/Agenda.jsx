@@ -72,8 +72,8 @@ const Agenda = () => {
           </>
         ) : (
           <div className='flex items-center justify-center'>
-            <div className="w-full md:w-1/3 flex items-center justify-center h-56 md:h-72 bg-gray-200 rounded-lg animate-pulse">
-              <i class="fa-regular fa-images fa-3x text-gray-300"></i>
+            <div className="w-full md:w-1/3 flex items-center justify-center h-56 md:h-72 bg-gray-100 rounded-lg animate-pulse">
+              <i className="fa-regular fa-images fa-3x text-gray-200"></i>
             </div>
           </div>
         )}

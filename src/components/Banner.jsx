@@ -44,8 +44,8 @@ const Banner = () => {
         </div>
       ) : (
         <div className="relative z-0">
-          <div role="status" class="flex items-center justify-center h-56 md:h-[550px] bg-gray-200 rounded-lg animate-pulse">
-            <i class="fa-regular fa-images fa-3x text-gray-300"></i>
+          <div role="status" className="flex items-center justify-center h-56 md:h-[550px] bg-gray-100 rounded-lg animate-pulse">
+            <i className="fa-regular fa-images fa-3x text-gray-200"></i>
           </div>
         </div>
       )}

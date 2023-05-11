@@ -112,10 +112,9 @@ const Program = () => {
           )}
         </div>
       ) : (
-
         <div className="container mx-auto text-center text-white px-4">
-          <div role="status" class="flex items-center justify-center h-56 md:h-58 bg-lp3i-200 rounded-lg animate-pulse">
-            <i class="fa-regular fa-images fa-3x text-gray-300"></i>
+          <div role="status" className="flex items-center justify-center h-56 md:h-58 bg-lp3i-100 rounded-lg animate-pulse">
+            <i className="fa-regular fa-images fa-3x text-gray-200"></i>
           </div>
         </div>
       )}

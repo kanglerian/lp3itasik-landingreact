@@ -12,12 +12,14 @@ import emptyAnimate from '../assets/empty.json'
 const Program = () => {
 
   const [programs, setProgram] = useState([])
+  const [isLoaded, setIsLoaded] = useState(false)
 
   const getPrograms = async () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/programs`)
       .then((response) => {
         let programs = response.data.filter(program => program.status == '1')
         setProgram(programs)
+        setIsLoaded(true)
       })
       .catch((error) => {
         console.log(error.message);
@@ -54,22 +56,36 @@ const Program = () => {
       <Navbar />
       <section className="my-14">
         <div className="container mx-auto px-4">
-          {programs.length > 0 ? (
-            <div className="w-full flex justify-center flex-wrap gap-5">
-              {listPrograms}
-            </div>
+          {isLoaded ? (
+            <>
+              {programs.length > 0 ? (
+                <div className="w-full flex justify-center flex-wrap gap-5">
+                  {listPrograms}
+                </div>
+              ) : (
+                <div className="h-[500px] text-center flex justify-center items-center">
+                  <Player
+                    autoplay
+                    loop
+                    src={emptyAnimate}
+                    style={{ height: 500, width: 500 }}
+                  >
+                    <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
+                  </Player>
+                </div>
+              )}
+            </>
           ) : (
-            <div className="h-[500px] text-center flex justify-center items-center">
-              <Player
-                autoplay
-                loop
-                src={emptyAnimate}
-                style={{ height: 500, width: 500 }}
-              >
-                <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
-              </Player>
+            <div className="w-full flex justify-center flex-wrap gap-5">
+              <div className="w-96 flex flex-col items-start justify-start bg-gray-100 rounded-lg animate-pulse p-5">
+                <div className='w-full h-40 rounded-lg bg-gray-200'></div>
+                <div className='w-5/6 h-5 rounded-lg bg-gray-200 mt-3'></div>
+                <div className='w-5/6 h-5 rounded-lg bg-gray-200 mt-3'></div>
+                <div className='w-3/6 h-7 rounded-lg bg-gray-200 mt-3'></div>
+              </div>
             </div>
           )}
+
         </div>
       </section>
       <Footer />
