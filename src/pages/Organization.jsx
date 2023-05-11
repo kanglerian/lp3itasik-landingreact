@@ -4,6 +4,9 @@ import axios from 'axios'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 import emptyAnimate from '../assets/empty.json'
 
 const Organization = () => {
@@ -21,7 +24,7 @@ const Organization = () => {
   }
 
   const listOrg = organizations.map((org, i) =>
-    <div key={i}>
+    <div key={i} data-aos="fade-up" data-aos-delay={i * 100}>
       <div className="text-center">
         <span className="text-gray-700">Struktur Organisasi</span><br />
         <span className="font-bold">{org.title}</span>
@@ -34,6 +37,12 @@ const Organization = () => {
 
   useEffect(() => {
     getOrganization()
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      offset: 100,
+      once: true
+    });
   }, []);
 
   return (

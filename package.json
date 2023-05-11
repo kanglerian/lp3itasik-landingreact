@@ -12,6 +12,7 @@
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@tawk.to/tawk-messenger-react": "^2.0.1",
+    "aos": "^2.3.4",
     "axios": "^1.4.0",
     "flowbite": "^1.6.5",
     "flowbite-react": "^0.4.4",

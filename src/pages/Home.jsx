@@ -9,20 +9,22 @@ import Agenda from '../components/Agenda'
 import Information from '../components/Information'
 import Companies from '../components/Companies'
 import Footer from '../components/Footer'
+import Flyer from '../components/Flyer'
 
 const Home = () => {
   return (
-    <> 
-      <Navbar/>
-      <Banner/>
-      <Link/>
-      <Benefit/>
-      <Program/>
-      <Media/>
-      <Agenda/>
-      <Information/>
-      <Companies/>
-      <Footer/>
+    <>
+      {/* <Flyer /> */}
+      <Navbar />
+      <Banner />
+      <Link />
+      <Benefit />
+      <Program />
+      <Media />
+      <Agenda />
+      <Information />
+      <Companies />
+      <Footer />
     </>
   )
 }

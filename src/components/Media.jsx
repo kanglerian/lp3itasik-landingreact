@@ -2,25 +2,30 @@ import React, { useState, useEffect } from 'react'
 import moment from 'moment-timezone';
 import axios from 'axios'
 
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 const Media = () => {
   const [medias, setMedia] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const getMedias = async () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/medias`)
       .then((response) => {
         let medias = response.data.filter(media => media.status == '1')
         setMedia(medias)
+        setIsLoaded(true)
       })
       .catch((error) => {
         console.log(error);
       })
   }
 
-  const listMedias = medias.map((media,i) =>
-    <div className="bg-white shadow rounded-xl p-5 md:w-[400px] ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300 space-y-3" key={i}>
-      <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + media.image} alt={media.title.slice(0,70) + "..."} className="rounded-lg" />
+  const listMedias = medias.map((media, i) =>
+    <div data-aos="fade-up" data-aos-delay={i * 100} className="bg-white shadow rounded-xl p-5 md:w-[400px] ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300 space-y-3" key={i}>
+      <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + media.image} alt={media.title.slice(0, 70) + "..."} className="rounded-lg" />
       <h5 className="font-bold text-lg">{media.title}</h5>
-      <div className="text-sm text-gray-600" dangerouslySetInnerHTML={{__html: media.description.slice(0, 150) + "..."}}></div>
+      <div className="text-sm text-gray-600" dangerouslySetInnerHTML={{ __html: media.description.slice(0, 150) + "..." }}></div>
       <div className="text-sm flex align-center justify-between">
         <a role="button" href="#" className="transition ease-in-out duration-300 bg-sky-600 hover:bg-sky-600 px-5 py-1 rounded-lg text-white">
           Lihat selengkapnya
@@ -32,6 +37,12 @@ const Media = () => {
 
   useEffect(() => {
     getMedias()
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      offset: 100,
+      once: true
+    });
   }, []);
 
 
@@ -39,22 +50,34 @@ const Media = () => {
     <section className="my-10">
       <div className="container mx-auto px-4">
         <div className="py-3 mb-8 text-center rounded-lg">
-          <h5 className="font-bold text-3xl"><span className="text-merah-300">Media</span> Kampus</h5>
-          <p className="text-gray-600 text-sm mt-2">Berikut adalah berita terbaru dari Politeknik LP3I Kampus Tasikmalaya</p>
+          <h5 className="font-bold text-3xl" data-aos="fade-up"><span className="text-merah-300">Media</span> Kampus</h5>
+          <p className="text-gray-600 text-sm mt-2" data-aos="fade-up" data-aos-delay="100">Berikut adalah berita terbaru dari Politeknik LP3I Kampus Tasikmalaya</p>
         </div>
-        {medias.length > 0 ? (
-          <div>
-            <div className="flex flex-row flex-wrap justify-center gap-5 my-8">
-              {listMedias}
-            </div>
-            <div className="text-center">
-              <a href="#" className="text-sky-600 text-sm underline">Lihat selengkapnya</a>
+        {isLoaded ? (
+          <>
+            {medias.length > 0 ? (
+              <div>
+                <div className="flex flex-row flex-wrap justify-center gap-5 my-8">
+                  {listMedias}
+                </div>
+                <div className="text-center">
+                  <a href="#" className="text-sky-600 text-sm underline" data-aos="fade-up" data-aos-delay="150">Lihat selengkapnya</a>
+                </div>
+              </div>
+            ) : (
+              <p className="bg-red-500 text-white text-center text-sm py-2 rounded-lg" data-aos="fade-up">
+                Belum ada berita
+              </p>
+            )}
+          </>
+        ) : (
+          <div className='flex items-center justify-center'>
+            <div className="w-[400px] flex flex-col items-start justify-start bg-gray-200 rounded-lg animate-pulse p-5">
+              <div className='w-full h-24 rounded-lg bg-gray-300'></div>
+              <div className='w-4/6 h-5 rounded-lg bg-gray-300 my-3'></div>
+              <div className='w-full h-20 rounded-lg bg-gray-300'></div>
             </div>
           </div>
-        ) : (
-          <p className="bg-red-500 text-white text-center text-sm py-2 rounded-lg">
-            Belum ada berita
-          </p>
         )}
       </div>
     </section>

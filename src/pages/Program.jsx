@@ -4,6 +4,9 @@ import axios from 'axios'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 import emptyAnimate from '../assets/empty.json'
 
 const Program = () => {
@@ -22,7 +25,7 @@ const Program = () => {
   }
 
   const listPrograms = programs.map((program, i) =>
-    <div key={i} className="item w-96 h-auto border-8 border-white shadow rounded-lg ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
+    <div key={i} data-aos="fade-up" data-aos-delay={i * 100} className="item w-96 h-auto border-8 border-white shadow rounded-lg ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
       <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} alt={program.title} className="rounded-lg" />
       <div className="p-4">
         <h5 className="font-bold text-sm mb-1 text-left text-gray-700">{program.level} {program.title}</h5>
@@ -38,6 +41,12 @@ const Program = () => {
 
   useEffect(() => {
     getPrograms()
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      offset: 100,
+      once: true
+    });
   }, []);
 
   return (
