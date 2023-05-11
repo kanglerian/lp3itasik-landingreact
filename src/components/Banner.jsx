@@ -32,7 +32,7 @@ const Banner = () => {
       {isLoaded ? (
         <div className="relative z-0">
           {banners.length > 0 ? (
-            <div className="relative h-56 overflow-hidden rounded-lg md:h-[550px]">
+            <div className="relative h-56 overflow-hidden rounded-lg md:h-screen">
               <OwlCarousel className='owl-theme' items={1} loop margin={10} autoplay>
                 {banners.map((banner, i) =>
                   <div className="item" key={i}>
