@@ -1,19 +1,21 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import Banner from '../components/Banner'
-import Link from '../components/Link'
-import Benefit from '../components/Benefit'
-import Program from '../components/Program'
-import Media from '../components/Media'
-import Agenda from '../components/Agenda'
-import Information from '../components/Information'
-import Companies from '../components/Companies'
-import Footer from '../components/Footer'
-import Flyer from '../components/Flyer'
+import React,{ lazy, Suspense } from 'react'
+const Navbar = lazy(() => import('../components/Navbar'))
+const Banner = lazy(() => import('../components/Banner'))
+const Link = lazy(() => import('../components/Link'))
+const Benefit = lazy(() => import('../components/Benefit'))
+const Program = lazy(() => import('../components/Program'))
+const Media = lazy(() => import('../components/Media'))
+const Agenda = lazy(() => import('../components/Agenda'))
+const Information = lazy(() => import('../components/Information'))
+const Companies = lazy(() => import('../components/Companies'))
+const Footer = lazy(() => import('../components/Footer'))
+const Flyer = lazy(() => import('../components/Flyer'))
+
+const renderLoader = () => <p>Loading</p>;
 
 const Home = () => {
   return (
-    <>
+    <Suspense fallback={renderLoader()}>
       {/* <Flyer /> */}
       <Navbar />
       <Banner />
@@ -25,7 +27,7 @@ const Home = () => {
       <Information />
       <Companies />
       <Footer />
-    </>
+    </Suspense>
   )
 }
 
