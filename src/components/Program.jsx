@@ -48,11 +48,11 @@ const Program = () => {
 
           {tasikPrograms.length > 0 &&
             <>
-              <h5 className="font-bold text-2xl my-3" data-aos="fade-up">Program <span className="text-merah-100">Pendidikan Diploma 3</span></h5>
-              <p data-aos="fade-up" data-aos-delay="100">Berikut adalah daftar program studi jenjang D3 di Politeknik LP3I Kampus Tasikmalaya</p>
+              <h5 className="font-bold text-2xl my-3">Program <span className="text-merah-100">Pendidikan Diploma 3</span></h5>
+              <p>Berikut adalah daftar program studi jenjang D3 di Politeknik LP3I Kampus Tasikmalaya</p>
               <div className="flex flex-wrap flex-col md:flex-row justify-center gap-5 my-8">
                 {tasikPrograms.map((tasik, i) =>
-                  <div className="group relative w-1/1 md:w-1/3" key={i} data-aos="fade-up" data-aos-delay={i * 100}>
+                  <div className="group relative w-1/1 md:w-1/3" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
                     <img className="w-full object-cover rounded-lg" alt={tasik.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + tasik.image} />
                     <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-lp3i-200 rounded-lg opacity-0 group-hover:h-full group-hover:opacity-95 duration-500">
                       <h1 className="text-lg text-white">{tasik.title}</h1>
@@ -68,11 +68,11 @@ const Program = () => {
 
           {vokasiPrograms.length > 0 && (
             <>
-              <h5 className="font-bold text-2xl my-3" data-aos="fade-up">Program Pendidikan <span className="text-merah-100">Vokasi 2 Tahun</span></h5>
-              <p data-aos="fade-up" data-aos-delay="100">Berikut adalah daftar program studi jenjang Vokasi 2 Tahun di LP3I Tasikmalaya</p>
+              <h5 className="font-bold text-2xl my-3">Program Pendidikan <span className="text-merah-100">Vokasi 2 Tahun</span></h5>
+              <p>Berikut adalah daftar program studi jenjang Vokasi 2 Tahun di LP3I Tasikmalaya</p>
               <div className="flex flex-col md:flex-row justify-center gap-5 my-8">
                 {vokasiPrograms.map((vokasi, i) =>
-                  <div className="group relative w-1/1 md:w-1/3" key={i} data-aos="fade-up" data-aos-delay={i * 50}>
+                  <div className="group relative w-1/1 md:w-1/3" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
                     <img className="w-full object-cover rounded-lg" alt={vokasi.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + vokasi.image} />
                     <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-lp3i-200 rounded-lg opacity-0 group-hover:h-full group-hover:opacity-95 duration-500">
                       <h1 className="text-lg text-white">{vokasi.level} {vokasi.title}</h1>
@@ -93,11 +93,11 @@ const Program = () => {
                   Kampus Utama
                 </h5>
               </div>
-              <h5 className="font-bold text-2xl my-3" data-aos="fade-up">Program Pendidikan <span className="text-merah-100">Diploma 3</span></h5>
-              <p data-aos="fade-up" data-aos-delay="50">Berikut adalah daftar program studi jenjang D3 di Politeknik LP3I</p>
+              <h5 className="font-bold text-2xl my-3">Program Pendidikan <span className="text-merah-100">Diploma 3</span></h5>
+              <p>Berikut adalah daftar program studi jenjang D3 di Politeknik LP3I</p>
               <div className="flex flex-wrap flex-col md:flex-row justify-center gap-5 my-8">
                 {utamaPrograms.map((utama, i) =>
-                  <div className="group relative w-1/1 md:w-1/3" key={i} data-aos="fade-up" data-aos-delay={i * 50}>
+                  <div className="group relative w-1/1 md:w-1/3" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
                     <img className="w-full object-cover rounded-lg" alt={utama.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + utama.image} />
                     <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-lp3i-200 rounded-lg opacity-0 group-hover:h-full group-hover:opacity-95 duration-500">
                       <h1 className="text-lg text-white">{utama.title}</h1>
@@ -112,7 +112,7 @@ const Program = () => {
           )}
         </div>
       ) : (
-        <div className="container mx-auto text-center text-white px-4" data-aos="fade-up">
+        <div className="container mx-auto text-center text-white px-4">
           <div role="status" className="flex items-center justify-center h-56 md:h-58 bg-lp3i-100 rounded-lg animate-pulse">
             <i className="fa-regular fa-images fa-3x text-gray-200"></i>
           </div>

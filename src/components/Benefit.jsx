@@ -31,7 +31,7 @@ const Benefit = () => {
   }, []);
 
   const listBenefit = benefits.map((benefit, i) =>
-    <div className="text-center w-[400px]" key={i} data-aos="fade-up" data-aos-delay={i * 50}>
+    <div className="text-center w-[400px]" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
       <div className="bg-white shadow-sm text-center p-4 rounded-lg transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
         <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + benefit.image} alt={benefit.title} className="inline w-20 rounded-full" />
         <div className="mt-3 bg-gray-50 p-2 rounded">
