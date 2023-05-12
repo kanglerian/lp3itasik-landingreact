@@ -10,6 +10,17 @@ const Navbar = () => {
     return language;
   })
 
+  const [showAbout, setAbout] = useState(false);
+  const [showService, setService] = useState(false);
+
+  const toggleAbout = () => {
+    setAbout(!showAbout)
+  }
+
+  const toggleService = () => {
+    setService(!showService)
+  }
+
   const toggleNavbar = () => {
     setIsNavbarOpen(!isNavbarOpen);
   }
@@ -79,85 +90,92 @@ const Navbar = () => {
                 <ul className="flex flex-col mt-4 p-3 border border-gray-100 rounded-lg md:flex-row md:items-center md:flex-wrap md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
                   <li>
                     {isLanguage && (
-                      <a href={`/`} className="block md:inline py-2 pr-4 text-gray-900 md:hover:text-cyan-700 md:p-0">
+                      <a href={`/`} className="block md:inline py-2 px-4 text-gray-900 md:hover:text-cyan-700 md:p-0">
                         Beranda
                       </a>
                     )}
                   </li>
                   <li>
-                    <button id="dropdownNavbarLink" data-dropdown-toggle="about" className="flex items-center justify-between w-full py-2 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-cyan-800 md:p-0 md:w-auto">
+                    <button onClick={toggleAbout} className="flex relative items-center justify-between w-full py-2 px-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-cyan-800 md:p-0 md:w-auto">
                       Tentang Kampus
-                      <i className="ml-2 fa-solid fa-chevron-down" /></button>
-                    {/* Dropdown menu */}
-                    <div id="about" className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                      <ul className="py-2 text-sm text-gray-900">
-                        <li>
-                          <a href={`/about`} className="block px-4 py-2 hover:bg-gray-100">
-                            Apa itu LP3I?
-                          </a>
-                        </li>
-                        <li>
-                          <a href={`/branding`} className="block px-4 py-2 hover:bg-gray-100">
-                            Logo dan Warna
-                          </a>
-                        </li>
-                        <li>
-                          <a href={`/organization`} className="block px-4 py-2 hover:bg-gray-100">
-                            Struktur Organisasi
-                          </a>
-                        </li>
-                        <li>
-                          <a href={`/facilities`} className="block px-4 py-2 hover:bg-gray-100">
-                            Fasilitas Kampus
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
+                      {showAbout ? (
+                        <i className="ml-2 fa-solid fa-chevron-up" />
+                      ) : (
+                        <i className="ml-2 fa-solid fa-chevron-down" />
+                      )}
+                    </button>
+                    {showAbout &&
+                      <div className="z-10 absolute mt-2 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                        <ul className="py-2 text-sm text-gray-900">
+                          <li>
+                            <a href={`/about`} className="block px-4 py-2 hover:bg-gray-100">
+                              Apa itu LP3I?
+                            </a>
+                          </li>
+                          <li>
+                            <a href={`/branding`} className="block px-4 py-2 hover:bg-gray-100">
+                              Logo dan Warna
+                            </a>
+                          </li>
+                          <li>
+                            <a href={`/organization`} className="block px-4 py-2 hover:bg-gray-100">
+                              Struktur Organisasi
+                            </a>
+                          </li>
+                          <li>
+                            <a href={`/facilities`} className="block px-4 py-2 hover:bg-gray-100">
+                              Fasilitas Kampus
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    }
                   </li>
                   <li>
-                    <a href={`/programs`} className="block md:inline py-2 pr-4 text-gray-900 md:hover:text-cyan-800 md:p-0">
+                    <a href={`/programs`} className="block md:inline py-2 px-4 text-gray-900 md:hover:text-cyan-800 md:p-0">
                       Program Studi
                     </a>
                   </li>
                   <li>
-                    <a href={`/students`} className="block md:inline py-2 pr-4 text-gray-900 md:hover:text-cyan-800 md:p-0">
+                    <a href={`/students`} className="block md:inline py-2 px-4 text-gray-900 md:hover:text-cyan-800 md:p-0">
                       Organisasi Mahasiswa
                     </a>
                   </li>
-                  {/* <li>
-                    <a href="#" className="block md:inline py-2 pr-4 text-gray-900  md:hover:text-cyan-800 md:p-0">
-                      Blog
-                    </a>
-                  </li> */}
                   <li>
-                    <button id="dropdownNavbarLink" data-dropdown-toggle="service" className="flex items-center justify-between w-full py-2 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-cyan-700 md:p-0 md:w-auto">
+                    <button onClick={toggleService} className="flex items-center justify-between w-full py-2 px-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-cyan-700 md:p-0 md:w-auto">
                       Layanan
-                      <i className="ml-2 fa-solid fa-chevron-down" /></button>
-                    {/* Dropdown menu */}
-                    <div id="service" className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                      <ul className="py-2 text-sm text-gray-900">
-                        <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                            Akademik
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                            SIAKAD
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                            LMS
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                            Career Center
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
+                      {showService ? (
+                        <i className="ml-2 fa-solid fa-chevron-up" />
+                      ) : (
+                        <i className="ml-2 fa-solid fa-chevron-down" />
+                      )}
+                    </button>
+                    {showService &&
+                      <div className="z-10 absolute mt-2 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                        <ul className="py-2 text-sm text-gray-900">
+                          <li>
+                            <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                              Akademik
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                              SIAKAD
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                              LMS
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                              Career Center
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    }
                   </li>
                   <div className="py-2 md:p-0">
                     <a role="button" target="_blank" href="https://pmb.politekniklp3i-tasikmalaya.ac.id/" className="transition ease-in-out duration-300 block md:inline-block py-2 px-4 text-white bg-cyan-700 hover:bg-cyan-800 rounded"><i className="fa-solid fa-headset mr-1" /> PMB Online</a>
