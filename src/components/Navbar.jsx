@@ -89,11 +89,9 @@ const Navbar = () => {
               <div className="w-full md:w-auto transition duration-200 ease-in-out" data-attribute={0} id="navbar-dropdown">
                 <ul className="flex flex-col mt-4 p-3 border border-gray-100 rounded-lg md:flex-row md:items-center md:flex-wrap md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
                   <li>
-                    {isLanguage && (
-                      <a href={`/`} className="block md:inline py-2 px-4 text-gray-900 md:hover:text-cyan-700 md:p-0">
-                        Beranda
-                      </a>
-                    )}
+                    <a href={`/`} className="block md:inline py-2 px-4 text-gray-900 md:hover:text-cyan-700 md:p-0">
+                      Beranda
+                    </a>
                   </li>
                   <li>
                     <button onClick={toggleAbout} className="flex relative items-center justify-between w-full py-2 px-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-cyan-800 md:p-0 md:w-auto">
