@@ -1,8 +1,10 @@
 import React, { lazy, Suspense, useEffect } from 'react'
-const lp3iWhite = lazy(() => import('../assets/lp3i-white.svg'))
-const lp3iColor = lazy(() => import('../assets/lp3i.svg'))
-const lp3iPngColor = lazy(() => import('../assets/lp3i.png'))
-const lp3iPngWhite = lazy(() => import('../assets/lp3i-white.png'))
+
+import lp3iWhite from '../assets/lp3i-white.svg'
+import lp3iColor from '../assets/lp3i.svg'
+import lp3iPngColor from '../assets/lp3i.png'
+import lp3iPngWhite from '../assets/lp3i-white.png'
+
 const Navbar = lazy(() => import('../components/Navbar'))
 const Footer = lazy(() => import('../components/Footer'))
 

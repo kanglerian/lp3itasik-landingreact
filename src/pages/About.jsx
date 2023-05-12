@@ -2,8 +2,8 @@ import React, { useEffect, lazy, Suspense } from 'react'
 const Navbar = lazy(() => import('../components/Navbar'))
 const Footer = lazy(() => import('../components/Footer'))
 
-const kepalaKampus = lazy(() => import('../assets/img/kepalakampus.png'))
-const bannerDefault = lazy(() => import('../assets/img/banner-default.jpg')) 
+import kepalaKampus from '../assets/img/kepalakampus.png'
+import bannerDefault from '../assets/img/banner-default.jpg' 
 
 import AOS from 'aos'
 import 'aos/dist/aos.css'
