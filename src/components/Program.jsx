@@ -42,7 +42,7 @@ const Program = () => {
         <div className="container mx-auto text-center text-white px-4">
           {tasikPrograms.length > 0 && vokasiPrograms.length > 0 && (
             <div className="bg-lp3i-100 py-3 mb-8 rounded-lg">
-              <h5 className="font-bold text-xl" data-aos="fade-up">Kampus Tasikmalaya</h5>
+              <h5 className="font-bold text-xl">Kampus Tasikmalaya</h5>
             </div>
           )}
 

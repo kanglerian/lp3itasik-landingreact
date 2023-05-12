@@ -8,7 +8,8 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
-const emptyAnimate = lazy(() => import('../assets/empty.json'))
+
+import emptyAnimate from '../assets/empty.json'
 
 const renderLoader = () =>
 <div role="status" className='flex justify-center items-center h-screen'>
