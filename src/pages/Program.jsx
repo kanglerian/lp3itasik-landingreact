@@ -20,6 +20,7 @@ const renderLoader = () =>
 
 const Program = () => {
 
+  const currentLanguage = localStorage.getItem('language') || 'id';
   const [programs, setProgram] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -43,7 +44,7 @@ const Program = () => {
         <span className="inline-block bg-gray-200 text-gray-500 text-xs py-1 px-3 rounded-md mb-3">{program.campus}</span>
         <div className="flex justify-between items-center mt-4">
           <a href={`/programs/` + program.uuid} role="button" className="bg-cyan-600 text-white text-xs py-2 px-3 rounded-md">
-            Lihat selengkapnya
+          {currentLanguage == 'id' ? 'Lihat selengkapnya' : 'View more'}
           </a>
         </div>
       </div>

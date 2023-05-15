@@ -20,6 +20,7 @@ const renderLoader = () =>
 
 const Student = () => {
 
+  const currentLanguage = localStorage.getItem('language') || 'id';
   const [students, setStudent] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -43,7 +44,7 @@ const Student = () => {
         <p className="text-gray-600 text-xs">{student.description}</p>
         <div className="flex justify-between items-center mt-4">
           <a href={`/students/` + student.uuid} role="button" className="bg-cyan-600 text-white text-xs py-2 px-3 rounded-md">
-            Lihat selengkapnya
+          {currentLanguage == 'id' ? 'Lihat selengkapnya' : 'View more'}
           </a>
         </div>
       </div>

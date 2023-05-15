@@ -1,8 +1,9 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 const Link = () => {
+  const currentLanguage = localStorage.getItem('language') || 'id';
 
   useEffect(() => {
     AOS.init({
@@ -19,16 +20,16 @@ const Link = () => {
       <div className="container mx-auto text-sm md:text-base px-4">
         <div className="flex flex-col md:flex-row gap-2	md:gap-4 justify-center">
           <a data-aos="fade-up" data-aos-delay="10" role="button" href="https://api.whatsapp.com/send?phone=6281313608558&text=Hallo%20Kak,%20Boleh%20minta%20informasi%20Pendaftaran%20Mahasiswa%20Politeknik%20LP3I%20Kampus%20Tasikmalaya%3F" target="_blank" className="transition ease-in-out duration-300 inline py-2 px-8 text-center text-white bg-cyan-700 hover:bg-cyan-800 rounded"><i className="fa-solid fa-circle-info mr-1" />
-            Informasi Pendaftaran
+            {currentLanguage == 'id' ? 'Informasi Pendaftaran' : 'Registration Information'}
           </a>
           <a data-aos="fade-up" data-aos-delay="20" role="button" href="https://brosur.politekniklp3i-tasikmalaya.ac.id/" target="_blank" className="transition text-center ease-in-out duration-300 inline py-2 px-8 text-cyan-700 hover:text-white border border-cyan-700 hover:bg-cyan-700 rounded"><i className="fa-solid fa-book-open mr-1" />
-            Brosur Digital
+            {currentLanguage == 'id' ? 'Brosur Digital' : 'Digital Brochure'}
           </a>
           <a data-aos="fade-up" data-aos-delay="30" href="https://virtualkampus.politekniklp3i-tasikmalaya.ac.id/" role="button" target="_blank" className="transition ease-in-out duration-300 inline py-2 px-8 text-cyan-700 text-center hover:text-white border border-cyan-700 hover:bg-cyan-700 rounded"><i className="fa-solid fa-map-location-dot mr-1" />
-            Virtual Kampus
+            {currentLanguage == 'id' ? 'Virtual Kampus' : 'Virtual Campus'}
           </a>
           <a data-aos="fade-up" data-aos-delay="40" href="https://schoolarship.politekniklp3i-tasikmalaya.ac.id/" role="button" target="_blank" className="transition ease-in-out duration-300 inline py-2 px-8 text-cyan-700 text-center hover:text-white border border-cyan-700 hover:bg-cyan-700 rounded"><i className="fa-solid fa-qrcode mr-1" />
-            Cek Beasiswa
+            {currentLanguage == 'id' ? 'Cek Beasiswa' : 'Scholarship Check'}
           </a>
         </div>
       </div>
