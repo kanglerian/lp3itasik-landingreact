@@ -16,6 +16,7 @@ import Program from './pages/Program';
 import Student from './pages/Student';
 import ProgramDetail from './pages/ProgramDetail';
 import StudentDetail from './pages/StudentDetail';
+import CareerCenter from './pages/CareerCenter';
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
   {
     path: "/students/:uuid",
     element: <StudentDetail/>
+  },
+  {
+    path: "/career",
+    element: <CareerCenter/>
   },
 ]);
 
