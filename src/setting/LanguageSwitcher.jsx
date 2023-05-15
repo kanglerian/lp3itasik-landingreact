@@ -4,7 +4,7 @@ import IDFlag from '../assets/flag/id.gif'
 import ENFlag from '../assets/flag/en.gif'
 
 const LanguageSwitcher = () => {
-  const [currentLanguage, setCurrentLanguage] = useState('id');
+  const [currentLanguage, setCurrentLanguage] = useState('');
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem('language');
@@ -24,15 +24,15 @@ const LanguageSwitcher = () => {
   return (
     <div>
       <button onClick={handleChangeLanguage} className="flex relative items-center justify-start w-auto py-2 text-white rounded">
-        {currentLanguage == 'en' ? (
+        {currentLanguage == 'id' ? (
           <div className='flex items-center gap-2'>
             <i class="fa-solid fa-repeat"></i>
-            <img src={IDFlag} alt="Indonesia" className="border border-white inline-block w-8 rounded mr-2" />
+            <img src={ENFlag} alt="Indonesia" className="border border-white inline-block w-8 rounded mr-2" />
           </div>
         ) : (
           <div className='flex items-center gap-2'>
             <i class="fa-solid fa-repeat"></i>
-            <img src={ENFlag} alt="Indonesia" className="border border-white inline-block w-8 rounded mr-2" />
+            <img src={IDFlag} alt="Indonesia" className="border border-white inline-block w-8 rounded mr-2" />
           </div>
         )}
       </button>

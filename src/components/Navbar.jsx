@@ -36,8 +36,8 @@ const Navbar = () => {
               </div>
               <div className="flex gap-3">
                 <a href="#" className="hidden lg:inline">Career Center</a>
-                <a href="https://brosur.politekniklp3i-tasikmalaya.ac.id/" target="_blank">{currentLanguage == 'id' ? 'Brosur Digital' : 'Digital Brochure'}</a>
-                <a href="https://virtualkampus.politekniklp3i-tasikmalaya.ac.id/" target="_blank" className=" md:inline">{currentLanguage == 'id' ? 'Virtual Kampus' : 'Virtual Campus'}</a>
+                <a href="https://brosur.politekniklp3i-tasikmalaya.ac.id/" target="_blank">{currentLanguage == 'en' ? 'Digital Brochure' : 'Brosur Digital'}</a>
+                <a href="https://virtualkampus.politekniklp3i-tasikmalaya.ac.id/" target="_blank" className=" md:inline">{currentLanguage == 'en' ? 'Virtual Kampus' : 'Virtual Campus'}</a>
               </div>
             </div>
           </div>
@@ -59,12 +59,12 @@ const Navbar = () => {
                 <ul className="flex flex-col mt-4 p-3 border border-gray-100 rounded-lg md:flex-row md:items-center md:flex-wrap md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
                   <li>
                     <a href={`/`} className="block md:inline py-2 px-4 text-gray-900 md:hover:text-cyan-700 md:p-0">
-                      {currentLanguage == 'id' ? 'Beranda' : 'Home'}
+                      {currentLanguage == 'en' ? 'Home' : 'Beranda'}
                     </a>
                   </li>
                   <li>
                     <button onClick={toggleAbout} className="flex relative items-center justify-between w-full py-2 px-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-cyan-800 md:p-0 md:w-auto">
-                      {currentLanguage == 'id' ? 'Tentang Kampus' : 'About Campus'}
+                      {currentLanguage == 'en' ? 'About Campus' : 'Tentang Kampus'}
                       {showAbout ? (
                         <i className="ml-2 fa-solid fa-chevron-up" />
                       ) : (
@@ -76,22 +76,22 @@ const Navbar = () => {
                         <ul className="py-2 text-sm text-gray-900">
                           <li>
                             <a href={`/about`} className="block px-4 py-2 hover:bg-gray-100">
-                              {currentLanguage == 'id' ? 'Apa itu LP3I?' : 'What is LP3I?'}
+                              {currentLanguage == 'en' ? 'What is LP3I?' : 'Apa itu LP3I?' }
                             </a>
                           </li>
                           <li>
                             <a href={`/branding`} className="block px-4 py-2 hover:bg-gray-100">
-                              {currentLanguage == 'id' ? 'Logo dan Warna' : 'Logos and Colors'}
+                              {currentLanguage == 'en' ? 'Logos and Colors' : 'Logo dan Warna'}
                             </a>
                           </li>
                           <li>
                             <a href={`/organization`} className="block px-4 py-2 hover:bg-gray-100">
-                              {currentLanguage == 'id' ? 'Struktur Organisasi' : 'Organizational Structure'}
+                              {currentLanguage == 'en' ? 'Organizational Structure' : 'Struktur Organisasi' }
                             </a>
                           </li>
                           <li>
                             <a href={`/facilities`} className="block px-4 py-2 hover:bg-gray-100">
-                              {currentLanguage == 'id' ? 'Fasilitas Kampus' : 'Campus Facilities'}
+                              {currentLanguage == 'en' ? 'Campus Facilities' : 'Fasilitas Kampus'}
                             </a>
                           </li>
                         </ul>
@@ -100,17 +100,17 @@ const Navbar = () => {
                   </li>
                   <li>
                     <a href={`/programs`} className="block md:inline py-2 px-4 text-gray-900 md:hover:text-cyan-800 md:p-0">
-                      {currentLanguage == 'id' ? 'Program Studi' : 'Study program'}
+                      {currentLanguage == 'en' ? 'Study program' : 'Program Studi'}
                     </a>
                   </li>
                   <li>
                     <a href={`/students`} className="block md:inline py-2 px-4 text-gray-900 md:hover:text-cyan-800 md:p-0">
-                      {currentLanguage == 'id' ? 'Organisasi Mahasiswa' : 'Student Organizations'}
+                      {currentLanguage == 'en' ? 'Student Organizations' : 'Organisasi Mahasiswa'}
                     </a>
                   </li>
                   <li>
                     <button onClick={toggleService} className="flex items-center justify-between w-full py-2 px-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-cyan-700 md:p-0 md:w-auto">
-                      {currentLanguage == 'id' ? 'Layanan' : 'Service'}
+                      {currentLanguage == 'en' ? 'Service' : 'Layanan'}
                       {showService ? (
                         <i className="ml-2 fa-solid fa-chevron-up" />
                       ) : (
@@ -122,7 +122,7 @@ const Navbar = () => {
                         <ul className="py-2 text-sm text-gray-900">
                           <li>
                             <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                              {currentLanguage == 'id' ? 'Akademik' : 'Academic'}
+                              {currentLanguage == 'en' ? 'Academic' : 'Akademik'}
                             </a>
                           </li>
                           <li>

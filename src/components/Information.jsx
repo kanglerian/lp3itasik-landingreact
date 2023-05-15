@@ -8,6 +8,8 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 const Information = () => {
+
+  const currentLanguage = localStorage.getItem('language') || 'id';
   const [youtube, setYoutube] = useState([])
   const [documentations, setDocumentation] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
@@ -61,7 +63,7 @@ const Information = () => {
         <h5 className="font-bold text-2xl md:text-3xl">{yt.title}</h5>
         <p className="text-sm text-gray-600 mt-3">{yt.description}</p>
         <a href="#" className="transition ease-in-out duration-300 inline-block py-2 px-4 text-sm mt-5 text-white bg-sky-500 hover:bg-sky-600 rounded">
-          Lihat selengkapnya
+        {currentLanguage == 'en' ? 'Lihat selengkapnya' : 'View more'}
         </a>
         <div className="mt-5 flex justify-center">
           <OwlCarousel className='owl-theme' {...options} loop margin={10} autoplay dots={true}>

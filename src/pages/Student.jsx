@@ -44,7 +44,7 @@ const Student = () => {
         <p className="text-gray-600 text-xs">{student.description}</p>
         <div className="flex justify-between items-center mt-4">
           <a href={`/students/` + student.uuid} role="button" className="bg-cyan-600 text-white text-xs py-2 px-3 rounded-md">
-          {currentLanguage == 'id' ? 'Lihat selengkapnya' : 'View more'}
+          {currentLanguage == 'en' ? 'View more' : 'Lihat selengkapnya'}
           </a>
         </div>
       </div>

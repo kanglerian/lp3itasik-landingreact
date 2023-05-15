@@ -39,7 +39,7 @@ const Organization = () => {
   const listOrg = organizations.map((org, i) =>
     <div key={i} data-aos="fade-up" data-aos-delay={i * 100}>
       <div className="text-center">
-        <span className="text-gray-700">{currentLanguage == 'id' ? 'Struktur Organisasi' : 'Organizational Structure'}</span><br />
+        <span className="text-gray-700">{currentLanguage == 'en' ? 'Organizational Structure' : 'Struktur Organisasi'}</span><br />
         <span className="font-bold">{org.title}</span>
       </div>
       <div className="w-full shadow rounded-lg mb-20 mt-10">

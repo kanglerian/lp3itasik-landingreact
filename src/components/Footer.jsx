@@ -18,28 +18,28 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <h5 className="text-gray-700 font-bold text-left md:text-right text-xl">{currentLanguage == 'id' ? 'Layanan' : 'Service'}</h5>
+            <h5 className="text-gray-700 font-bold text-left md:text-right text-xl">{currentLanguage == 'en' ? 'Layanan' : 'Service'}</h5>
             <ul className="text-gray-500 mt-4 text-xs text-left md:text-right space-y-2">
-              <li><a href="#">{currentLanguage == 'id' ? 'Akademik' : 'Academic'}</a></li>
+              <li><a href="#">{currentLanguage == 'en' ? 'Academic' : 'Akademik'}</a></li>
               <li><a href="#">Career Center</a></li>
-              <li><a href="#">{currentLanguage == 'id' ? 'Sistem Akademik' : 'Academic System'} (SIAKAD)</a></li>
+              <li><a href="#">{currentLanguage == 'en' ? 'Academic System' : 'Sistem Akademik'} (SIAKAD)</a></li>
               <li><a href="#">Learning Management System (LMS)</a></li>
-              <li><a href="https://schoolarship.politekniklp3i-tasikmalaya.ac.id/" role="button" target="_blank">{currentLanguage == 'id' ? 'Cek Beasiswa' : 'Schoolarship Check'}</a></li>
+              <li><a href="https://schoolarship.politekniklp3i-tasikmalaya.ac.id/" role="button" target="_blank">{currentLanguage == 'en' ? 'Schoolarship Check' : 'Cek Beasiswa'}</a></li>
             </ul>
           </div>
           <div>
-            <h5 className="text-gray-700 font-bold text-left md:text-right text-xl">{currentLanguage == 'id' ? 'Tentang Kampus' : 'About Campus'}</h5>
+            <h5 className="text-gray-700 font-bold text-left md:text-right text-xl">{currentLanguage == 'en' ? 'About Campus' : 'Tentang Kampus'}</h5>
             <ul className="text-gray-500 mt-4 text-xs text-left md:text-right space-y-2">
-              <li><a href="#">{currentLanguage == 'id' ? 'Brosur Digital' : 'Digital Brochure'}</a></li>
-              <li><a href="#">{currentLanguage == 'id' ? 'Mengenal LP3I' : 'Get to know LP3I'}</a></li>
-              <li><a href="#">{currentLanguage == 'id' ? 'Sejarah LP3I' : 'History of LP3I'}</a></li>
-              <li><a href="#">{currentLanguage == 'id' ? 'Visi & Misi' : 'Vision & Mission'}</a></li>
-              <li><a href="#">{currentLanguage == 'id' ? 'Struktur Organisasi' : 'Organizational Structure'}</a></li>
-              <li><a href="#">{currentLanguage == 'id' ? 'Fasilitas Kampus' : 'Campus Facilities'}</a></li>
+              <li><a href="#">{currentLanguage == 'en' ? 'Digital Brochure' : 'Brosur Digital'}</a></li>
+              <li><a href="#">{currentLanguage == 'en' ? 'Get to know LP3I' : 'Mengenal LP3I'}</a></li>
+              <li><a href="#">{currentLanguage == 'en' ? 'History of LP3I' : 'Sejarah LP3I'}</a></li>
+              <li><a href="#">{currentLanguage == 'en' ? 'Vision & Mission' : 'Visi & Misi'}</a></li>
+              <li><a href="#">{currentLanguage == 'en' ? 'Organizational Structure' : 'Struktur Organisasi'}</a></li>
+              <li><a href="#">{currentLanguage == 'en' ? 'Campus Facilities' : 'Fasilitas Kampus'}</a></li>
             </ul>
           </div>
           <div>
-            <h5 className="text-gray-700 font-bold text-left md:text-right text-xl">{currentLanguage == 'id' ? 'Organisasi Mahasiswa' : 'Student Organizations'}</h5>
+            <h5 className="text-gray-700 font-bold text-left md:text-right text-xl">{currentLanguage == 'en' ? 'Student Organizations' : 'Organisasi Mahasiswa'}</h5>
             <ul className="text-gray-500 mt-4 text-xs text-left md:text-right space-y-2">
               <li><a href="#">Badan Eksekutif Mahasiswa</a></li>
               <li><a href="#">Himpunan Mahasiswa Manajemen Keuangan Perbankan</a></li>

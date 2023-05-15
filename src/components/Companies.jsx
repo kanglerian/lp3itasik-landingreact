@@ -50,8 +50,8 @@ const Companies = () => {
     <section className="my-10">
       <div className="container mx-auto px-4">
         <div className="py-3 mb-8 md:px-20 text-center rounded-lg">
-          <h5 className="font-bold text-3xl">{currentLanguage == 'id' ? 'Kerjasama' : 'Cooperation'}</h5>
-          <p className="text-gray-600 text-sm mt-2">{currentLanguage == 'id' ? 'LP3I berkolaborasi dengan ratusan perusahaan di Indonesia untuk penempatan kerja mahasiswa bahkan sebelum lulus untuk memastikan bahwa kami memberikan mereka kesempatan untuk masa depan yang lebih baik' : 'LP3I collaborates with hundreds of companies in Indonesia for student work placements even before graduation to ensure that we give them the opportunity for a better future'}.</p>
+          <h5 className="font-bold text-3xl">{currentLanguage == 'en' ? 'Cooperation' : 'Kerjasama'}</h5>
+          <p className="text-gray-600 text-sm mt-2">{currentLanguage == 'en' ? 'LP3I collaborates with hundreds of companies in Indonesia for student work placements even before graduation to ensure that we give them the opportunity for a better future' : 'LP3I berkolaborasi dengan ratusan perusahaan di Indonesia untuk penempatan kerja mahasiswa bahkan sebelum lulus untuk memastikan bahwa kami memberikan mereka kesempatan untuk masa depan yang lebih baik'}.</p>
         </div>
         <div className="text-center space-x-10">
           <img data-aos="fade-up" data-aos-delay="10" src={logoKampusMerdeka} alt="Kampus Merdeka" className="inline w-32" />

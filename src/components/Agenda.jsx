@@ -50,13 +50,13 @@ const Agenda = () => {
     <section className="my-10">
       <div className="container mx-auto px-4">
         <div className="py-3 mb-8 text-center rounded-lg">
-          {currentLanguage == 'id' ? (
-            <h5 className="font-bold text-3xl"><span className="text-merah-300" data-aos="fade-up">Agenda</span> Kampus</h5>
-          ) : (
+          {currentLanguage == 'en' ? (
             <h5 className="font-bold text-3xl"><span className="text-merah-300" data-aos="fade-up">Campus</span> Agenda</h5>
+            ) : (
+            <h5 className="font-bold text-3xl"><span className="text-merah-300" data-aos="fade-up">Agenda</span> Kampus</h5>
           )}
           <p className="text-gray-600 text-sm mt-2" data-aos="fade-up" data-aos-delay="100">
-            {currentLanguage == 'id' ? 'Berikut ini adalah daftar kegiatan yang dilakukan di Politeknik LP3I Kampus Tasikmalaya' : 'The following is a list of activities carried out at the LP3I Polytechnic, Tasikmalaya Campus'}</p>
+            {currentLanguage == 'en' ? 'The following is a list of activities carried out at the LP3I Polytechnic, Tasikmalaya Campus' : 'Berikut ini adalah daftar kegiatan yang dilakukan di Politeknik LP3I Kampus Tasikmalaya' }</p>
         </div>
         {isLoaded ? (
           <>
@@ -72,7 +72,7 @@ const Agenda = () => {
               </div>
             ) : (
               <p className="bg-red-500 text-white text-center text-sm py-2 rounded-lg" data-aos="fade-up">
-                {currentLanguage == 'id' ? 'Belum ada agenda' : 'There are no agendas yet'}
+                {currentLanguage == 'en' ? 'There are no agendas yet' : 'Belum ada agenda'}
               </p>
             )}
           </>

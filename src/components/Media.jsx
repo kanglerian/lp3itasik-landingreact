@@ -29,7 +29,7 @@ const Media = () => {
       <div className="text-sm text-gray-600" dangerouslySetInnerHTML={{ __html: media.description.slice(0, 150) + "..." }}></div>
       <div className="text-sm flex align-center justify-between">
         <a role="button" href="#" className="transition ease-in-out duration-300 bg-sky-600 hover:bg-sky-600 px-5 py-1 rounded-lg text-white">
-          {currentLanguage == 'id' ? 'Lihat selengkapnya' : 'view more'}
+          {currentLanguage == 'en' ? 'View more' : 'Lihat selengkapnya'}
         </a>
         <p className="text-gray-600 py-1">{moment.tz(media.date, 'Asia/Jakarta').format('LL')}</p>
       </div>
@@ -51,12 +51,12 @@ const Media = () => {
     <section className="my-10">
       <div className="container mx-auto px-4">
         <div className="py-3 mb-8 text-center rounded-lg">
-          {currentLanguage == 'id' ? (
-            <h5 className="font-bold text-3xl"><span className="text-merah-300">Media</span> Kampus</h5>
-          ) : (
+          {currentLanguage == 'en' ? (
             <h5 className="font-bold text-3xl"><span className="text-merah-300">Campus</span> Media</h5>
+            ) : (
+            <h5 className="font-bold text-3xl"><span className="text-merah-300">Media</span> Kampus</h5>
           )}
-          <p className="text-gray-600 text-sm mt-2">{currentLanguage == 'id' ? 'Berikut adalah berita terbaru dari Politeknik LP3I Kampus Tasikmalaya' : 'The following is the latest news from the LP3I Polytechnic, Tasikmalaya Campus'}</p>
+          <p className="text-gray-600 text-sm mt-2">{currentLanguage == 'en' ? 'The following is the latest news from the LP3I Polytechnic, Tasikmalaya Campus' : 'Berikut adalah berita terbaru dari Politeknik LP3I Kampus Tasikmalaya'}</p>
         </div>
         {isLoaded ? (
           <>
@@ -66,12 +66,12 @@ const Media = () => {
                   {listMedias}
                 </div>
                 <div className="text-center">
-                  <a href="#" className="text-sky-600 text-sm underline">{currentLanguage == 'id' ? 'Lihat selengkapnya' : 'view more'}</a>
+                  <a href="#" className="text-sky-600 text-sm underline">{currentLanguage == 'en' ? 'View more' : 'Lihat selengkapnya'}</a>
                 </div>
               </div>
             ) : (
               <p className="bg-red-500 text-white text-center text-sm py-2 rounded-lg" data-aos="fade-up">
-                {currentLanguage == 'id' ? 'Belum ada berita' : 'No news yet'}
+                {currentLanguage == 'en' ? 'No news yet' : 'Belum ada berita'}
               </p>
             )}
           </>

@@ -187,11 +187,11 @@ const ProgramDetail = () => {
           </header>
           <nav className="my-5 bg-slate-100 border border-slate-200 py-3 rounded-xl" data-aos="fade-up" data-aos-delay="100">
             <ul className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-5 text-sm text-center px-4">
-              <li onClick={hiddenSection} data-name="visi" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'id' ? 'Visi & Misi' : 'Vision & Mision'}</li>
-              <li onClick={hiddenSection} data-name="keunggulan" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'id' ? 'Keunggulan' : 'Superiority'}</li>
-              <li onClick={hiddenSection} data-name="karir" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'id' ? 'Potensi Karir' : 'Career Potential'}</li>
-              <li onClick={hiddenSection} data-name="kompetensi" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'id' ? 'Standar Kompetensi' : 'Competency Standards'}</li>
-              <li onClick={hiddenSection} data-name="alumni" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'id' ? 'Testimoni Mahasiswa Bekerja' : 'Working Student Testimonials'}</li>
+              <li onClick={hiddenSection} data-name="visi" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'en' ? 'Vision & Mision' : 'Visi & Misi'}</li>
+              <li onClick={hiddenSection} data-name="keunggulan" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'en' ? 'Superiority' : 'Keunggulan'}</li>
+              <li onClick={hiddenSection} data-name="karir" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'en' ? 'Career Potential' : 'Potensi Karir'}</li>
+              <li onClick={hiddenSection} data-name="kompetensi" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'en' ? 'Competency Standards' : 'Standar Kompetensi'}</li>
+              <li onClick={hiddenSection} data-name="alumni" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'en' ? 'Working Student Testimonials' : 'Testimoni Mahasiswa Bekerja'}</li>
             </ul>
           </nav>
           <section className="block py-5" id="visi">
@@ -200,7 +200,7 @@ const ProgramDetail = () => {
                 {visions.length > 0 &&
                   <div className="flex flex-col md:flex-row items-center gap-5">
                     <div className="w-full md:w-1/2 space-y-3 order-2 md:order-none">
-                      <h3 className="font-bold text-3xl">{currentLanguage == 'id' ? 'Visi' : 'Vision'}</h3>
+                      <h3 className="font-bold text-3xl">{currentLanguage == 'en' ? 'Vision' : 'Visi'}</h3>
                       {visions.map((vision) =>
                         <p className="text-slate-700">{vision.vision}</p>
                       )}
@@ -217,7 +217,7 @@ const ProgramDetail = () => {
                       <img className="w-full object-cover rounded-xl" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
                     </div>
                     <div className="w-full md:w-1/2 space-y-3 order-2 md:order-none">
-                      <h3 className="font-bold text-3xl">{currentLanguage == 'id' ? 'Misi' : 'Mision'}</h3>
+                      <h3 className="font-bold text-3xl">{currentLanguage == 'en' ? 'Mision' : 'Misi'}</h3>
                       <ol className="text-slate-700 list-decimal ml-5 space-y-3">
                         {misions.map((mision) =>
                           <li>{mision.mision}</li>
@@ -247,7 +247,7 @@ const ProgramDetail = () => {
                   <img className="w-full object-cover rounded-xl" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
                 </div>
                 <div className="w-full md:w-1/2 space-y-3 order-2 md:order-none">
-                  <h3 className="font-bold text-3xl">{currentLanguage == 'id' ? 'Keunggulan' : 'Superiority'}</h3>
+                  <h3 className="font-bold text-3xl">{currentLanguage == 'en' ? 'Superiority' : 'Keunggulan'}</h3>
                   <ol className="text-slate-700 list-decimal ml-5 space-y-3">
                     {benefits.map((benefit) =>
                       <li>{benefit.benefit}</li>
@@ -275,7 +275,7 @@ const ProgramDetail = () => {
                   <img className="w-full object-cover rounded-xl" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
                 </div>
                 <div className="w-full md:w-1/2 space-y-3 order-2 md:order-none">
-                  <h3 className="font-bold text-3xl">{currentLanguage == 'id' ? 'Kompetensi' : 'Competence'}</h3>
+                  <h3 className="font-bold text-3xl">{currentLanguage == 'en' ? 'Competence' : 'Kompetensi'}</h3>
                   <ol className="text-slate-700 list-decimal ml-5 space-y-3">
                     {competences.map((competence) =>
                       <li>{competence.competence}</li>
