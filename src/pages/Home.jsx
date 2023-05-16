@@ -25,7 +25,7 @@ const Home = () => {
     <Suspense fallback={renderLoader()}>
       {/* <Flyer /> */}
       <Navbar />
-      <Banner />
+      <Banner locate="L" />
       <Link />
       <Benefit />
       <Program />

@@ -6,14 +6,14 @@ import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.min.css';
 
-const Banner = () => {
+const Banner = ({ locate }) => {
   const [banners, setBanner] = useState([])
   const [isLoaded, setIsLoaded] = useState(false);
 
   const getBanners = async () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/banners`)
       .then((response) => {
-        let banners = response.data.filter(banner => banner.status == '1')
+        let banners = response.data.filter(banner => banner.status == '1' && banner.locate == locate)
         setBanner(banners)
         setIsLoaded(true)
       })
@@ -33,7 +33,7 @@ const Banner = () => {
         <div className="relative z-0">
           {banners.length > 0 ? (
             <div className="relative h-56 overflow-hidden rounded-xl md:h-[550px]">
-              <OwlCarousel className='owl-theme' items={1} loop margin={10} autoplay>
+              <OwlCarousel className='owl-theme' items={1} dots={true} loop margin={10} autoplay>
                 {banners.map((banner, i) =>
                   <div className="item" key={i}>
                     <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + banner.image} alt={banner.title} className="rounded-lg shadow-lg" />
