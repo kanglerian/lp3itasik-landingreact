@@ -83,7 +83,18 @@ const CareerCenter = () => {
               <li onClick={hiddenSection} data-name="testimoni" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'en' ? 'Testimonials' : 'Testimoni'}</li>
             </ul>
           </nav>
-
+          <section className="hidden py-5" id="about">
+            <div className="h-[500px] text-center flex justify-center items-center overflow-x-hidden">
+              <Player
+                autoplay
+                loop
+                src={emptyAnimate}
+                style={{ height: 500, width: 500 }}
+              >
+                <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
+              </Player>
+            </div>
+          </section>
           <section className="hidden py-5" id="kki">
             {alumnis.length > 0 ? (
               <>
