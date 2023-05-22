@@ -1,6 +1,14 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+
+import biniPhoto from '../assets/cnp/bini.jpg'
+import asdanPhoto from '../assets/cnp/asdan.jpg'
+import ginaPhoto from '../assets/cnp/gina.jpg'
+
 const Navbar = lazy(() => import('../components/Navbar'))
 const Footer = lazy(() => import('../components/Footer'))
 
@@ -11,6 +19,7 @@ import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
 import emptyAnimate from '../assets/empty.json'
 import Banner from '../components/Banner'
+import Information from '../components/Information'
 
 const renderLoader = () =>
   <div role="status" className='flex justify-center items-center h-screen'>
@@ -24,6 +33,18 @@ const renderLoader = () =>
 const CareerCenter = () => {
   const currentLanguage = localStorage.getItem('language') || 'id';
   const [alumnis, setAlumni] = useState([])
+  const [documentations, setDocumentation] = useState([])
+
+  const options = {
+    responsive: {
+      0: {
+        items: 1
+      },
+      992: {
+        items: 3
+      }
+    }
+  }
 
   const getAlumni = async () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/programalumnis`)
@@ -35,6 +56,24 @@ const CareerCenter = () => {
         console.log(error.message);
       })
   }
+
+  const getDocumentation = async () => {
+    await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/documentations`)
+      .then((response) => {
+        let docs = response.data.filter(doc => doc.status == '1')
+        setDocumentation(docs)
+      })
+      .catch((error) => {
+        console.log(error.message);
+      })
+  }
+
+  const listDocumentation = documentations.map((doc, i) =>
+    <div className="item" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
+      <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + doc.image} alt={doc.title}
+        className="rounded-lg" />
+    </div>
+  )
 
   const hiddenSection = (content) => {
     let data = content.target.dataset.name;
@@ -61,6 +100,7 @@ const CareerCenter = () => {
 
   useEffect(() => {
     getAlumni()
+    getDocumentation();
     AOS.init({
       duration: 800,
       easing: 'ease-in-out',
@@ -73,17 +113,94 @@ const CareerCenter = () => {
     <Suspense fallback={renderLoader()}>
       <Navbar />
       <style dangerouslySetInnerHTML={{ __html: "\n\t#media p a {\n\t\tcolor: #0284c7;\n\t\ttext-decoration: underline;\n\t}\n" }} />
-      <section className="my-8">
-        <div className="container mx-auto px-4" data-aos="fade-up">
-          <Banner locate="C" />
-          <nav className="my-5 bg-slate-100 border border-slate-200 py-3 rounded-xl" data-aos="fade-up" data-aos-delay="100">
-            <ul className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-5 text-sm text-center px-4">
-              <li onClick={hiddenSection} data-name="about" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'en' ? 'About C&P' : 'Tentang C&P'}</li>
-              <li onClick={hiddenSection} data-name="kki" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'en' ? 'KKI Students' : 'Mahasiswa KKI'}</li>
-              <li onClick={hiddenSection} data-name="testimoni" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'en' ? 'Testimonials' : 'Testimoni'}</li>
-            </ul>
-          </nav>
-          <section className="py-5" id="about">
+      <section className="container mx-auto my-8" data-aos="fade-up">
+        <Banner locate="C" />
+        <nav className="my-5 mx-4 bg-slate-100 border border-slate-200 py-3 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+          <ul className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-5 text-sm text-center px-4">
+            <li onClick={hiddenSection} data-name="about" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'en' ? 'About C&P' : 'Tentang C&P'}</li>
+            <li onClick={hiddenSection} data-name="kki" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'en' ? 'KKI Students' : 'Mahasiswa KKI'}</li>
+            <li onClick={hiddenSection} data-name="testimoni" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'en' ? 'Testimonials' : 'Testimoni'}</li>
+          </ul>
+        </nav>
+        <section id="about">
+          <Information doc={false} locate="C" />
+          <div className='flex flex-col md:flex-row items-center gap-5 mx-4'>
+            <div className='w-full md:w-2/6 order-2 md:order-none space-y-4'>
+              <div className='space-y-1'>
+                <h1 className='text-2xl md:text-4xl font-bold' data-aos="fade-up">C&P Team</h1>
+                <h5 className='text-base' data-aos="fade-up" data-aos-delay="10">Bidang Kerjasama dan Penempatan</h5>
+              </div>
+              <ul className='space-y-1'>
+                <li className='text-base flex items-center gap-2' data-aos="fade-up" data-aos-delay="20"><i class="fa-brands fa-whatsapp fa-2x"></i><span>0853-3702-0801</span></li>
+                <li className='text-base flex items-center gap-2' data-aos="fade-up" data-aos-delay="30"><i class="fa-solid fa-envelope fa-2x"></i><span>cnptasik@gmail.com</span></li>
+              </ul>
+            </div>
+            <div className='w-full md:w-4/6 order-1 md:order-none flex gap-3 justify-center px-2'>
+              <img src={asdanPhoto} alt="Asdan" data-aos="fade-up" data-aos-delay="10" className='block w-1/3 rounded-lg' />
+              <img src={biniPhoto} alt="Bini" data-aos="fade-up" data-aos-delay="20" className='block w-1/3 rounded-lg' />
+              <img src={ginaPhoto} alt="Gina" data-aos="fade-up" data-aos-delay="30" className='block w-1/3 rounded-lg' />
+            </div>
+          </div>
+          <hr className='my-6' />
+          <div className='space-y-6 px-4'>
+            <div className='text-center space-y-2'>
+              <h1 className='font-bold text-2xl md:text-3xl' data-aos="fade-up">Dokumentasi Penempatan Kerja</h1>
+              <p className='text-gray-700 text-sm' data-aos="fade-up" data-aos-delay="20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, beatae.</p>
+            </div>
+            <div className="flex justify-center">
+              <OwlCarousel className='owl-theme' {...options} loop margin={10} autoplay dots={true}>
+                {listDocumentation}
+              </OwlCarousel>
+            </div>
+          </div>
+        </section>
+        <section className="hidden py-3" id="kki">
+          {alumnis.length > 0 ? (
+            <>
+              {
+                alumnis.filter(item => item.career == 'M').length > 0 ? (
+                  <>
+                    <div>
+                      <div className='space-y-1 mb-3'>
+                        <h2 className='text-center font-bold text-2xl'>Mahasiswa Kuliah Kerja Industri</h2>
+                        <p className='text-center text-sm text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap flex-row justify-center items-center">
+                      {alumnis.filter(item => item.career == 'M').map((alumni) =>
+                        <div className="w-full md:w-1/4 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
+                          <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
+                            <div className='flex justify-center items-center'>
+                              <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
+                            </div>
+                            <hr />
+                            <h3 className="text-lg">{alumni.name}</h3>
+                            <ul className="text-xs text-slate-800 space-y-1">
+                              <li><span className="font-bold">Alumni</span> {alumni.school}</li>
+                              <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
+                              <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
+                            </ul>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <hr className='my-5' />
+                  </>
+                ) : (
+                  <div className="h-[500px] text-center flex justify-center items-center overflow-x-hidden">
+                    <Player
+                      autoplay
+                      loop
+                      src={emptyAnimate}
+                      style={{ height: 500, width: 500 }}
+                    >
+                      <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
+                    </Player>
+                  </div>
+                )
+              }
+            </>
+          ) : (
             <div className="h-[500px] text-center flex justify-center items-center overflow-x-hidden">
               <Player
                 autoplay
@@ -94,184 +211,125 @@ const CareerCenter = () => {
                 <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
               </Player>
             </div>
-          </section>
-          <section className="hidden py-5" id="kki">
-            {alumnis.length > 0 ? (
-              <>
-                {
-                  alumnis.filter(item => item.career == 'M').length > 0 ? (
-                    <>
-                      <div>
-                        <div className='space-y-1 mb-3'>
-                          <h2 className='text-center font-bold text-2xl'>Mahasiswa Kuliah Kerja Industri</h2>
-                          <p className='text-center text-sm text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
-                        </div>
+          )}
+
+        </section>
+
+        <section className="hidden py-3" id="testimoni">
+          {alumnis.length > 0 ? (
+            <>
+              {
+                alumnis.filter(item => item.testimoni == 1).length > 0 && (
+                  <>
+                    <div>
+                      <div className='space-y-1 mb-3'>
+                        <h2 className='text-center font-bold text-2xl'>Testimoni Alumni</h2>
+                        <p className='text-center text-sm text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
                       </div>
-                      <div className="flex flex-wrap flex-row justify-center items-center">
-                        {alumnis.filter(item => item.career == 'M').map((alumni) =>
-                          <div className="w-full md:w-1/4 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
-                            <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
-                              <div className='flex justify-center items-center'>
-                                <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
-                              </div>
-                              <hr />
-                              <h3 className="text-lg">{alumni.name}</h3>
-                              <ul className="text-xs text-slate-800 space-y-1">
-                                <li><span className="font-bold">Alumni</span> {alumni.school}</li>
-                                <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
-                                <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
-                              </ul>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                      <hr className='my-5' />
-                    </>
-                  ) : (
-                    <div className="h-[500px] text-center flex justify-center items-center overflow-x-hidden">
-                      <Player
-                        autoplay
-                        loop
-                        src={emptyAnimate}
-                        style={{ height: 500, width: 500 }}
-                      >
-                        <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
-                      </Player>
                     </div>
-                  )
-                }
-              </>
-            ) : (
-              <div className="h-[500px] text-center flex justify-center items-center overflow-x-hidden">
-                <Player
-                  autoplay
-                  loop
-                  src={emptyAnimate}
-                  style={{ height: 500, width: 500 }}
-                >
-                  <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
-                </Player>
-              </div>
-            )}
-
-          </section>
-
-          <section className="hidden py-5" id="testimoni">
-            {alumnis.length > 0 ? (
-              <>
-                {
-                  alumnis.filter(item => item.testimoni == 1).length > 0 && (
-                    <>
-                      <div>
-                        <div className='space-y-1 mb-3'>
-                          <h2 className='text-center font-bold text-2xl'>Testimoni Alumni</h2>
-                          <p className='text-center text-sm text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
-                        </div>
-                      </div>
-                      <div className="flex flex-wrap flex-row justify-center items-center">
-                        {alumnis.filter(item => item.testimoni == 1).map((alumni) =>
-                          <div className="w-full md:w-1/3 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
-                            <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
-                              <div className='flex justify-center items-center'>
-                                <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
-                              </div>
-                              <h3 className="text-lg">{alumni.name}</h3>
-                              <hr />
-                              <ul className="text-[13px] text-slate-800">
-                                <li><span className="font-bold">Alumni</span> {alumni.school}</li>
-                                <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
-                                <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
-                              </ul>
-                              <hr />
-                              <p className="text-slate-800"><i>"{alumni.quote}"</i></p>
+                    <div className="flex flex-wrap flex-row justify-center items-center">
+                      {alumnis.filter(item => item.testimoni == 1).map((alumni) =>
+                        <div className="w-full md:w-1/3 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
+                          <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
+                            <div className='flex justify-center items-center'>
+                              <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
                             </div>
+                            <h3 className="text-lg">{alumni.name}</h3>
+                            <hr />
+                            <ul className="text-[13px] text-slate-800">
+                              <li><span className="font-bold">Alumni</span> {alumni.school}</li>
+                              <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
+                              <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
+                            </ul>
+                            <hr />
+                            <p className="text-slate-800"><i>"{alumni.quote}"</i></p>
                           </div>
-                        )}
-                      </div>
-                      <hr className='my-5' />
-                    </>
-                  )
-                }
-
-                {
-                  alumnis.filter(item => item.year == '2019').length > 0 && (
-                    <>
-                      <div>
-                        <div className='space-y-1 mb-3'>
-                          <h2 className='text-center font-bold text-2xl'>Angkatan 2019</h2>
-                          <p className='text-center text-sm text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
                         </div>
-                      </div>
-                      <div className="flex flex-wrap flex-row justify-center items-center">
-                        {alumnis.filter(item => item.year == '2019').map((alumni) =>
-                          <div className="w-full md:w-1/4 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
-                            <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
-                              <div className='flex justify-center items-center'>
-                                <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
-                              </div>
-                              <hr />
-                              <h3 className="text-lg">{alumni.name}</h3>
-                              <ul className="text-xs text-slate-800 space-y-1">
-                                <li><span className="font-bold">Alumni</span> {alumni.school}</li>
-                                <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
-                                <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
-                              </ul>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                      <hr className='my-5' />
-                    </>
-                  )
-                }
+                      )}
+                    </div>
+                    <hr className='my-5' />
+                  </>
+                )
+              }
 
-                {
-                  alumnis.filter(item => item.year == '2018').length > 0 && (
-                    <>
-                      <div>
-                        <div className='space-y-1 mb-3'>
-                          <h2 className='text-center font-bold text-2xl'>Angkatan 2018</h2>
-                          <p className='text-center text-sm text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
+              {
+                alumnis.filter(item => item.year == '2019').length > 0 && (
+                  <>
+                    <div>
+                      <div className='space-y-1 mb-3'>
+                        <h2 className='text-center font-bold text-2xl'>Angkatan 2019</h2>
+                        <p className='text-center text-sm text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap flex-row justify-center items-center">
+                      {alumnis.filter(item => item.year == '2019').map((alumni) =>
+                        <div className="w-full md:w-1/4 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
+                          <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
+                            <div className='flex justify-center items-center'>
+                              <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
+                            </div>
+                            <hr />
+                            <h3 className="text-lg">{alumni.name}</h3>
+                            <ul className="text-xs text-slate-800 space-y-1">
+                              <li><span className="font-bold">Alumni</span> {alumni.school}</li>
+                              <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
+                              <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
+                            </ul>
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex flex-wrap flex-row justify-center items-center">
-                        {alumnis.filter(item => item.year == '2018').map((alumni) =>
-                          <div className="w-full md:w-1/4 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
-                            <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
-                              <div className='flex justify-center items-center'>
-                                <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
-                              </div>
-                              <hr />
-                              <h3 className="text-lg">{alumni.name}</h3>
-                              <ul className="text-xs text-slate-800 space-y-1">
-                                <li><span className="font-bold">Alumni</span> {alumni.school}</li>
-                                <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
-                                <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
-                              </ul>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                      <hr className='my-5' />
-                    </>
-                  )
-                }
-              </>
-            ) : (
-              <div className="h-[500px] text-center flex justify-center items-center overflow-x-hidden">
-                <Player
-                  autoplay
-                  loop
-                  src={emptyAnimate}
-                  style={{ height: 500, width: 500 }}
-                >
-                  <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
-                </Player>
-              </div>
-            )}
+                      )}
+                    </div>
+                    <hr className='my-5' />
+                  </>
+                )
+              }
 
-          </section>
-        </div>
+              {
+                alumnis.filter(item => item.year == '2018').length > 0 && (
+                  <>
+                    <div>
+                      <div className='space-y-1 mb-3'>
+                        <h2 className='text-center font-bold text-2xl'>Angkatan 2018</h2>
+                        <p className='text-center text-sm text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap flex-row justify-center items-center">
+                      {alumnis.filter(item => item.year == '2018').map((alumni) =>
+                        <div className="w-full md:w-1/4 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
+                          <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
+                            <div className='flex justify-center items-center'>
+                              <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
+                            </div>
+                            <hr />
+                            <h3 className="text-lg">{alumni.name}</h3>
+                            <ul className="text-xs text-slate-800 space-y-1">
+                              <li><span className="font-bold">Alumni</span> {alumni.school}</li>
+                              <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
+                              <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
+                            </ul>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <hr className='my-5' />
+                  </>
+                )
+              }
+            </>
+          ) : (
+            <div className="h-[500px] text-center flex justify-center items-center overflow-x-hidden">
+              <Player
+                autoplay
+                loop
+                src={emptyAnimate}
+                style={{ height: 500, width: 500 }}
+              >
+                <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
+              </Player>
+            </div>
+          )}
+
+        </section>
       </section>
       <Footer />
     </Suspense>
