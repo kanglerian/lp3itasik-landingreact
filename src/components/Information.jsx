@@ -64,7 +64,7 @@ const Information = (props) => {
       </div>
       <div className="w-full md:w-1/2" data-aos="fade-up">
         <h5 className="font-bold text-3xl" data-aos="fade-up" data-aos-delay="10">{yt.title}</h5>
-        <p className="text-base text-gray-600 mt-3" data-aos="fade-up" data-aos-delay="20">{yt.description}</p>
+        <p className="text-sm md:text-base text-gray-600 mt-3" data-aos="fade-up" data-aos-delay="20">{yt.description}</p>
         {
           props.doc && (
             <div className="mt-5 flex justify-center">
