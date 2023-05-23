@@ -42,7 +42,7 @@ const Program = () => {
       <div className="p-4">
         <h5 className="font-bold text-sm mb-1 text-left text-gray-700">{program.level} {program.title}</h5>
         <span className="inline-block bg-gray-200 text-gray-500 text-xs py-1 px-3 rounded-md mb-3">{program.campus}</span>
-        <div className="flex justify-between items-center mt-4">
+        <div className="flex justify-between items-center">
           <a href={`/programs/` + program.uuid} role="button" className="bg-cyan-600 text-white text-xs py-2 px-3 rounded-md">
           {currentLanguage == 'en' ? 'View more' : 'Lihat selengkapnya'}
           </a>

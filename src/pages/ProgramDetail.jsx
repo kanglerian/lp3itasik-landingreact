@@ -202,7 +202,7 @@ const ProgramDetail = () => {
                     <div className="w-full md:w-1/2 space-y-3 order-2 md:order-none">
                       <h3 className="font-bold text-3xl">{currentLanguage == 'en' ? 'Vision' : 'Visi'}</h3>
                       {visions.map((vision) =>
-                        <p className="text-slate-700">{vision.vision}</p>
+                        <p className="text-sm md:text-base text-slate-700">{vision.vision}</p>
                       )}
                     </div>
                     <div className="w-full md:w-1/2 order-1 md:order-none">
@@ -218,7 +218,7 @@ const ProgramDetail = () => {
                     </div>
                     <div className="w-full md:w-1/2 space-y-3 order-2 md:order-none">
                       <h3 className="font-bold text-3xl">{currentLanguage == 'en' ? 'Mision' : 'Misi'}</h3>
-                      <ol className="text-slate-700 list-decimal ml-5 space-y-3">
+                      <ol className="text-sm md:text-base text-slate-700 list-decimal ml-5 space-y-3">
                         {misions.map((mision) =>
                           <li>{mision.mision}</li>
                         )}
@@ -248,7 +248,7 @@ const ProgramDetail = () => {
                 </div>
                 <div className="w-full md:w-1/2 space-y-3 order-2 md:order-none">
                   <h3 className="font-bold text-3xl">{currentLanguage == 'en' ? 'Superiority' : 'Keunggulan'}</h3>
-                  <ol className="text-slate-700 list-decimal ml-5 space-y-3">
+                  <ol className="text-sm md:text-base text-slate-700 list-decimal ml-5 space-y-3">
                     {benefits.map((benefit) =>
                       <li>{benefit.benefit}</li>
                     )}
@@ -276,7 +276,7 @@ const ProgramDetail = () => {
                 </div>
                 <div className="w-full md:w-1/2 space-y-3 order-2 md:order-none">
                   <h3 className="font-bold text-3xl">{currentLanguage == 'en' ? 'Competence' : 'Kompetensi'}</h3>
-                  <ol className="text-slate-700 list-decimal ml-5 space-y-3">
+                  <ol className="text-sm md:text-base text-slate-700 list-decimal ml-5 space-y-3">
                     {competences.map((competence) =>
                       <li>{competence.competence}</li>
                     )}
@@ -302,7 +302,7 @@ const ProgramDetail = () => {
                 {careers.map((career) =>
                   <div className="w-1/2 md:w-1/5 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
                     <div className="flex items-center justify-center bg-red-500 h-40 rounded-lg">
-                      <span className="text-white">{career.career}</span>
+                      <span className="text-sm md:text-base text-white">{career.career}</span>
                     </div>
                   </div>
                 )}
@@ -331,7 +331,7 @@ const ProgramDetail = () => {
                       </div>
                       <h3 className="text-lg">{alumni.name}</h3>
                       <hr />
-                      <ul className="text-[13px] text-slate-800">
+                      <ul className="text-sm text-slate-800">
                         <li><span className="font-bold">Prodi</span> {alumni.uuid}</li>
                         <li><span className="font-bold">Perusahaan</span> {alumni.work}</li>
                         <li><span className="font-bold">Posisi</span> {alumni.profession}</li>

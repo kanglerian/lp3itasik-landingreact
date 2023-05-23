@@ -55,7 +55,7 @@ const Agenda = () => {
             ) : (
             <h5 className="font-bold text-3xl"><span className="text-merah-300" data-aos="fade-up">Agenda</span> Kampus</h5>
           )}
-          <p className="text-gray-600 text-sm mt-2" data-aos="fade-up" data-aos-delay="100">
+          <p className="text-gray-600 text-sm md:text-base mt-2" data-aos="fade-up" data-aos-delay="100">
             {currentLanguage == 'en' ? 'The following is a list of activities carried out at the LP3I Polytechnic, Tasikmalaya Campus' : 'Berikut ini adalah daftar kegiatan yang dilakukan di Politeknik LP3I Kampus Tasikmalaya' }</p>
         </div>
         {isLoaded ? (

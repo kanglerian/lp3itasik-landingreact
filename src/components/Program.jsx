@@ -43,19 +43,19 @@ const Program = () => {
         <div className="container mx-auto text-center text-white px-4">
           {tasikPrograms.length > 0 && vokasiPrograms.length > 0 && (
             <div className="bg-lp3i-100 py-3 mb-8 rounded-lg">
-              <h5 className="font-bold text-xl">{currentLanguage == 'en' ? 'Tasikmalaya Campus' : 'Kampus Tasikmalaya'}</h5>
+              <h5 className="font-bold text-xl md:text-2xl">{currentLanguage == 'en' ? 'Tasikmalaya Campus' : 'Kampus Tasikmalaya'}</h5>
             </div>
           )}
 
           {tasikPrograms.length > 0 &&
             <>
               {currentLanguage == 'en' ? (
-                <h5 className="font-bold text-2xl my-3"><span className="text-merah-100">3 Year Diploma</span> Education Program
+                <h5 className="font-bold text-xl md:text-2xl my-3"><span className="text-merah-100">3 Year Diploma</span> Education Program
                 </h5>
               ) : (
-                <h5 className="font-bold text-2xl my-3">Program <span className="text-merah-100">Pendidikan Diploma 3</span></h5>
+                <h5 className="font-bold text-xl md:text-2xl my-3">Program <span className="text-merah-100">Pendidikan Diploma 3</span></h5>
               )}
-              <p>{currentLanguage == 'en' ? 'The following is a list of D3 level study programs at the LP3I Polytechnic, Tasikmalaya Campus' : 'Berikut adalah daftar program studi jenjang D3 di Politeknik LP3I Kampus Tasikmalaya'}</p>
+              <p className='text-base'>{currentLanguage == 'en' ? 'The following is a list of D3 level study programs at the LP3I Polytechnic, Tasikmalaya Campus' : 'Berikut adalah daftar program studi jenjang D3 di Politeknik LP3I Kampus Tasikmalaya'}</p>
               <div className="flex flex-wrap flex-col md:flex-row justify-center gap-5 my-8">
                 {tasikPrograms.map((tasik, i) =>
                   <div className="group relative w-1/1 md:w-1/3" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
@@ -75,13 +75,13 @@ const Program = () => {
           {vokasiPrograms.length > 0 && (
             <>
               {currentLanguage == 'en' ? (
-                <h5 className="font-bold text-2xl my-3"><span className="text-merah-100">2 Year Vocational</span> Education Program
+                <h5 className="font-bold text-xl md:text-2xl my-3"><span className="text-merah-100">2 Year Vocational</span> Education Program
                 </h5>
               ) : (
-                <h5 className="font-bold text-2xl my-3">Program Pendidikan <span className="text-merah-100">Vokasi 2 Tahun</span>
+                <h5 className="font-bold text-xl md:text-2xl my-3">Program Pendidikan <span className="text-merah-100">Vokasi 2 Tahun</span>
                 </h5>
               )}
-              <p>{currentLanguage == 'en' ? 'The following is a list of 2-year Vocational level study programs at LP3I Tasikmalaya' : 'Berikut adalah daftar program studi jenjang Vokasi 2 Tahun di LP3I Tasikmalaya'}</p>
+              <p className='text-base'>{currentLanguage == 'en' ? 'The following is a list of 2-year Vocational level study programs at LP3I Tasikmalaya' : 'Berikut adalah daftar program studi jenjang Vokasi 2 Tahun di LP3I Tasikmalaya'}</p>
               <div className="flex flex-col md:flex-row justify-center gap-5 my-8">
                 {vokasiPrograms.map((vokasi, i) =>
                   <div className="group relative w-1/1 md:w-1/3" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
@@ -101,17 +101,17 @@ const Program = () => {
           {utamaPrograms.length > 0 && (
             <>
               <div className="bg-lp3i-200 py-3 mb-8 rounded-lg">
-                <h5 className="font-bold text-xl">
+                <h5 className="font-bold text-xl md:text-2xl">
                   {currentLanguage == 'en' ? 'Main Campus' : 'Kampus Utama'}
                 </h5>
               </div>
               {currentLanguage == 'en' ? (
-                <h5 className="font-bold text-2xl my-3"><span className="text-merah-100">3 Year Diploma</span> Education Program
+                <h5 className="font-bold text-xl md:text-2xl my-3"><span className="text-merah-100">3 Year Diploma</span> Education Program
                 </h5>
               ) : (
-                <h5 className="font-bold text-2xl my-3">Program Pendidikan <span className="text-merah-100">Diploma 3</span></h5>
+                <h5 className="font-bold text-xl md:text-2xl my-3">Program Pendidikan <span className="text-merah-100">Diploma 3</span></h5>
               )}
-              <p>
+              <p className='text-base'>
                 {currentLanguage == 'en' ? 'The following is a list of D3 level study programs at the LP3I Polytechnic' : 'Berikut adalah daftar program studi jenjang D3 di Politeknik LP3I'}</p>
               <div className="flex flex-wrap flex-col md:flex-row justify-center gap-5 my-8">
                 {utamaPrograms.map((utama, i) =>

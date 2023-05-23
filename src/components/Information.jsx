@@ -63,8 +63,8 @@ const Information = (props) => {
           allowFullScreen />
       </div>
       <div className="w-full md:w-1/2" data-aos="fade-up">
-        <h5 className="font-bold text-2xl md:text-3xl" data-aos="fade-up" data-aos-delay="10">{yt.title}</h5>
-        <p className="text-sm text-gray-600 mt-3" data-aos="fade-up" data-aos-delay="20">{yt.description}</p>
+        <h5 className="font-bold text-3xl" data-aos="fade-up" data-aos-delay="10">{yt.title}</h5>
+        <p className="text-base text-gray-600 mt-3" data-aos="fade-up" data-aos-delay="20">{yt.description}</p>
         {
           props.doc && (
             <div className="mt-5 flex justify-center">
@@ -105,9 +105,9 @@ const Information = (props) => {
                     allowFullScreen />
                 </div>
                 <div className="w-full md:w-1/2">
-                  <h1 className="font-bold text-2xl md:text-4xl" data-aos="fade-up" data-aos-delay="10">LP3I
+                  <h1 className="font-bold text-3xl" data-aos="fade-up" data-aos-delay="10">LP3I
                     Tasikmalaya – Cover Condong Pada Mimpi</h1>
-                  <p className="text-sm text-gray-600 mt-3" data-aos="fade-up" data-aos-delay="20">Video ini berisi
+                  <p className="text-sm md:text-base text-gray-600 mt-3" data-aos="fade-up" data-aos-delay="20">Video ini berisi
                     tentang pendidikan vokasi di LP3I Tasikmalaya mulai dari kegiatan Pengenalan Lingkungan Kampus,
                     kegiatan praktek akuntansi, praktek otomotif, praktek informatika, praktek manajemen
                     perkantoran, dan proses penempatan kerja yang menjadi salah satu program unggulan di LP3I.</p>

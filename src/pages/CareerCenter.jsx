@@ -170,7 +170,7 @@ const CareerCenter = () => {
           <div className='space-y-6 px-4 mt-10'>
             <div className='text-center space-y-2'>
               <h1 className='font-bold text-2xl md:text-3xl' data-aos="fade-up">Dokumentasi Penempatan Kerja</h1>
-              <p className='text-gray-700 text-sm' data-aos="fade-up" data-aos-delay="20">Berikut ini adalah dokumentasi penempatan kerja mahasiswa/i Politeknik LP3I Kampus Tasikmalaya</p>
+              <p className='text-gray-700 text-base' data-aos="fade-up" data-aos-delay="20">Berikut ini adalah dokumentasi penempatan kerja mahasiswa/i Politeknik LP3I Kampus Tasikmalaya</p>
             </div>
             {docLoaded ? (
               <div className="flex justify-center">
@@ -189,7 +189,7 @@ const CareerCenter = () => {
           <div className='space-y-6 px-4 mt-10'>
             <div className='text-center space-y-2'>
               <h1 className='font-bold text-2xl md:text-3xl' data-aos="fade-up">Perusahaan Relasi</h1>
-              <p className='text-gray-700 text-sm' data-aos="fade-up" data-aos-delay="20">Berikut ini adalah perusahaan relasi dari Politeknik LP3I Kampus Tasikmalaya</p>
+              <p className='text-gray-700 text-base' data-aos="fade-up" data-aos-delay="20">Menjalin relasi dengan lebih dari 100 Perusahaan di Jabodetabek.</p>
             </div>
             <div className="flex flex-wrap items-center justify-center">
               {

@@ -35,7 +35,7 @@ const Benefit = () => {
       <div className="bg-white shadow-sm text-center p-4 rounded-lg transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
         <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + benefit.image} alt={benefit.title} className="inline w-20 rounded-full" />
         <div className="mt-3 bg-gray-50 p-2 rounded">
-          <h5 className="font-bold text-cyan-700 text-base mb-1">{benefit.title}</h5>
+          <h5 className="font-bold text-cyan-700 text-lg mb-1">{benefit.title}</h5>
           <p className="text-gray-600 text-sm">{benefit.description}</p>
         </div>
       </div>

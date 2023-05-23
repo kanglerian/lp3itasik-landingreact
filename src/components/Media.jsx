@@ -56,7 +56,7 @@ const Media = () => {
             ) : (
             <h5 className="font-bold text-3xl"><span className="text-merah-300">Media</span> Kampus</h5>
           )}
-          <p className="text-gray-600 text-sm mt-2">{currentLanguage == 'en' ? 'The following is the latest news from the LP3I Polytechnic, Tasikmalaya Campus' : 'Berikut adalah berita terbaru dari Politeknik LP3I Kampus Tasikmalaya'}</p>
+          <p className="text-gray-600 text-sm md:text-base mt-2">{currentLanguage == 'en' ? 'The following is the latest news from the LP3I Polytechnic, Tasikmalaya Campus' : 'Berikut adalah berita terbaru dari Politeknik LP3I Kampus Tasikmalaya'}</p>
         </div>
         {isLoaded ? (
           <>
