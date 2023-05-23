@@ -21,7 +21,7 @@ const Footer = () => {
             <h5 className="text-gray-700 font-bold text-left md:text-right text-xl">{currentLanguage == 'en' ? 'Service' : 'Layanan'}</h5>
             <ul className="text-gray-500 mt-4 text-xs text-left md:text-right space-y-2">
               <li><a href="#">{currentLanguage == 'en' ? 'Academic' : 'Akademik'}</a></li>
-              <li><a href="#">Career Center</a></li>
+              <li><a href={`/career`}>Career Center</a></li>
               <li><a href="#">{currentLanguage == 'en' ? 'Academic System' : 'Sistem Akademik'} (SIAKAD)</a></li>
               <li><a href="#">Learning Management System (LMS)</a></li>
               <li><a href="https://schoolarship.politekniklp3i-tasikmalaya.ac.id/" role="button" target="_blank">{currentLanguage == 'en' ? 'Schoolarship Check' : 'Cek Beasiswa'}</a></li>
