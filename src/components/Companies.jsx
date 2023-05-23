@@ -24,6 +24,7 @@ const Companies = () => {
       }
     }
   }
+  
   const getCompanies = async () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/companies`)
       .then((response) => {

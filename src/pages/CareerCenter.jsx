@@ -32,8 +32,13 @@ const renderLoader = () =>
 
 const CareerCenter = () => {
   const currentLanguage = localStorage.getItem('language') || 'id';
+
   const [alumnis, setAlumni] = useState([])
   const [documentations, setDocumentation] = useState([])
+  const [companies, setCompany] = useState([])
+
+  const [compLoaded, setCompLoaded] = useState(false)
+  const [docLoaded, setDocLoaded] = useState(false)
 
   const options = {
     responsive: {
@@ -51,6 +56,7 @@ const CareerCenter = () => {
       .then((response) => {
         let data = response.data.filter(dat => dat.status == '1')
         setAlumni(data)
+        setIsLoaded(false)
       })
       .catch((error) => {
         console.log(error.message);
@@ -62,11 +68,30 @@ const CareerCenter = () => {
       .then((response) => {
         let docs = response.data.filter(doc => doc.status == '1')
         setDocumentation(docs)
+        setDocLoaded(true)
       })
       .catch((error) => {
         console.log(error.message);
       })
   }
+
+  const getCompanies = async () => {
+    await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/companies`)
+      .then((response) => {
+        let companies = response.data.filter(company => company.status == '1')
+        setCompany(companies)
+        setCompLoaded(true)
+      })
+      .catch((error) => {
+        console.log(error.message);
+      })
+  }
+
+  const listCompanies = companies.map((company, i) =>
+    <div className="w-1/2 md:w-1/6 p-4 item" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
+      <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + company.image} alt={company.title} className="rounded-lg" />
+    </div>
+  )
 
   const listDocumentation = documentations.map((doc, i) =>
     <div className="item" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
@@ -100,7 +125,8 @@ const CareerCenter = () => {
 
   useEffect(() => {
     getAlumni()
-    getDocumentation();
+    getDocumentation()
+    getCompanies()
     AOS.init({
       duration: 800,
       easing: 'ease-in-out',
@@ -141,16 +167,54 @@ const CareerCenter = () => {
               <img src={ginaPhoto} alt="Gina" data-aos="fade-up" data-aos-delay="30" className='block w-1/3 rounded-lg' />
             </div>
           </div>
-          <hr className='my-6' />
-          <div className='space-y-6 px-4'>
+          <div className='space-y-6 px-4 mt-10'>
             <div className='text-center space-y-2'>
               <h1 className='font-bold text-2xl md:text-3xl' data-aos="fade-up">Dokumentasi Penempatan Kerja</h1>
-              <p className='text-gray-700 text-sm' data-aos="fade-up" data-aos-delay="20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, beatae.</p>
+              <p className='text-gray-700 text-sm' data-aos="fade-up" data-aos-delay="20">Berikut ini adalah dokumentasi penempatan kerja mahasiswa/i Politeknik LP3I Kampus Tasikmalaya</p>
             </div>
-            <div className="flex justify-center">
-              <OwlCarousel className='owl-theme' {...options} loop margin={10} autoplay dots={true}>
-                {listDocumentation}
-              </OwlCarousel>
+            {docLoaded ? (
+              <div className="flex justify-center">
+                <OwlCarousel className='owl-theme' {...options} loop margin={10} autoplay dots={true}>
+                  {listDocumentation}
+                </OwlCarousel>
+              </div>
+            ) : (
+              <div className="flex justify-center" data-aos="fade-up">
+                <div className="w-full md:w-1/3 flex items-center justify-center h-56 md:h-68 bg-gray-100 rounded-lg animate-pulse">
+                  <i className="fa-regular fa-images fa-3x text-gray-200"></i>
+                </div>
+              </div>
+            )}
+          </div>
+          <div className='space-y-6 px-4 mt-10'>
+            <div className='text-center space-y-2'>
+              <h1 className='font-bold text-2xl md:text-3xl' data-aos="fade-up">Perusahaan Relasi</h1>
+              <p className='text-gray-700 text-sm' data-aos="fade-up" data-aos-delay="20">Berikut ini adalah perusahaan relasi dari Politeknik LP3I Kampus Tasikmalaya</p>
+            </div>
+            <div className="flex flex-wrap items-center justify-center">
+              {
+                compLoaded ? (
+                  listCompanies
+                ) : (
+                  <>
+                    <div className='w-1/2 md:w-1/3 p-4'>
+                      <div className="flex items-center justify-center h-56 md:h-32 bg-gray-100 rounded-lg animate-pulse">
+                        <i className="fa-regular fa-images fa-2x text-gray-200"></i>
+                      </div>
+                    </div>
+                    <div className='w-1/2 md:w-1/3 p-4'>
+                      <div className="flex items-center justify-center h-56 md:h-32 bg-gray-100 rounded-lg animate-pulse">
+                        <i className="fa-regular fa-images fa-2x text-gray-200"></i>
+                      </div>
+                    </div>
+                    <div className='w-1/2 md:w-1/3 p-4'>
+                      <div className="flex items-center justify-center h-56 md:h-32 bg-gray-100 rounded-lg animate-pulse">
+                        <i className="fa-regular fa-images fa-2x text-gray-200"></i>
+                      </div>
+                    </div>
+                  </>
+                )
+              }
             </div>
           </div>
         </section>
@@ -212,7 +276,6 @@ const CareerCenter = () => {
               </Player>
             </div>
           )}
-
         </section>
 
         <section className="hidden py-3" id="testimoni">
