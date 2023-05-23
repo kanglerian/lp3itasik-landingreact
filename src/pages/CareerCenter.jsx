@@ -170,7 +170,7 @@ const CareerCenter = () => {
           <div className='space-y-6 px-4 mt-10'>
             <div className='text-center space-y-2'>
               <h1 className='font-bold text-2xl md:text-3xl' data-aos="fade-up">Dokumentasi Penempatan Kerja</h1>
-              <p className='text-gray-700 text-base' data-aos="fade-up" data-aos-delay="20">Berikut ini adalah dokumentasi penempatan kerja mahasiswa/i Politeknik LP3I Kampus Tasikmalaya</p>
+              <p className='text-gray-700 text-sm md:text-base' data-aos="fade-up" data-aos-delay="20">Berikut ini adalah dokumentasi penempatan kerja mahasiswa/i Politeknik LP3I Kampus Tasikmalaya</p>
             </div>
             {docLoaded ? (
               <div className="flex justify-center">
@@ -189,7 +189,7 @@ const CareerCenter = () => {
           <div className='space-y-6 px-4 mt-10'>
             <div className='text-center space-y-2'>
               <h1 className='font-bold text-2xl md:text-3xl' data-aos="fade-up">Perusahaan Relasi</h1>
-              <p className='text-gray-700 text-base' data-aos="fade-up" data-aos-delay="20">Menjalin relasi dengan lebih dari 100 Perusahaan di Jabodetabek.</p>
+              <p className='text-gray-700 text-sm md:text-base' data-aos="fade-up" data-aos-delay="20">Menjalin relasi dengan lebih dari 100 Perusahaan di Jabodetabek.</p>
             </div>
             <div className="flex flex-wrap items-center justify-center">
               {
@@ -226,8 +226,8 @@ const CareerCenter = () => {
                   <>
                     <div>
                       <div className='space-y-1 mb-3'>
-                        <h2 className='text-center font-bold text-2xl'>Mahasiswa Kuliah Kerja Industri</h2>
-                        <p className='text-center text-sm text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
+                        <h2 className='text-center font-bold text-3xl'>Mahasiswa Kuliah Kerja Industri</h2>
+                        <p className='text-center text-sm md:text-base text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
                       </div>
                     </div>
                     <div className="flex flex-wrap flex-row justify-center items-center">
@@ -239,7 +239,7 @@ const CareerCenter = () => {
                             </div>
                             <hr />
                             <h3 className="text-lg">{alumni.name}</h3>
-                            <ul className="text-xs text-slate-800 space-y-1">
+                            <ul className="text-sm text-slate-800 space-y-1">
                               <li><span className="font-bold">Alumni</span> {alumni.school}</li>
                               <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
                               <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
@@ -286,8 +286,8 @@ const CareerCenter = () => {
                   <>
                     <div>
                       <div className='space-y-1 mb-3'>
-                        <h2 className='text-center font-bold text-2xl'>Testimoni Alumni</h2>
-                        <p className='text-center text-sm text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
+                        <h2 className='text-center font-bold text-3xl'>Testimoni Alumni</h2>
+                        <p className='text-center text-sm md:text-base text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
                       </div>
                     </div>
                     <div className="flex flex-wrap flex-row justify-center items-center">
@@ -299,7 +299,7 @@ const CareerCenter = () => {
                             </div>
                             <h3 className="text-lg">{alumni.name}</h3>
                             <hr />
-                            <ul className="text-[13px] text-slate-800">
+                            <ul className="text-sm text-slate-800">
                               <li><span className="font-bold">Alumni</span> {alumni.school}</li>
                               <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
                               <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
@@ -320,8 +320,8 @@ const CareerCenter = () => {
                   <>
                     <div>
                       <div className='space-y-1 mb-3'>
-                        <h2 className='text-center font-bold text-2xl'>Angkatan 2019</h2>
-                        <p className='text-center text-sm text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
+                        <h2 className='text-center font-bold text-3xl'>Angkatan 2019</h2>
+                        <p className='text-center text-sm md:text-base text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
                       </div>
                     </div>
                     <div className="flex flex-wrap flex-row justify-center items-center">
@@ -333,7 +333,7 @@ const CareerCenter = () => {
                             </div>
                             <hr />
                             <h3 className="text-lg">{alumni.name}</h3>
-                            <ul className="text-xs text-slate-800 space-y-1">
+                            <ul className="text-sm text-slate-800 space-y-1">
                               <li><span className="font-bold">Alumni</span> {alumni.school}</li>
                               <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
                               <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
@@ -352,8 +352,8 @@ const CareerCenter = () => {
                   <>
                     <div>
                       <div className='space-y-1 mb-3'>
-                        <h2 className='text-center font-bold text-2xl'>Angkatan 2018</h2>
-                        <p className='text-center text-sm text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
+                        <h2 className='text-center font-bold text-3xl'>Angkatan 2018</h2>
+                        <p className='text-center text-sm md:text-base text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
                       </div>
                     </div>
                     <div className="flex flex-wrap flex-row justify-center items-center">
@@ -365,7 +365,7 @@ const CareerCenter = () => {
                             </div>
                             <hr />
                             <h3 className="text-lg">{alumni.name}</h3>
-                            <ul className="text-xs text-slate-800 space-y-1">
+                            <ul className="text-sm text-slate-800 space-y-1">
                               <li><span className="font-bold">Alumni</span> {alumni.school}</li>
                               <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
                               <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
