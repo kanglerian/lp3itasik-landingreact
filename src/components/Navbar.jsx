@@ -130,12 +130,12 @@ const Navbar = () => {
                             </a>
                           </li>
                           <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                            <a href="https://siakad.plb.ac.id/" className="block px-4 py-2 hover:bg-gray-100">
                               SIAKAD
                             </a>
                           </li>
                           <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                            <a href="https://lms.plb.ac.id/" className="block px-4 py-2 hover:bg-gray-100">
                               LMS
                             </a>
                           </li>

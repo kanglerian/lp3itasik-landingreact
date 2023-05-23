@@ -22,8 +22,8 @@ const Footer = () => {
             <ul className="text-gray-500 mt-4 text-xs text-left md:text-right space-y-2">
               <li><a href="#">{currentLanguage == 'en' ? 'Academic' : 'Akademik'}</a></li>
               <li><a href={`/career`}>Career Center</a></li>
-              <li><a href="#">{currentLanguage == 'en' ? 'Academic System' : 'Sistem Akademik'} (SIAKAD)</a></li>
-              <li><a href="#">Learning Management System (LMS)</a></li>
+              <li><a href="https://siakad.plb.ac.id/">{currentLanguage == 'en' ? 'Academic System' : 'Sistem Akademik'} (SIAKAD)</a></li>
+              <li><a href="https://lms.plb.ac.id/">Learning Management System (LMS)</a></li>
               <li><a href="https://schoolarship.politekniklp3i-tasikmalaya.ac.id/" role="button" target="_blank">{currentLanguage == 'en' ? 'Schoolarship Check' : 'Cek Beasiswa'}</a></li>
             </ul>
           </div>
