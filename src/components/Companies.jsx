@@ -60,7 +60,7 @@ const Companies = () => {
           <img data-aos="fade-up" data-aos-delay="30" src={logoTut} alt="Tut Wuri Handayani" className="inline w-32" />
         </div>
         {isLoaded ? (
-          <div className="mt-10 flex justify-center">
+          <div className="mt-10 flex items-center justify-center">
             <OwlCarousel className='owl-theme' {...options} loop margin={10} autoplay dots={true}>
               {listCompanies}
             </OwlCarousel>

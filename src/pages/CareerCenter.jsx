@@ -300,7 +300,7 @@ const CareerCenter = () => {
                             <h3 className="text-lg">{alumni.name}</h3>
                             <hr />
                             <ul className="text-sm text-slate-800">
-                              <li><span className="font-bold">Alumni</span> {alumni.school}</li>
+                              <li><span className="font-bold">Asal sekolah</span> {alumni.school}</li>
                               <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
                               <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
                             </ul>
@@ -310,22 +310,22 @@ const CareerCenter = () => {
                         </div>
                       )}
                     </div>
-                    <hr className='my-5' />
                   </>
                 )
               }
 
               {
-                alumnis.filter(item => item.year == '2019').length > 0 && (
+                alumnis.filter(item => item.career == 'K').length > 0 && (
                   <>
+                  <hr className='my-5' />
                     <div>
                       <div className='space-y-1 mb-3'>
-                        <h2 className='text-center font-bold text-3xl'>Angkatan 2019</h2>
+                        <h2 className='text-center font-bold text-3xl'>Mahasiswa Bekerja</h2>
                         <p className='text-center text-sm md:text-base text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
                       </div>
                     </div>
                     <div className="flex flex-wrap flex-row justify-center items-center">
-                      {alumnis.filter(item => item.year == '2019').map((alumni) =>
+                      {alumnis.filter(item => item.career == 'K').map((alumni) =>
                         <div className="w-full md:w-1/4 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
                           <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
                             <div className='flex justify-center items-center'>
@@ -334,7 +334,7 @@ const CareerCenter = () => {
                             <hr />
                             <h3 className="text-lg">{alumni.name}</h3>
                             <ul className="text-sm text-slate-800 space-y-1">
-                              <li><span className="font-bold">Alumni</span> {alumni.school}</li>
+                              <li><span className="font-bold">Asal sekolah</span> {alumni.school}</li>
                               <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
                               <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
                             </ul>
@@ -342,22 +342,22 @@ const CareerCenter = () => {
                         </div>
                       )}
                     </div>
-                    <hr className='my-5' />
                   </>
                 )
               }
 
               {
-                alumnis.filter(item => item.year == '2018').length > 0 && (
+                alumnis.filter(item => item.career == 'W').length > 0 && (
                   <>
+                  <hr className='my-5' />
                     <div>
                       <div className='space-y-1 mb-3'>
-                        <h2 className='text-center font-bold text-3xl'>Angkatan 2018</h2>
+                        <h2 className='text-center font-bold text-3xl'>Mahasiswa Berwirausaha</h2>
                         <p className='text-center text-sm md:text-base text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
                       </div>
                     </div>
                     <div className="flex flex-wrap flex-row justify-center items-center">
-                      {alumnis.filter(item => item.year == '2018').map((alumni) =>
+                      {alumnis.filter(item => item.career == 'W').map((alumni) =>
                         <div className="w-full md:w-1/4 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
                           <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
                             <div className='flex justify-center items-center'>
@@ -366,7 +366,7 @@ const CareerCenter = () => {
                             <hr />
                             <h3 className="text-lg">{alumni.name}</h3>
                             <ul className="text-sm text-slate-800 space-y-1">
-                              <li><span className="font-bold">Alumni</span> {alumni.school}</li>
+                              <li><span className="font-bold">Asal sekolah</span> {alumni.school}</li>
                               <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
                               <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
                             </ul>
@@ -374,7 +374,6 @@ const CareerCenter = () => {
                         </div>
                       )}
                     </div>
-                    <hr className='my-5' />
                   </>
                 )
               }

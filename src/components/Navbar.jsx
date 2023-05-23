@@ -35,7 +35,6 @@ const Navbar = () => {
                 <a href="https://bit.ly/InfoPMBLP3ITasik" target="_blank"><i className="fa-brands fa-whatsapp" /> 0813-1360-8558</a>
               </div>
               <div className="flex gap-3">
-                <a href={`/career`} className="hidden lg:inline">Career Center</a>
                 <a href="https://brosur.politekniklp3i-tasikmalaya.ac.id/" target="_blank">{currentLanguage == 'en' ? 'Digital Brochure' : 'Brosur Digital'}</a>
                 <a href="https://virtualkampus.politekniklp3i-tasikmalaya.ac.id/" target="_blank" className=" md:inline">{currentLanguage == 'en' ? 'Virtual Kampus' : 'Virtual Campus'}</a>
               </div>
@@ -76,7 +75,7 @@ const Navbar = () => {
                         <ul className="py-2 text-sm text-gray-900">
                           <li>
                             <a href={`/about`} className="block px-4 py-2 hover:bg-gray-100">
-                              {currentLanguage == 'en' ? 'What is LP3I?' : 'Apa itu LP3I?' }
+                              {currentLanguage == 'en' ? 'What is LP3I?' : 'Apa itu LP3I?'}
                             </a>
                           </li>
                           <li>
@@ -86,7 +85,7 @@ const Navbar = () => {
                           </li>
                           <li>
                             <a href={`/organization`} className="block px-4 py-2 hover:bg-gray-100">
-                              {currentLanguage == 'en' ? 'Organizational Structure' : 'Struktur Organisasi' }
+                              {currentLanguage == 'en' ? 'Organizational Structure' : 'Struktur Organisasi'}
                             </a>
                           </li>
                           <li>
@@ -106,6 +105,11 @@ const Navbar = () => {
                   <li>
                     <a href={`/students`} className="block md:inline py-2 px-4 text-gray-900 md:hover:text-cyan-800 md:p-0">
                       {currentLanguage == 'en' ? 'Student Organizations' : 'Organisasi Mahasiswa'}
+                    </a>
+                  </li>
+                  <li>
+                    <a href={`/career`} className="block md:inline py-2 px-4 text-gray-900 md:hover:text-cyan-800 md:p-0">
+                      {currentLanguage == 'en' ? 'Career Center' : 'Pusat Karir'}
                     </a>
                   </li>
                   <li>
@@ -136,8 +140,8 @@ const Navbar = () => {
                             </a>
                           </li>
                           <li>
-                            <a href={`/career`} className="block px-4 py-2 hover:bg-gray-100">
-                              Career Center
+                            <a href="https://karyawan.politekniklp3i-tasikmalaya.ac.id/" className="block px-4 py-2 hover:bg-gray-100">
+                              {currentLanguage == 'en' ? 'Employee class' : 'Kelas karyawan'}
                             </a>
                           </li>
                         </ul>
