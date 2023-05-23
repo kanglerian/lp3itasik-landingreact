@@ -11,6 +11,8 @@ import ginaPhoto from '../assets/cnp/gina.jpg'
 
 const Navbar = lazy(() => import('../components/Navbar'))
 const Footer = lazy(() => import('../components/Footer'))
+const Banner = lazy(() => import('../components/Banner'))
+const Information = lazy(() => import('../components/Information'))
 
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -18,8 +20,6 @@ import 'aos/dist/aos.css'
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
 import emptyAnimate from '../assets/empty.json'
-import Banner from '../components/Banner'
-import Information from '../components/Information'
 
 const renderLoader = () =>
   <div role="status" className='flex justify-center items-center h-screen'>
