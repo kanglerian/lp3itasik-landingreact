@@ -56,9 +56,9 @@ const Benefit = () => {
                 <div className='w-full h-20 rounded-lg bg-gray-200'></div>
               </div>
               <div className="w-[400px] flex flex-col items-center justify-center bg-gray-100 rounded-lg animate-pulse p-5" data-aos="fade-up" data-aos-delay="50">
-                <div className='w-20 h-20 rounded-full bg-gray-200'></div>
-                <div className='w-full h-5 rounded-lg bg-gray-200 my-3'></div>
-                <div className='w-full h-20 rounded-lg bg-gray-200'></div>
+                <div className='w-20 h-20 rounded-full bg-gray-200 animate-pulse'></div>
+                <div className='w-full h-5 rounded-lg bg-gray-200 my-3 animate-pulse'></div>
+                <div className='w-full h-20 rounded-lg bg-gray-200 animate-pulse'></div>
               </div>
             </>
           )}

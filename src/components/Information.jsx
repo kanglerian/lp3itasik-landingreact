@@ -57,14 +57,14 @@ const Information = (props) => {
   const listYoutube = youtube.map((yt, i) =>
     <>
       <div className="w-full md:w-1/2 h-auto" key={i} data-aos="fade-up">
-        <iframe width="100%" height="350px" className="rounded-2xl border-4 border-gray-200"
+        <iframe width="100%" height="350px" className="rounded-2xl border-4 border-lp3i-400"
           src={`https://www.youtube.com/embed/` + yt.youtube} title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen />
       </div>
       <div className="w-full md:w-1/2" data-aos="fade-up">
-        <h5 className="font-bold text-3xl" data-aos="fade-up" data-aos-delay="10">{yt.title}</h5>
-        <p className="text-sm md:text-base text-gray-600 mt-3" data-aos="fade-up" data-aos-delay="20">{yt.description}</p>
+        <h5 className="font-bold text-3xl text-white" data-aos="fade-up" data-aos-delay="10">{yt.title}</h5>
+        <p className="text-sm md:text-base text-gray-100 mt-3" data-aos="fade-up" data-aos-delay="20">{yt.description}</p>
         {
           props.doc && (
             <div className="mt-5 flex justify-center">
@@ -90,7 +90,7 @@ const Information = (props) => {
   }, []);
 
   return (
-    <section className="my-10">
+    <section className="bg-lp3i-500 py-10 my-10">
       <div className="container mx-auto px-4">
         {isLoaded ? (
           <div className="flex flex-col md:flex-row items-center justify-center gap-4">
@@ -105,9 +105,9 @@ const Information = (props) => {
                     allowFullScreen />
                 </div>
                 <div className="w-full md:w-1/2">
-                  <h1 className="font-bold text-3xl" data-aos="fade-up" data-aos-delay="10">LP3I
+                  <h1 className="font-bold text-3xl text-white" data-aos="fade-up" data-aos-delay="10">LP3I
                     Tasikmalaya – Cover Condong Pada Mimpi</h1>
-                  <p className="text-sm md:text-base text-gray-600 mt-3" data-aos="fade-up" data-aos-delay="20">Video ini berisi
+                  <p className="text-sm md:text-base text-gray-100 mt-3" data-aos="fade-up" data-aos-delay="20">Video ini berisi
                     tentang pendidikan vokasi di LP3I Tasikmalaya mulai dari kegiatan Pengenalan Lingkungan Kampus,
                     kegiatan praktek akuntansi, praktek otomotif, praktek informatika, praktek manajemen
                     perkantoran, dan proses penempatan kerja yang menjadi salah satu program unggulan di LP3I.</p>
@@ -125,17 +125,16 @@ const Information = (props) => {
         ) : (
           <div className="flex flex-col md:flex-row items-center justify-center gap-4" data-aos="fade-up">
             <div
-              className="w-full md:w-1/2 flex items-center justify-center h-56 md:h-80 bg-gray-200 rounded-lg animate-pulse">
-              <i className="fa-regular fa-images fa-3x text-gray-300"></i>
+              className="w-full md:w-1/2 flex items-center justify-center h-56 md:h-80 bg-lp3i-300 rounded-lg animate-pulse">
+              <i className="fa-regular fa-images fa-3x text-lp3i-300 animate-pulse"></i>
             </div>
             <div className='w-full md:w-1/2'>
-              <div className='w-5/6 h-10 rounded-lg bg-gray-200 my-3'></div>
-              <div className='w-full h-24 rounded-lg bg-gray-200'></div>
-              <div className='w-3/6 h-10 rounded-lg bg-gray-200 my-3'></div>
+              <div className='w-5/6 h-10 rounded-lg bg-lp3i-300 my-3 animate-pulse'></div>
+              <div className='w-full h-24 rounded-lg bg-lp3i-300 animate-pulse'></div>
+              <div className='w-3/6 h-10 rounded-lg bg-lp3i-300 my-3 animate-pulse'></div>
             </div>
           </div>
         )}
-
       </div>
     </section>
 

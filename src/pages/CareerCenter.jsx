@@ -56,7 +56,6 @@ const CareerCenter = () => {
       .then((response) => {
         let data = response.data.filter(dat => dat.status == '1')
         setAlumni(data)
-        setIsLoaded(false)
       })
       .catch((error) => {
         console.log(error.message);
@@ -144,8 +143,8 @@ const CareerCenter = () => {
         <nav className="my-5 mx-4 bg-slate-100 border border-slate-200 py-3 rounded-xl" data-aos="fade-up" data-aos-delay="100">
           <ul className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-5 text-sm text-center px-4">
             <li onClick={hiddenSection} data-name="about" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'en' ? 'About C&P' : 'Tentang C&P'}</li>
+            <li onClick={hiddenSection} data-name="testimoni" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'en' ? 'Student Work' : 'Mahasiswa Bekerja'}</li>
             <li onClick={hiddenSection} data-name="kki" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'en' ? 'KKI Students' : 'Mahasiswa KKI'}</li>
-            <li onClick={hiddenSection} data-name="testimoni" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'en' ? 'Testimonials' : 'Testimoni'}</li>
           </ul>
         </nav>
         <section id="about">
@@ -153,8 +152,8 @@ const CareerCenter = () => {
           <div className='flex flex-col md:flex-row items-center gap-5 mx-4'>
             <div className='w-full md:w-2/6 order-2 md:order-none space-y-4'>
               <div className='space-y-1'>
-                <h1 className='text-2xl md:text-4xl font-bold' data-aos="fade-up">C&P Team</h1>
-                <h5 className='text-base' data-aos="fade-up" data-aos-delay="10">Bidang Kerjasama dan Penempatan</h5>
+                <h1 className='text-2xl md:text-4xl font-bold' data-aos="fade-up">{currentLanguage == 'en' ? 'C&P Team' : 'Tim C&P'}</h1>
+                <h5 className='text-base' data-aos="fade-up" data-aos-delay="10">{currentLanguage == 'en' ? 'Division of Cooperation and Placement' : 'Bidang Kerjasama dan Penempatan'}</h5>
               </div>
               <ul className='space-y-1'>
                 <li className='text-base flex items-center gap-2' data-aos="fade-up" data-aos-delay="20"><i class="fa-brands fa-whatsapp fa-2x"></i><span>0853-3702-0801</span></li>
@@ -169,8 +168,9 @@ const CareerCenter = () => {
           </div>
           <div className='space-y-6 px-4 mt-10'>
             <div className='text-center space-y-2'>
-              <h1 className='font-bold text-2xl md:text-3xl' data-aos="fade-up">Dokumentasi Penempatan Kerja</h1>
-              <p className='text-gray-700 text-sm md:text-base' data-aos="fade-up" data-aos-delay="20">Berikut ini adalah dokumentasi penempatan kerja mahasiswa/i Politeknik LP3I Kampus Tasikmalaya</p>
+              <h1 className='font-bold text-2xl md:text-3xl' data-aos="fade-up">{currentLanguage == 'en' ? 'Job Placement Documentation' : 'Dokumentasi Penempatan Kerja'}</h1>
+              <p className='text-gray-700 text-sm md:text-base' data-aos="fade-up" data-aos-delay="20">
+              {currentLanguage == 'en' ? 'The following is documentation of work placements for Polytechnic LP3I Tasikmalaya Campus students' : 'Berikut ini adalah dokumentasi penempatan kerja mahasiswa/i Politeknik LP3I Kampus Tasikmalaya'}</p>
             </div>
             {docLoaded ? (
               <div className="flex justify-center">
@@ -188,8 +188,9 @@ const CareerCenter = () => {
           </div>
           <div className='space-y-6 px-4 mt-10'>
             <div className='text-center space-y-2'>
-              <h1 className='font-bold text-2xl md:text-3xl' data-aos="fade-up">Perusahaan Relasi</h1>
-              <p className='text-gray-700 text-sm md:text-base' data-aos="fade-up" data-aos-delay="20">Menjalin relasi dengan lebih dari 100 Perusahaan di Jabodetabek.</p>
+              <h1 className='font-bold text-2xl md:text-3xl' data-aos="fade-up">{currentLanguage == 'en' ? 'Relations Companies' : 'Perusahaan Relasi'}</h1>
+              <p className='text-gray-700 text-sm md:text-base' data-aos="fade-up" data-aos-delay="20">
+              {currentLanguage == 'en' ? 'Establish relationships with more than 100 companies in Jabodetabek' : 'Menjalin relasi dengan lebih dari 100 Perusahaan di Jabodetabek'}.</p>
             </div>
             <div className="flex flex-wrap items-center justify-center">
               {
@@ -226,8 +227,9 @@ const CareerCenter = () => {
                   <>
                     <div>
                       <div className='space-y-1 mb-3'>
-                        <h2 className='text-center font-bold text-3xl'>Mahasiswa Kuliah Kerja Industri</h2>
-                        <p className='text-center text-sm md:text-base text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
+                        <h2 className='text-center font-bold text-3xl'>{currentLanguage == 'en' ? 'Industrial Work College Students' : 'Mahasiswa Kuliah Kerja Industri'}</h2>
+                        <p className='text-center text-sm md:text-base text-gray-700'>
+                        {currentLanguage == 'en' ? 'The following is a list of testimonials from the batch\'s alumni' : 'Berikut ini adalah daftar testimoni alumni angkatan tersebut'}.</p>
                       </div>
                     </div>
                     <div className="flex flex-wrap flex-row justify-center items-center">
@@ -241,8 +243,8 @@ const CareerCenter = () => {
                             <h3 className="text-lg">{alumni.name}</h3>
                             <ul className="text-sm text-slate-800 space-y-1">
                               <li><span className="font-bold">Alumni</span> {alumni.school}</li>
-                              <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
-                              <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
+                              <li><span className="font-bold">{currentLanguage == 'en' ? 'Work' : 'Bekerja'}</span> {alumni.work}</li>
+                              <li><span className="font-bold">{currentLanguage == 'en' ? 'Position' : 'Sebagai'}</span> {alumni.profession}</li>
                             </ul>
                           </div>
                         </div>
@@ -286,8 +288,9 @@ const CareerCenter = () => {
                   <>
                     <div>
                       <div className='space-y-1 mb-3'>
-                        <h2 className='text-center font-bold text-3xl'>Testimoni Alumni</h2>
-                        <p className='text-center text-sm md:text-base text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
+                        <h2 className='text-center font-bold text-3xl'>{currentLanguage == 'en' ? 'Alumni and Student Testimonials' : 'Testimoni Alumni & Mahasiswa'}</h2>
+                        <p className='text-center text-sm md:text-base text-gray-700'>
+                        {currentLanguage == 'en' ? 'The following is a list of testimonials from alumni and students of this generation' : 'Berikut ini adalah daftar testimoni alumni dan mahasiswa angkatan tersebut'}.</p>
                       </div>
                     </div>
                     <div className="flex flex-wrap flex-row justify-center items-center">
@@ -300,9 +303,9 @@ const CareerCenter = () => {
                             <h3 className="text-lg">{alumni.name}</h3>
                             <hr />
                             <ul className="text-sm text-slate-800">
-                              <li><span className="font-bold">Asal sekolah</span> {alumni.school}</li>
-                              <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
-                              <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
+                              <li><span className="font-bold">{currentLanguage == 'en' ? 'School' : 'Asal Sekolah'}</span> {alumni.school}</li>
+                              <li><span className="font-bold">{currentLanguage == 'en' ? 'Work' : 'Bekerja'}</span> {alumni.work}</li>
+                              <li><span className="font-bold">{currentLanguage == 'en' ? 'Position' : 'Sebagai'}</span> {alumni.profession}</li>
                             </ul>
                             <hr />
                             <p className="text-slate-800"><i>"{alumni.quote}"</i></p>
@@ -320,8 +323,9 @@ const CareerCenter = () => {
                   <hr className='my-5' />
                     <div>
                       <div className='space-y-1 mb-3'>
-                        <h2 className='text-center font-bold text-3xl'>Mahasiswa Bekerja</h2>
-                        <p className='text-center text-sm md:text-base text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
+                        <h2 className='text-center font-bold text-3xl'>{currentLanguage == 'en' ? 'Working Students' : 'Mahasiswa Bekerja'}</h2>
+                        <p className='text-center text-sm md:text-base text-gray-700'>
+                        {currentLanguage == 'en' ? 'The following is a list of testimonials from the batch\'s alumni' : 'Berikut ini adalah daftar testimoni alumni angkatan tersebut'}.</p>
                       </div>
                     </div>
                     <div className="flex flex-wrap flex-row justify-center items-center">
@@ -334,9 +338,9 @@ const CareerCenter = () => {
                             <hr />
                             <h3 className="text-lg">{alumni.name}</h3>
                             <ul className="text-sm text-slate-800 space-y-1">
-                              <li><span className="font-bold">Asal sekolah</span> {alumni.school}</li>
-                              <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
-                              <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
+                              <li><span className="font-bold">{currentLanguage == 'en' ? 'School' : 'Asal Sekolah'}</span> {alumni.school}</li>
+                              <li><span className="font-bold">{currentLanguage == 'en' ? 'Work' : 'Bekerja'}</span> {alumni.work}</li>
+                              <li><span className="font-bold">{currentLanguage == 'en' ? 'Position' : 'Sebagai'}</span> {alumni.profession}</li>
                             </ul>
                           </div>
                         </div>
@@ -352,8 +356,9 @@ const CareerCenter = () => {
                   <hr className='my-5' />
                     <div>
                       <div className='space-y-1 mb-3'>
-                        <h2 className='text-center font-bold text-3xl'>Mahasiswa Berwirausaha</h2>
-                        <p className='text-center text-sm md:text-base text-gray-700'>Berikut ini adalah daftar testimoni alumni angkatan tersebut.</p>
+                        <h2 className='text-center font-bold text-3xl'>{currentLanguage == 'en' ? 'Entrepreneurial Student' : 'Mahasiswa Berwirausaha'}</h2>
+                        <p className='text-center text-sm md:text-base text-gray-700'>
+                        {currentLanguage == 'en' ? 'The following is a list of testimonials from the batch\'s alumni' : 'Berikut ini adalah daftar testimoni alumni angkatan tersebut'}.</p>
                       </div>
                     </div>
                     <div className="flex flex-wrap flex-row justify-center items-center">
@@ -366,9 +371,9 @@ const CareerCenter = () => {
                             <hr />
                             <h3 className="text-lg">{alumni.name}</h3>
                             <ul className="text-sm text-slate-800 space-y-1">
-                              <li><span className="font-bold">Asal sekolah</span> {alumni.school}</li>
-                              <li><span className="font-bold">Bekerja</span> {alumni.work}</li>
-                              <li><span className="font-bold">Sebagai</span> {alumni.profession}</li>
+                              <li><span className="font-bold">{currentLanguage == 'en' ? 'School' : 'Asal Sekolah'}</span> {alumni.school}</li>
+                              <li><span className="font-bold">{currentLanguage == 'en' ? 'Work' : 'Bekerja'}</span> {alumni.work}</li>
+                              <li><span className="font-bold">{currentLanguage == 'en' ? 'Position' : 'Sebagai'}</span> {alumni.profession}</li>
                             </ul>
                           </div>
                         </div>

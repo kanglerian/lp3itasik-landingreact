@@ -68,7 +68,7 @@ const Companies = () => {
         ) : (
           <div className="mt-10 flex justify-center" data-aos="fade-up">
             <div className="w-full md:w-1/3 flex items-center justify-center h-56 md:h-72 bg-gray-100 rounded-lg animate-pulse">
-              <i className="fa-regular fa-images fa-3x text-gray-200"></i>
+              <i className="fa-regular fa-images fa-3x text-gray-200 animate-pulse"></i>
             </div>
           </div>
         )}
