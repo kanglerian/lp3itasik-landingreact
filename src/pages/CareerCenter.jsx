@@ -290,7 +290,7 @@ const CareerCenter = () => {
                       <div className='space-y-1 mb-3'>
                         <h2 className='text-center font-bold text-3xl'>{currentLanguage == 'en' ? 'Alumni and Student Testimonials' : 'Testimoni Alumni & Mahasiswa'}</h2>
                         <p className='text-center text-sm md:text-base text-gray-700'>
-                        {currentLanguage == 'en' ? 'The following is a list of testimonials from alumni and students of this generation' : 'Berikut ini adalah daftar testimoni alumni dan mahasiswa angkatan tersebut'}.</p>
+                        {currentLanguage == 'en' ? 'The following is a list of testimonials from alumni and students who have been placed to work.' : 'Berikut ini adalah daftar testimoni alumni dan mahasiswa yang telah ditempatkan bekerja.'}.</p>
                       </div>
                     </div>
                     <div className="flex flex-wrap flex-row justify-center items-center">
@@ -323,9 +323,9 @@ const CareerCenter = () => {
                   <hr className='my-5' />
                     <div>
                       <div className='space-y-1 mb-3'>
-                        <h2 className='text-center font-bold text-3xl'>{currentLanguage == 'en' ? 'Working Students' : 'Mahasiswa Bekerja'}</h2>
+                        <h2 className='text-center font-bold text-3xl'>{currentLanguage == 'en' ? 'Working Student & Alumni' : 'Alumni & Mahasiswa Bekerja'}</h2>
                         <p className='text-center text-sm md:text-base text-gray-700'>
-                        {currentLanguage == 'en' ? 'The following is a list of testimonials from the batch\'s alumni' : 'Berikut ini adalah daftar testimoni alumni angkatan tersebut'}.</p>
+                        {currentLanguage == 'en' ? 'The following is a list of alumni and students who have been placed to work.' : 'Berikut ini adalah daftar alumni dan mahasiswa yang telah ditempatkan bekerja.'}.</p>
                       </div>
                     </div>
                     <div className="flex flex-wrap flex-row justify-center items-center">

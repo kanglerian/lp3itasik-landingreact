@@ -322,27 +322,107 @@ const ProgramDetail = () => {
           </section>
           <section className="hidden py-5" id="alumni">
             {alumnis.length > 0 ? (
-              <div className="flex flex-wrap flex-row justify-center items-center">
-                {alumnis.map((alumni) =>
-                  <div className="w-full md:w-1/3 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
-                    <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
-                      <div className='flex justify-center items-center'>
-                        <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
+              <>
+                {
+                  alumnis.filter(item => item.testimoni == 1).length > 0 && (
+                    <>
+                      <div>
+                        <div className='space-y-1 mb-3'>
+                          <h2 className='text-center font-bold text-3xl'>{currentLanguage == 'en' ? 'Alumni and Student Testimonials' : 'Testimoni Alumni & Mahasiswa'}</h2>
+                          <p className='text-center text-sm md:text-base text-gray-700'>
+                            {currentLanguage == 'en' ? 'The following is a list of testimonials from alumni and students who have been placed to work.' : 'Berikut ini adalah daftar testimoni alumni dan mahasiswa yang telah ditempatkan bekerja.'}.</p>
+                        </div>
                       </div>
-                      <h3 className="text-lg">{alumni.name}</h3>
-                      <hr />
-                      <ul className="text-sm text-slate-800">
-                        <li><span className="font-bold">Prodi</span> {alumni.uuid}</li>
-                        <li><span className="font-bold">Perusahaan</span> {alumni.work}</li>
-                        <li><span className="font-bold">Posisi</span> {alumni.profession}</li>
-                        <li><span className="font-bold">Asal Sekolah</span> {alumni.school}</li>
-                      </ul>
-                      <hr />
-                      <p className="text-slate-800"><i>"{alumni.quote}"</i></p>
-                    </div>
-                  </div>
-                )}
-              </div>
+                      <div className="flex flex-wrap flex-row justify-center items-center">
+                        {alumnis.filter(item => item.testimoni == 1).map((alumni) =>
+                          <div className="w-full md:w-1/3 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
+                            <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
+                              <div className='flex justify-center items-center'>
+                                <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
+                              </div>
+                              <h3 className="text-lg">{alumni.name}</h3>
+                              <hr />
+                              <ul className="text-sm text-slate-800">
+                                <li><span className="font-bold">{currentLanguage == 'en' ? 'School' : 'Asal Sekolah'}</span> {alumni.school}</li>
+                                <li><span className="font-bold">{currentLanguage == 'en' ? 'Work' : 'Bekerja'}</span> {alumni.work}</li>
+                                <li><span className="font-bold">{currentLanguage == 'en' ? 'Position' : 'Sebagai'}</span> {alumni.profession}</li>
+                              </ul>
+                              <hr />
+                              <p className="text-slate-800"><i>"{alumni.quote}"</i></p>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </>
+                  )
+                }
+
+                {
+                  alumnis.filter(item => item.career == 'K').length > 0 && (
+                    <>
+                      <hr className='my-5' />
+                      <div>
+                        <div className='space-y-1 mb-3'>
+                          <h2 className='text-center font-bold text-3xl'>{currentLanguage == 'en' ? 'Working Student & Alumni' : 'Alumni & Mahasiswa Bekerja'}</h2>
+                          <p className='text-center text-sm md:text-base text-gray-700'>
+                            {currentLanguage == 'en' ? 'The following is a list of alumni and students who have been placed to work.' : 'Berikut ini adalah daftar alumni dan mahasiswa yang telah ditempatkan bekerja.'}.</p>
+                        </div>
+                      </div>
+                      <div className="flex flex-wrap flex-row justify-center items-center">
+                        {alumnis.filter(item => item.career == 'K').map((alumni) =>
+                          <div className="w-full md:w-1/4 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
+                            <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
+                              <div className='flex justify-center items-center'>
+                                <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
+                              </div>
+                              <hr />
+                              <h3 className="text-lg">{alumni.name}</h3>
+                              <ul className="text-sm text-slate-800 space-y-1">
+                                <li><span className="font-bold">{currentLanguage == 'en' ? 'School' : 'Asal Sekolah'}</span> {alumni.school}</li>
+                                <li><span className="font-bold">{currentLanguage == 'en' ? 'Work' : 'Bekerja'}</span> {alumni.work}</li>
+                                <li><span className="font-bold">{currentLanguage == 'en' ? 'Position' : 'Sebagai'}</span> {alumni.profession}</li>
+                              </ul>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </>
+                  )
+                }
+
+                {
+                  alumnis.filter(item => item.career == 'W').length > 0 && (
+                    <>
+                      <hr className='my-5' />
+                      <div>
+                        <div className='space-y-1 mb-3'>
+                          <h2 className='text-center font-bold text-3xl'>{currentLanguage == 'en' ? 'Entrepreneurial Student' : 'Mahasiswa Berwirausaha'}</h2>
+                          <p className='text-center text-sm md:text-base text-gray-700'>
+                            {currentLanguage == 'en' ? 'The following is a list of testimonials from the batch\'s alumni' : 'Berikut ini adalah daftar testimoni alumni angkatan tersebut'}.</p>
+                        </div>
+                      </div>
+                      <div className="flex flex-wrap flex-row justify-center items-center">
+                        {alumnis.filter(item => item.career == 'W').map((alumni) =>
+                          <div className="w-full md:w-1/4 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
+                            <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
+                              <div className='flex justify-center items-center'>
+                                <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
+                              </div>
+                              <hr />
+                              <h3 className="text-lg">{alumni.name}</h3>
+                              <ul className="text-sm text-slate-800 space-y-1">
+                                <li><span className="font-bold">{currentLanguage == 'en' ? 'School' : 'Asal Sekolah'}</span> {alumni.school}</li>
+                                <li><span className="font-bold">{currentLanguage == 'en' ? 'Work' : 'Bekerja'}</span> {alumni.work}</li>
+                                <li><span className="font-bold">{currentLanguage == 'en' ? 'Position' : 'Sebagai'}</span> {alumni.profession}</li>
+                              </ul>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </>
+                  )
+                }
+              </>
             ) : (
               <div className="h-[500px] text-center flex justify-center items-center overflow-x-hidden">
                 <Player
