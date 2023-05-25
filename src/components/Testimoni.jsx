@@ -4,10 +4,25 @@ import axios from 'axios'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.min.css';
+
 const Testimoni = () => {
   const currentLanguage = localStorage.getItem('language') || 'id';
 
   const [alumnis, setAlumni] = useState([])
+
+  const options = {
+    responsive: {
+      0: {
+        items: 1
+      },
+      992: {
+        items: 3
+      }
+    }
+  }
 
   const getAlumni = async () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/programalumnis`)
@@ -43,26 +58,26 @@ const Testimoni = () => {
                     <p className='text-center text-sm md:text-base text-gray-700'>{currentLanguage == 'en' ? 'The following is a list of testimonials from alumni and students of this generation' : 'Berikut ini adalah daftar testimoni alumni dan mahasiswa angkatan tersebut'}.</p>
                   </div>
                 </div>
-                <div className="flex flex-wrap flex-row justify-center items-center">
-                  {alumnis.filter(item => item.testimoni == 1).map((alumni) =>
-                    <div className="w-full md:w-1/3 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
-                      <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
-                        <div className='flex justify-center items-center'>
-                          <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
+                <OwlCarousel className='owl-theme' {...options} loop margin={10} autoplay dots={true}>
+                  {alumnis.filter(item => item.testimoni == 1).map((alumni, i) =>
+                    <div key={i} data-aos="fade-up" data-aos-delay={i * 5} className="p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
+                      <div className="flex flex-col items-center justify-center text-center bg-white border border-slate-200 rounded-xl p-5 space-y-2">
+                        <div className='w-28 h-28'>
+                          <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-full" />
                         </div>
                         <h3 className="text-lg">{alumni.name}</h3>
-                        <hr />
                         <ul className="text-sm text-slate-800">
+                          <hr className='mb-2' />
                           <li><span className="font-bold">{currentLanguage == 'en' ? 'School' : 'Asal Sekolah'}</span> {alumni.school}</li>
                           <li><span className="font-bold">{currentLanguage == 'en' ? 'Work' : 'Bekerja'}</span> {alumni.work}</li>
                           <li><span className="font-bold">{currentLanguage == 'en' ? 'Position' : 'Sebagai'}</span> {alumni.profession}</li>
+                          <hr className='mt-2' />
                         </ul>
-                        <hr />
                         <p className="text-slate-800"><i>"{alumni.quote}"</i></p>
                       </div>
                     </div>
                   )}
-                </div>
+                </OwlCarousel>
               </>
             )
           }
