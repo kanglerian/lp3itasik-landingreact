@@ -28,11 +28,11 @@ const Banner = ({ locate }) => {
 
 
   return (
-    <section className="container mx-auto my-5 px-4">
+    <section className="container mx-auto my-4 px-4">
       {isLoaded ? (
         <div className="relative z-0">
           {banners.length > 0 ? (
-            <div className="flex items-center justify-center relative h-56 overflow-hidden rounded-xl md:h-[550px]">
+            <div className="flex items-center justify-center relative h-56 overflow-hidden rounded-xl md:h-[700px]">
               <OwlCarousel className='owl-theme' items={1} dots={true} loop margin={10} autoplay>
                 {banners.map((banner, i) =>
                   <div className="item" key={i}>
@@ -49,7 +49,7 @@ const Banner = ({ locate }) => {
         </div>
       ) : (
         <div className="relative z-0">
-          <div role="status" className="flex items-center justify-center h-56 md:h-[550px] bg-gray-100 rounded-lg animate-pulse">
+          <div role="status" className="flex items-center justify-center h-56 md:h-[700px] bg-gray-100 rounded-lg animate-pulse">
             <i className="fa-regular fa-images fa-3x text-gray-200 animate-pulse"></i>
           </div>
         </div>
