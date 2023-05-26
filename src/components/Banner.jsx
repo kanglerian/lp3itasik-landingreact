@@ -32,11 +32,11 @@ const Banner = ({ locate }) => {
       {isLoaded ? (
         <div className="relative z-0">
           {banners.length > 0 ? (
-            <div className="flex items-center justify-center relative h-56 overflow-hidden rounded-xl md:h-[700px]">
+            <div className="flex items-center justify-center relative overflow-hidden rounded-xl">
               <OwlCarousel className='owl-theme' items={1} dots={true} loop margin={10} autoplay>
                 {banners.map((banner, i) =>
                   <div className="item" key={i}>
-                    <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + banner.image} alt={banner.title} className="rounded-lg shadow-lg" />
+                    <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + banner.image} alt={banner.title} className="rounded-lg shadow-lg aspect-w-16 aspect-h-9" />
                   </div>
                 )}
               </OwlCarousel>
