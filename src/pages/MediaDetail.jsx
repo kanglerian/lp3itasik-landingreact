@@ -1,6 +1,9 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
+import { useParams } from 'react-router-dom'
+import moment from 'moment-timezone';
 import axios from 'axios'
+
 const Navbar = lazy(() => import('../components/Navbar'))
 const Footer = lazy(() => import('../components/Footer'))
 
@@ -18,17 +21,18 @@ const renderLoader = () =>
     <span class="sr-only">Loading...</span>
   </div>;
 
-const Program = () => {
-
+const Media = () => {
   const currentLanguage = localStorage.getItem('language') || 'id';
-  const [programs, setProgram] = useState([])
+  const { uuid } = useParams();
+  const [medias, setMedias] = useState([])
+  const [media, setMedia] = useState({})
   const [isLoaded, setIsLoaded] = useState(false)
 
-  const getPrograms = async () => {
-    await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/programs`)
+  const getMedias = async () => {
+    await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/medias`)
       .then((response) => {
-        let programs = response.data.filter(program => program.status == '1')
-        setProgram(programs)
+        let medias = response.data.filter(media => media.status == '1')
+        setMedias(medias)
         setIsLoaded(true)
       })
       .catch((error) => {
@@ -36,23 +40,26 @@ const Program = () => {
       })
   }
 
-  const listPrograms = programs.map((program, i) =>
-    <div key={i} data-aos="fade-up" data-aos-delay={i * 100} className="item w-96 h-auto border-8 border-white shadow rounded-lg ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
-      <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} alt={program.title} className="rounded-lg" />
-      <div className="p-4">
-        <h5 className="font-bold text-sm mb-1 text-left text-gray-700">{program.level} {program.title}</h5>
-        <span className="inline-block bg-gray-200 text-gray-500 text-xs py-1 px-3 rounded-md mb-3">{program.campus}</span>
-        <div className="flex justify-between items-center">
-          <a href={`/programs/` + program.uuid} role="button" className="bg-cyan-600 text-white text-xs py-2 px-3 rounded-md">
-            {currentLanguage == 'en' ? 'View more' : 'Lihat selengkapnya'}
-          </a>
-        </div>
-      </div>
-    </div>
+  const getMedia = async () => {
+    await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/medias/${uuid}`)
+      .then((response) => {
+        setMedia(response.data)
+        setIsLoaded(true)
+      })
+      .catch((error) => {
+        console.log(error.message);
+      })
+  }
+
+  const listMedias = medias.map((medi, i) =>
+    <li key={i} data-aos="fade-up" data-aos-delay={i * 100}>
+      <a href={`/media/` + medi.uuid} role="button" className="bg-gray-100 py-1 px-2 rounded text-base text-sky-600 underline md:hover:text-sky-700">{medi.title.slice(0, 40) + "..."}</a>
+    </li>
   )
 
   useEffect(() => {
-    getPrograms()
+    getMedias()
+    getMedia()
     AOS.init({
       duration: 800,
       easing: 'ease-in-out',
@@ -65,19 +72,35 @@ const Program = () => {
     <Suspense fallback={renderLoader()}>
       <Navbar />
       <section className="my-14">
-        <header class="mb-7 text-center">
-          <a href={`/programs`}>
-            <h1 class="text-3xl font-bold text-gray-700 hover:text-gray-800 underline underline-offset-8">
-              {currentLanguage == 'en' ? 'Study program' : 'Program studi'}
-            </h1>
-          </a>
-        </header>
         <div className="container mx-auto px-4">
           {isLoaded ? (
             <>
-              {programs.length > 0 ? (
-                <div className="w-full flex justify-center flex-wrap gap-5">
-                  {listPrograms}
+              {media ? (
+                <div className="flex flex-col justify-end md:flex-row gap-5">
+                  <div className="w-full md:w-1/3 order-2 md:order-none">
+                    <h1 className="text-xl font-bold text-gray-800">
+                      {currentLanguage == 'en' ? 'More medias' : 'Media lainnya'}
+                    </h1>
+                    <hr className="my-2" />
+                    <div>
+                      <ul className="space-y-3">
+                        {medias.length > 0 ? (
+                          listMedias
+                        ) : (
+                          <li>Tidak ada berita.</li>
+                        )}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="w-full md:w-2/3 order-1 md:order-none">
+                    <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + media.image} alt={media.title} className="rounded-xl shadow border-8 border-white" />
+                    <div className="space-y-5 mt-4 bg-gray-100 p-5 rounded-xl">
+                      <h1 className="text-4xl font-bold text-gray-800">{media.title}</h1>
+                      <span className="inline-block bg-sky-200 text-sky-700 text-sm py-1 px-5 rounded-md mb-3"><i className="fa-solid fa-calendar-days mr-2" />{moment.tz(media.date, 'Asia/Jakarta').format('LL')}</span>
+                      <div className="text-gray-700 leading-6 space-y-5" dangerouslySetInnerHTML={{ __html: media.description }}></div>
+                    </div>
+                  </div>
+
                 </div>
               ) : (
                 <div className="h-[500px] text-center flex justify-center items-center overflow-x-hidden">
@@ -93,16 +116,10 @@ const Program = () => {
               )}
             </>
           ) : (
-            <div className="w-full flex justify-center flex-wrap gap-5">
-              <div className="w-96 flex flex-col items-start justify-start bg-gray-100 rounded-lg animate-pulse p-5">
-                <div className='w-full h-40 rounded-lg bg-gray-200'></div>
-                <div className='w-5/6 h-5 rounded-lg bg-gray-200 mt-3'></div>
-                <div className='w-5/6 h-5 rounded-lg bg-gray-200 mt-3'></div>
-                <div className='w-3/6 h-7 rounded-lg bg-gray-200 mt-3'></div>
-              </div>
+            <div role="status" className="flex items-center justify-center h-56 md:h-[550px] bg-gray-100 rounded-lg animate-pulse">
+              <i className="fa-regular fa-images fa-3x text-gray-200"></i>
             </div>
           )}
-
         </div>
       </section>
       <Footer />
@@ -110,4 +127,4 @@ const Program = () => {
   )
 }
 
-export default Program
+export default Media

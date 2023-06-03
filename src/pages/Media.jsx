@@ -1,6 +1,8 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
+import moment from 'moment-timezone';
 import axios from 'axios'
+
 const Navbar = lazy(() => import('../components/Navbar'))
 const Footer = lazy(() => import('../components/Footer'))
 
@@ -18,17 +20,16 @@ const renderLoader = () =>
     <span class="sr-only">Loading...</span>
   </div>;
 
-const Program = () => {
-
+const Media = () => {
   const currentLanguage = localStorage.getItem('language') || 'id';
-  const [programs, setProgram] = useState([])
+  const [medias, setMedia] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
 
-  const getPrograms = async () => {
-    await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/programs`)
+  const getMedia = async () => {
+    await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/medias`)
       .then((response) => {
-        let programs = response.data.filter(program => program.status == '1')
-        setProgram(programs)
+        let medias = response.data.filter(media => media.status == '1')
+        setMedia(medias)
         setIsLoaded(true)
       })
       .catch((error) => {
@@ -36,23 +37,24 @@ const Program = () => {
       })
   }
 
-  const listPrograms = programs.map((program, i) =>
-    <div key={i} data-aos="fade-up" data-aos-delay={i * 100} className="item w-96 h-auto border-8 border-white shadow rounded-lg ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
-      <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} alt={program.title} className="rounded-lg" />
+  const listMedia = medias.map((media, i) =>
+    <div className="item w-96 h-auto border-8 border-white shadow rounded-lg ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300" key={i} data-aos="fade-up" data-aos-delay={i * 100}>
+      <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + media.image} alt={media.title} className="rounded-lg" />
       <div className="p-4">
-        <h5 className="font-bold text-sm mb-1 text-left text-gray-700">{program.level} {program.title}</h5>
-        <span className="inline-block bg-gray-200 text-gray-500 text-xs py-1 px-3 rounded-md mb-3">{program.campus}</span>
-        <div className="flex justify-between items-center">
-          <a href={`/programs/` + program.uuid} role="button" className="bg-cyan-600 text-white text-xs py-2 px-3 rounded-md">
-            {currentLanguage == 'en' ? 'View more' : 'Lihat selengkapnya'}
+        <h5 className="font-bold text-base mb-1 text-left text-gray-700">{media.title}</h5>
+        <div className="text-sm text-gray-600" dangerouslySetInnerHTML={{ __html: media.description.slice(0, 100) + "..." }}></div>
+        <div className="flex justify-between items-center mt-3">
+          <a href={`/media/` + media.uuid} role="button" className="bg-cyan-600 text-white text-xs py-1 px-3 rounded-md">
+            {currentLanguage == 'en' ? 'More detail' : 'Selengkapnya'}
           </a>
+          <span className="block bg-gray-200 text-gray-500 text-xs py-1 px-3 rounded-md">{moment.tz(media.date, 'Asia/Jakarta').format('LL')}</span>
         </div>
       </div>
     </div>
   )
 
   useEffect(() => {
-    getPrograms()
+    getMedia()
     AOS.init({
       duration: 800,
       easing: 'ease-in-out',
@@ -66,18 +68,18 @@ const Program = () => {
       <Navbar />
       <section className="my-14">
         <header class="mb-7 text-center">
-          <a href={`/programs`}>
+          <a href={`/media`}>
             <h1 class="text-3xl font-bold text-gray-700 hover:text-gray-800 underline underline-offset-8">
-              {currentLanguage == 'en' ? 'Study program' : 'Program studi'}
+              {currentLanguage == 'en' ? 'Media' : 'Media'}
             </h1>
           </a>
         </header>
         <div className="container mx-auto px-4">
           {isLoaded ? (
             <>
-              {programs.length > 0 ? (
+              {medias.length > 0 ? (
                 <div className="w-full flex justify-center flex-wrap gap-5">
-                  {listPrograms}
+                  {listMedia}
                 </div>
               ) : (
                 <div className="h-[500px] text-center flex justify-center items-center overflow-x-hidden">
@@ -93,16 +95,10 @@ const Program = () => {
               )}
             </>
           ) : (
-            <div className="w-full flex justify-center flex-wrap gap-5">
-              <div className="w-96 flex flex-col items-start justify-start bg-gray-100 rounded-lg animate-pulse p-5">
-                <div className='w-full h-40 rounded-lg bg-gray-200'></div>
-                <div className='w-5/6 h-5 rounded-lg bg-gray-200 mt-3'></div>
-                <div className='w-5/6 h-5 rounded-lg bg-gray-200 mt-3'></div>
-                <div className='w-3/6 h-7 rounded-lg bg-gray-200 mt-3'></div>
-              </div>
+            <div role="status" className="flex items-center justify-center h-56 md:h-[550px] bg-gray-100 rounded-lg animate-pulse">
+              <i className="fa-regular fa-images fa-3x text-gray-200"></i>
             </div>
           )}
-
         </div>
       </section>
       <Footer />
@@ -110,4 +106,4 @@ const Program = () => {
   )
 }
 
-export default Program
+export default Media

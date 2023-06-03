@@ -61,7 +61,7 @@ const Organization = () => {
   return (
     <Suspense fallback={renderLoader()}>
       <Navbar />
-      <section className="my-20">
+      <section className="my-14">
         <div className="container mx-auto px-4">
           {isLoaded ? (
             <>

@@ -28,7 +28,7 @@ const Media = () => {
       <h5 className="font-bold text-lg">{media.title}</h5>
       <div className="text-sm text-gray-600" dangerouslySetInnerHTML={{ __html: media.description.slice(0, 150) + "..." }}></div>
       <div className="text-sm flex align-center justify-between">
-        <a role="button" href="#" className="transition ease-in-out duration-300 bg-sky-600 hover:bg-sky-600 px-5 py-1 rounded-lg text-white">
+        <a role="button" href={`/media/` + media.uuid} className="transition ease-in-out duration-300 bg-sky-600 hover:bg-sky-600 px-5 py-1 rounded-lg text-white">
           {currentLanguage == 'en' ? 'View more' : 'Lihat selengkapnya'}
         </a>
         <p className="text-gray-600 py-1">{moment.tz(media.date, 'Asia/Jakarta').format('LL')}</p>
@@ -66,7 +66,7 @@ const Media = () => {
                   {listMedias}
                 </div>
                 <div className="text-center">
-                  <a href="#" className="text-sky-600 text-sm underline">{currentLanguage == 'en' ? 'View more' : 'Lihat selengkapnya'}</a>
+                  <a href={`/media`} className="text-sky-600 text-sm underline">{currentLanguage == 'en' ? 'View more' : 'Lihat selengkapnya'}</a>
                 </div>
               </div>
             ) : (

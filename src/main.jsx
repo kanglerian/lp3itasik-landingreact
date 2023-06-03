@@ -14,8 +14,10 @@ import Organization from './pages/Organization';
 import Facilities from './pages/Facilities';
 import Program from './pages/Program';
 import Student from './pages/Student';
+import Media from './pages/Media';
 import ProgramDetail from './pages/ProgramDetail';
 import StudentDetail from './pages/StudentDetail';
+import MediaDetail from './pages/MediaDetail';
 import CareerCenter from './pages/CareerCenter';
 
 const router = createBrowserRouter([
@@ -58,6 +60,14 @@ const router = createBrowserRouter([
   {
     path: "/career",
     element: <CareerCenter/>
+  },
+  {
+    path: "/media",
+    element: <Media/>
+  },
+  {
+    path: "/media/:uuid",
+    element: <MediaDetail/>
   },
 ]);
 
