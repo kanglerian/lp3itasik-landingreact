@@ -100,7 +100,6 @@ const Media = () => {
                       <div className="text-gray-700 leading-6 space-y-5" dangerouslySetInnerHTML={{ __html: media.description }}></div>
                     </div>
                   </div>
-
                 </div>
               ) : (
                 <div className="h-[500px] text-center flex justify-center items-center overflow-x-hidden">
@@ -116,9 +115,35 @@ const Media = () => {
               )}
             </>
           ) : (
-            <div role="status" className="flex items-center justify-center h-56 md:h-[550px] bg-gray-100 rounded-lg animate-pulse">
-              <i className="fa-regular fa-images fa-3x text-gray-200"></i>
-            </div>
+            <>
+              <div className="flex flex-col justify-end md:flex-row gap-5">
+                <div className="w-full md:w-1/3 order-2 md:order-none">
+                  <h1 className="text-xl font-bold text-gray-800">
+                    {currentLanguage == 'en' ? 'More medias' : 'Media lainnya'}
+                  </h1>
+                  <hr className="my-2" />
+                  <div>
+                    <ul className="space-y-3">
+                      <li className='bg-gray-100 w-full h-8 rounded-lg'></li>
+                      <li className='bg-gray-100 w-full h-8 rounded-lg'></li>
+                      <li className='bg-gray-100 w-full h-8 rounded-lg'></li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="w-full md:w-2/3 order-1 md:order-none">
+                  <div className="flex items-center justify-center h-56 md:h-[350px] bg-gray-100 rounded-lg animate-pulse">
+                    <i className="fa-regular fa-images fa-3x text-gray-200"></i>
+                  </div>
+                  <div className="space-y-3 mt-4 bg-gray-100 p-5 rounded-xl">
+                    <h1 className="text-4xl font-bold text-gray-800 animate-pulse">
+                      <div className='bg-gray-200 w-full h-12 rounded-lg'></div>
+                    </h1>
+                    <div className='bg-gray-200 w-1/6 h-8 rounded-lg'></div>
+                    <div className='bg-gray-200 w-full h-8 rounded-lg'></div>
+                  </div>
+                </div>
+              </div>
+            </>
           )}
         </div>
       </section>
