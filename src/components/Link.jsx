@@ -23,7 +23,7 @@ const Link = () => {
             {currentLanguage == 'en' ? 'Registration Information' : 'Informasi Pendaftaran'}
           </a>
           <a data-aos="fade-up" data-aos-delay="20" role="button" href={`/career`} className="transition text-center ease-in-out duration-300 inline py-2 px-8 text-cyan-700 hover:text-white border border-cyan-700 hover:bg-cyan-700 rounded">
-            <i class="fa-solid fa-briefcase mr-1"></i>
+            <i className="fa-solid fa-briefcase mr-1"></i>
             {currentLanguage == 'en' ? 'Career Center' : 'Pusat Karir'}
           </a>
           <a data-aos="fade-up" data-aos-delay="20" role="button" href="https://brosur.politekniklp3i-tasikmalaya.ac.id/" target="_blank" className="transition text-center ease-in-out duration-300 inline py-2 px-8 text-cyan-700 hover:text-white border border-cyan-700 hover:bg-cyan-700 rounded"><i className="fa-solid fa-book-open mr-1" />

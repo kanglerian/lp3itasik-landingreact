@@ -1,10 +1,35 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import imageFlyer from '../assets/flyer.jpeg'
+import imageFlyer from '../assets/flyer.jpg'
 
 const Flyer = () => {
   const [isVisible, setVisible] = useState(false);
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [year, setYear] = useState('');
+  const [success, setSuccess] = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  const handleSend = async () => {
+    await axios.post(`https://database.politekniklp3i-tasikmalaya.ac.id/api/storewebsite`,{
+      name: name,
+      phone: phone,
+      year: year
+    })
+    .then((res) => {
+      setName('');
+      setPhone('');
+      setYear('');
+      setSuccess(true);
+      setFailed(false);
+    })
+    .catch((err) => {
+      setFailed(true);
+      setSuccess(false);
+    })
+  }
 
   const handleVisible = () => {
     setVisible(!isVisible);
@@ -22,6 +47,7 @@ const Flyer = () => {
       once: true
     });
     AOS.refresh();
+    // loadingModal();
     setTimeout(loadingModal, 3000);
   }, []);
 
@@ -32,16 +58,30 @@ const Flyer = () => {
           <div className="bg-gray-900 bg-opacity-75 flex items-center justify-center h-screen w-full px-5">
             <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" className="w-3/3 md:w-2/3 bg-slate-100 rounded-xl p-5 max-h-screen overflow-y-auto">
               <div className='relative flex justify-center items-center flex-col md:flex-row gap-5'>
-                <button onClick={handleVisible} className='absolute top-0 right-0'><i class="fa-solid fa-circle-xmark fa-1x"></i></button>
+                <button onClick={handleVisible} className='absolute top-0 right-0'><i className="fa-solid fa-circle-xmark fa-1x"></i></button>
                 <div className="w-full md:w-1/2 bg-cover bg-center h-[200px] md:h-[450px] rounded-xl" style={{ backgroundImage: `url(${imageFlyer})` }}></div>
                 <div className='w-full md:w-1/2 space-y-2'>
-                  <h4 className='text-sm' data-aos="fade-up" data-aos-delay="1100">MASIH BINGUNG CARI KAMPUS?</h4>
                   <h1 className='text-2xl font-bold' data-aos="fade-up" data-aos-delay="1200">Daftar di Politeknik LP3I Kampus Tasikmalaya Sekarang, Dapatkan Beasiswa hingga Rp5.000.000.</h1>
                   <p data-aos="fade-up" data-aos-delay="1300">Jangan lewatkan penawaran terbatas ya sahabat.</p>
-                  <input data-aos="fade-up" data-aos-delay="1400" type='email' placeholder='Enter your full name' className='w-full border text-sm border-gray-200 rounded-lg' />
-                  <input data-aos="fade-up" data-aos-delay="1500" type='text' placeholder='No whatsapp' className='w-full border text-sm border-gray-200 rounded-lg' />
-                  <input data-aos="fade-up" data-aos-delay="1600" type='text' placeholder='Enter your school' className='w-full border text-sm border-gray-200 rounded-lg' />
-                  <button data-aos="fade-up" data-aos-delay="1700" className='w-full text-sm bg-red-500 text-white px-4 py-2 rounded-lg'>Dapatkan Beasiswa</button>
+                  <h4 className='text-sm' data-aos="fade-up" data-aos-delay="1100">MASIH BINGUNG CARI KAMPUS?</h4>
+                  {
+                    success && (
+                      <div className='bg-emerald-500 py-1 px-3 text-white rounded-lg'>
+                        <h2 className='text-sm'><i className="fa-solid fa-circle-check"></i> Terima kasih telah mengisi data, mohon ditunggu ya!</h2>
+                      </div>
+                    )
+                  }
+                  {
+                    failed && (
+                      <div className='bg-red-500 py-1 px-3 text-white rounded-lg'>
+                        <h2 className='text-sm'><i className="fa-solid fa-circle-xmark"></i> Mohon isi data dengan benar</h2>
+                      </div>
+                    )
+                  }
+                  <input data-aos="fade-up" data-aos-delay="1400" type='text' value={name} onChange={(e) => setName(e.target.value)} placeholder='Nama lengkap kamu' className='w-full border text-sm border-gray-200 rounded-lg' />
+                  <input data-aos="fade-up" data-aos-delay="1500" type='text' value={phone} onChange={(e) => setPhone(e.target.value)} placeholder='No whatsapp' className='w-full border text-sm border-gray-200 rounded-lg' />
+                  <input data-aos="fade-up" data-aos-delay="1600" type='text' value={year} onChange={(e) => setYear(e.target.value)} placeholder='Tahun lulus' className='w-full border text-sm border-gray-200 rounded-lg' />
+                  <button data-aos="fade-up" data-aos-delay="1700" onClick={handleSend} className='w-full text-sm bg-red-500 text-white px-4 py-2 rounded-lg'>Dapatkan Beasiswa</button>
                 </div>
               </div>
             </div>
