@@ -1,13 +1,11 @@
 import React, { lazy, Suspense } from 'react'
 
-import Lottie from 'lottie-react'
-import whatsappAnimation from '../assets/whatsapp.json'
-import Whatsapp from '../components/Whatsapp'
-
 const Navbar = lazy(() => import('../components/Navbar'))
 const Banner = lazy(() => import('../components/Banner'))
 const Link = lazy(() => import('../components/Link'))
 const Benefit = lazy(() => import('../components/Benefit'))
+const Type = lazy(() => import('../components/Type'))
+const Whatsapp = lazy(() => import('../components/Whatsapp'))
 const Program = lazy(() => import('../components/Program'))
 const Media = lazy(() => import('../components/Media'))
 const Agenda = lazy(() => import('../components/Agenda'))
@@ -35,6 +33,7 @@ const Home = () => {
       <Banner locate="L" />
       <Link />
       <Benefit />
+      <Type />
       <Program />
       <Media />
       <Agenda />
