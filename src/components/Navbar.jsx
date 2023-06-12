@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import lp3i from '../assets/lp3i.svg'
+import axios from 'axios'
 
 import LanguageSwitcher from '../setting/LanguageSwitcher'
 
@@ -9,10 +10,36 @@ const Navbar = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(true);
 
   const [showAbout, setAbout] = useState(false);
+  const [showProgram, setProgram] = useState(false);
   const [showService, setService] = useState(false);
+
+  const [utamaPrograms, setUtama] = useState([])
+  const [tasikPrograms, setTasik] = useState([])
+  const [vokasiPrograms, setVokasi] = useState([])
+
+  const getPrograms = async () => {
+    await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/programs`)
+      .then((response) => {
+        let programs = response.data;
+        let foundUtama = programs.filter(program => program.campus == 'Kampus Utama' && program.status == "1");
+        let foundTasik = programs.filter(program => program.campus == 'Politeknik LP3I Kampus Tasikmalaya' && program.status == "1");
+        let foundVokasi = programs.filter(program => program.campus == 'LP3I Tasikmalaya' && program.status == "1");
+        setUtama(foundUtama);
+        setTasik(foundTasik);
+        setVokasi(foundVokasi);
+        setIsLoaded(true);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      })
+  }
 
   const toggleAbout = () => {
     setAbout(!showAbout)
+  }
+
+  const toggleProgram = () => {
+    setProgram(!showProgram)
   }
 
   const toggleService = () => {
@@ -22,6 +49,10 @@ const Navbar = () => {
   const toggleNavbar = () => {
     setIsNavbarOpen(!isNavbarOpen);
   }
+
+  useEffect(() => {
+    getPrograms();
+  }, []);
 
   return (
     <>
@@ -41,7 +72,7 @@ const Navbar = () => {
             </div>
           </div>
         </nav>
-        <header className="container mt-4 px-4 mx-auto text-sm">
+        <header className="container mt-3 px-4 mx-auto text-sm">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between md:flex-wrap">
             <div className="flex justify-between items-center">
               <span>
@@ -55,7 +86,7 @@ const Navbar = () => {
             </div>
             {isNavbarOpen && (
               <div className="w-full md:w-auto transition duration-200 ease-in-out" data-attribute={0} id="navbar-dropdown">
-                <ul className="flex flex-col mt-4 p-3 border border-gray-100 rounded-lg md:flex-row md:items-center md:flex-wrap md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+                <ul className="flex flex-col mt-3 p-3 border border-gray-100 rounded-lg md:flex-row md:items-center md:flex-wrap md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
                   <li>
                     <a href={`/`} className="block md:inline py-2 px-4 text-gray-900 md:hover:text-cyan-700 md:p-0">
                       {currentLanguage == 'en' ? 'Home' : 'Beranda'}
@@ -71,7 +102,7 @@ const Navbar = () => {
                       )}
                     </button>
                     {showAbout &&
-                      <div className="z-10 absolute mt-2 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                      <div className="z-10 absolute mt-3 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                         <ul className="py-2 text-sm text-gray-900">
                           <li>
                             <a href={`/about`} className="block px-4 py-2 hover:bg-gray-100">
@@ -98,9 +129,75 @@ const Navbar = () => {
                     }
                   </li>
                   <li>
-                    <a href={`/programs`} className="block md:inline py-2 px-4 text-gray-900 md:hover:text-cyan-800 md:p-0">
+                    <button onClick={toggleProgram} className="flex relative items-center justify-between w-full py-2 px-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-cyan-800 md:p-0 md:w-auto">
                       {currentLanguage == 'en' ? 'Study program' : 'Program Studi'}
-                    </a>
+                      {showProgram ? (
+                        <i className="ml-2 fa-solid fa-chevron-up" />
+                      ) : (
+                        <i className="ml-2 fa-solid fa-chevron-down" />
+                      )}
+                    </button>
+                    {showProgram &&
+                      <div className="z-10 absolute mt-3 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-72">
+                        {
+                          tasikPrograms.length > 0 && (
+                            <>
+                              <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                                <div class="font-medium truncate">Politeknik LP3I Kampus Tasikmalaya</div>
+                              </div>
+                              <ul className="py-2 text-sm text-gray-900">
+                                {tasikPrograms.map((tasik, i) =>
+                                  <li key={i} className='flex items-center px-4 hover:bg-gray-100 gap-2'>
+                                    <i class="fa-regular fa-circle-dot"></i>
+                                    <a href={`/programs/` + tasik.uuid} className="block pr-4 py-2">
+                                      {tasik.title}
+                                    </a>
+                                  </li>
+                                )}
+                              </ul>
+                            </>
+                          )
+                        }
+                        {
+                          utamaPrograms.length > 0 && (
+                            <>
+                              <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                                <div class="font-medium truncate">Kampus Utama</div>
+                              </div>
+                              <ul className="py-2 text-sm text-gray-900">
+                                {utamaPrograms.map((utama, i) =>
+                                  <li key={i} className='flex items-center px-4 hover:bg-gray-100 gap-2'>
+                                    <i class="fa-regular fa-circle-dot"></i>
+                                    <a href={`/programs/` + utama.uuid} className="block pr-4 py-2">
+                                      {utama.title}
+                                    </a>
+                                  </li>
+                                )}
+                              </ul>
+                            </>
+                          )
+                        }
+                        {
+                          vokasiPrograms.length > 0 && (
+                            <>
+                              <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                                <div class="font-medium truncate">LP3I Tasikmalaya</div>
+                              </div>
+                              <ul className="py-2 text-sm text-gray-900">
+                                {vokasiPrograms.map((vokasi, i) =>
+                                  <li key={i} className='flex items-center px-4 hover:bg-gray-100 gap-2'>
+                                    <i class="fa-regular fa-circle-dot"></i>
+                                    <a href={`/programs/` + vokasi.uuid} className="block pr-4 py-2">
+                                      {vokasi.title}
+                                    </a>
+                                  </li>
+                                )}
+                              </ul>
+                            </>
+                          )
+                        }
+                      </div>
+                    }
                   </li>
                   <li>
                     <a href={`/students`} className="block md:inline py-2 px-4 text-gray-900 md:hover:text-cyan-800 md:p-0">
@@ -122,7 +219,7 @@ const Navbar = () => {
                       )}
                     </button>
                     {showService &&
-                      <div className="z-10 absolute mt-2 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                      <div className="z-10 absolute mt-3 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                         <ul className="py-2 text-sm text-gray-900">
                           <li>
                             <a href="#" className="block px-4 py-2 hover:bg-gray-100">

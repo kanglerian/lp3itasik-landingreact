@@ -58,13 +58,16 @@ const Program = () => {
               <p className='text-base'>{currentLanguage == 'en' ? 'The following is a list of D3 level study programs at the LP3I Polytechnic, Tasikmalaya Campus' : 'Berikut adalah daftar program studi jenjang D3 di Politeknik LP3I Kampus Tasikmalaya'}</p>
               <div className="flex flex-wrap flex-col md:flex-row justify-center gap-5 my-8">
                 {tasikPrograms.map((tasik, i) =>
-                  <div className="group relative w-1/1 md:w-1/3" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
-                    <img className="w-full object-cover rounded-lg" alt={tasik.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + tasik.image} />
-                    <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-lp3i-200 rounded-lg opacity-0 group-hover:h-full group-hover:opacity-95 duration-500">
-                      <h1 className="text-lg text-white">{tasik.title}</h1>
-                      <a href={`/programs/` + tasik.uuid} role="button" className="mt-5 px-8 py-2 text-sm rounded-full bg-amber-400 hover:bg-amber-600 duration-300">
-                        {currentLanguage == 'en' ? 'View more' : 'Lihat selengkapnya'}
-                      </a>
+                  <div className="bg-lp3i-400 rounded-xl p-4 relative w-1/1 md:w-1/3" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
+                    <img className="w-full rounded-lg" alt={tasik.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + tasik.image} />
+                    <div className="pt-4 text-left">
+                      <h5 className="font-bold text-sm mb-1 text-left text-white">{tasik.level} {tasik.title}</h5>
+                      <span className="inline-block bg-lp3i-200 text-white text-xs py-1 px-3 rounded-md mb-3">{tasik.campus}</span>
+                      <div className="flex justify-between items-start">
+                        <a href={`/programs/` + tasik.uuid} role="button" className="bg-cyan-600 text-white text-xs py-2 px-3 rounded-md">
+                          {currentLanguage == 'en' ? 'View more' : 'Lihat selengkapnya'}
+                        </a>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -84,13 +87,16 @@ const Program = () => {
               <p className='text-base'>{currentLanguage == 'en' ? 'The following is a list of 2-year Vocational level study programs at LP3I Tasikmalaya' : 'Berikut adalah daftar program studi jenjang Vokasi 2 Tahun di LP3I Tasikmalaya'}</p>
               <div className="flex flex-col md:flex-row justify-center gap-5 my-8">
                 {vokasiPrograms.map((vokasi, i) =>
-                  <div className="group relative w-1/1 md:w-1/3" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
-                    <img className="w-full object-cover rounded-lg" alt={vokasi.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + vokasi.image} />
-                    <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-lp3i-200 rounded-lg opacity-0 group-hover:h-full group-hover:opacity-95 duration-500">
-                      <h1 className="text-lg text-white">{vokasi.level} {vokasi.title}</h1>
-                      <a href={`/programs/` + vokasi.uuid} role="button" className="mt-5 px-8 py-2 text-sm rounded-full bg-amber-400 hover:bg-amber-600 duration-300">
-                        {currentLanguage == 'en' ? 'View more' : 'Lihat selengkapnya'}
-                      </a>
+                  <div className="bg-lp3i-400 rounded-xl p-4 relative w-1/1 md:w-1/3" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
+                    <img className="w-full rounded-lg" alt={vokasi.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + vokasi.image} />
+                    <div className="pt-4 text-left">
+                      <h5 className="font-bold text-sm mb-1 text-left text-white">{vokasi.level} {vokasi.title}</h5>
+                      <span className="inline-block bg-lp3i-200 text-white text-xs py-1 px-3 rounded-md mb-3">{vokasi.campus}</span>
+                      <div className="flex justify-between items-start">
+                        <a href={`/programs/` + vokasi.uuid} role="button" className="bg-cyan-600 text-white text-xs py-2 px-3 rounded-md">
+                          {currentLanguage == 'en' ? 'View more' : 'Lihat selengkapnya'}
+                        </a>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -115,15 +121,18 @@ const Program = () => {
                 {currentLanguage == 'en' ? 'The following is a list of D3 level study programs at the LP3I Polytechnic' : 'Berikut adalah daftar program studi jenjang D3 di Politeknik LP3I'}</p>
               <div className="flex flex-wrap flex-col md:flex-row justify-center gap-5 my-8">
                 {utamaPrograms.map((utama, i) =>
-                  <div className="group relative w-1/1 md:w-1/3" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
-                    <img className="w-full object-cover rounded-lg" alt={utama.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + utama.image} />
-                    <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-lp3i-200 rounded-lg opacity-0 group-hover:h-full group-hover:opacity-95 duration-500">
-                      <h1 className="text-lg text-white">{utama.title}</h1>
-                      <a href={`/programs/` + utama.uuid} role="button" className="mt-5 px-8 py-2 text-sm rounded-full bg-amber-400 hover:bg-amber-600 duration-300">
+                  <div className="bg-lp3i-400 rounded-xl p-4 relative w-1/1 md:w-1/3" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
+                  <img className="w-full rounded-lg" alt={utama.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + utama.image} />
+                  <div className="pt-4 text-left">
+                    <h5 className="font-bold text-sm mb-1 text-left text-white">{utama.level} {utama.title}</h5>
+                    <span className="inline-block bg-lp3i-200 text-white text-xs py-1 px-3 rounded-md mb-3">{utama.campus}</span>
+                    <div className="flex justify-between items-start">
+                      <a href={`/programs/` + utama.uuid} role="button" className="bg-cyan-600 text-white text-xs py-2 px-3 rounded-md">
                         {currentLanguage == 'en' ? 'View more' : 'Lihat selengkapnya'}
                       </a>
                     </div>
                   </div>
+                </div>
                 )}
               </div>
             </>
