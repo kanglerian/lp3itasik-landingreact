@@ -23,7 +23,6 @@ const Flyer = () => {
     .then((res) => {
       setName('');
       setPhone('');
-      setYear('');
       setSuccess(true);
       setFailed(false);
     })
