@@ -20,7 +20,7 @@ const Link = () => {
       <div className="container mx-auto text-sm md:text-base px-4">
         <div className="flex flex-col md:flex-row gap-2	md:gap-4 justify-center flex-wrap">
           <a data-aos="fade-up" data-aos-delay="10" role="button" href="https://kpu.lp3itasik.com/" target="_blank" className="transition ease-in-out duration-300 inline py-2 px-8 text-center text-white bg-cyan-700 hover:bg-cyan-800 rounded"><i class="fa-solid fa-users-viewfinder mr-1"></i>
-            {currentLanguage == 'en' ? 'Pemilu BEM & HIMA 2023 / 2024' : 'Pemilu BEM 2023 / 2024'}
+            {currentLanguage == 'en' ? 'Pemilu BEM & HIMA 2023 / 2024' : 'Pemilu BEM & HIMA 2023 / 2024'}
           </a>
           <a data-aos="fade-up" data-aos-delay="20" role="button" href="https://api.whatsapp.com/send?phone=6281313608558&text=Hallo%20Kak,%20Boleh%20minta%20informasi%20Pendaftaran%20Mahasiswa%20Politeknik%20LP3I%20Kampus%20Tasikmalaya%3F" target="_blank" className="transition text-center ease-in-out duration-300 inline py-2 px-8 text-cyan-700 hover:text-white border border-cyan-700 hover:bg-cyan-700 rounded"><i className="fa-solid fa-circle-info mr-1" />
             {currentLanguage == 'en' ? 'Registration Information' : 'Informasi Pendaftaran'}
