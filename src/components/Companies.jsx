@@ -20,7 +20,7 @@ const Companies = () => {
         items: 3
       },
       992: {
-        items: 6
+        items: 5
       }
     }
   }
@@ -38,7 +38,7 @@ const Companies = () => {
   }
 
   const listCompanies = companies.map((company, i) =>
-    <div className="item" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
+    <div className="item flex items-center justify-center" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
       <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + company.image} alt={company.title} className="w-10 rounded-lg" />
     </div>
   )
@@ -61,7 +61,7 @@ const Companies = () => {
         </div>
         {isLoaded ? (
           <div className="mt-10 flex items-center justify-center">
-            <OwlCarousel className='owl-theme' {...options} loop margin={10} autoplay dots={true}>
+            <OwlCarousel className='owl-theme flex items-center justify-center' {...options} loop margin={10} autoplay dots={true}>
               {listCompanies}
             </OwlCarousel>
           </div>
