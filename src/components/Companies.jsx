@@ -39,7 +39,7 @@ const Companies = () => {
 
   const listCompanies = companies.map((company, i) =>
     <div className="item flex items-center justify-center" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
-      <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + company.image} alt={company.title} className="w-10 rounded-lg" />
+      <a href={`${company.link}`} target='_blank'><img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + company.image} alt={company.title} className="w-10 rounded-lg" /></a>
     </div>
   )
 
