@@ -16,6 +16,17 @@ const Flyer = () => {
   const [image, setImage] = useState('');
 
   const handleSend = async () => {
+    await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/send`,{
+      target: '6281286501015@c.us',
+      name: name,
+      whatsapp: phone
+    })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
     await axios.post(`https://database.politekniklp3i-tasikmalaya.ac.id/api/storewebsite`,{
       name: name,
       phone: phone,
