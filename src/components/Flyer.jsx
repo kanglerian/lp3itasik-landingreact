@@ -17,7 +17,7 @@ const Flyer = () => {
 
   const handleWhatsapp = async () => {
     await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/send`,{
-      target: '6281286501015@c.us',
+      target: '6281313608558@c.us',
       name: name,
       whatsapp: phone
     })
