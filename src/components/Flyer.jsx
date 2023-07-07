@@ -16,8 +16,8 @@ const Flyer = () => {
   const [image, setImage] = useState('');
 
   const handleWhatsapp = async () => {
-    await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/send`,{
-      target: '6281313608558@c.us',
+    await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/whatsappbot/send`,{
+      target: '120363146792473866@g.us',
       name: name,
       whatsapp: phone
     })
