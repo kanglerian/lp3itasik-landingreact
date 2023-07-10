@@ -19,6 +19,7 @@ import ProgramDetail from './pages/ProgramDetail';
 import StudentDetail from './pages/StudentDetail';
 import MediaDetail from './pages/MediaDetail';
 import CareerCenter from './pages/CareerCenter';
+import Complaint from './pages/Complaint';
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
   {
     path: "/media/:uuid",
     element: <MediaDetail/>
+  },
+  {
+    path: "/complaint",
+    element: <Complaint/>
   },
 ]);
 

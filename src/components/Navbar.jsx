@@ -66,8 +66,9 @@ const Navbar = () => {
                 <a href="https://bit.ly/InfoPMBLP3ITasik" target="_blank"><i className="fa-brands fa-whatsapp" /> 0813-1360-8558</a>
               </div>
               <div className="flex gap-3">
+                <a href={`/complaint`} target="_blank">{currentLanguage == 'en' ? 'Complaint' : 'Pengaduan'}</a>
                 <a href="https://brosur.politekniklp3i-tasikmalaya.ac.id/" target="_blank">{currentLanguage == 'en' ? 'Digital Brochure' : 'Brosur Digital'}</a>
-                <a href="https://virtualkampus.politekniklp3i-tasikmalaya.ac.id/" target="_blank" className=" md:inline">{currentLanguage == 'en' ? 'Virtual Kampus' : 'Virtual Campus'}</a>
+                <a href="https://virtualkampus.politekniklp3i-tasikmalaya.ac.id/" target="_blank" className="hidden md:inline">{currentLanguage == 'en' ? 'Virtual Kampus' : 'Virtual Campus'}</a>
               </div>
             </div>
           </div>
