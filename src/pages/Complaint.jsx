@@ -1,5 +1,4 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react'
-const Whatsapp = lazy(() => import('../components/Whatsapp'))
+import React, { useState, useEffect, Suspense } from 'react'
 import lp3i from '../assets/lp3i-white.svg'
 import complaintCover from '../assets/complaint-cover.jpg'
 import axios from 'axios'
@@ -60,7 +59,6 @@ const Program = () => {
   return (
     <Suspense fallback={renderLoader()}>
       <section className='bg-[#fcfcfc] static'>
-        <Whatsapp />
         <header style={{ backgroundImage: `url(${complaintCover})`, backgroundSize: 'cover' }} className="py-10 md:pt-24 md:pb-14 px-4">
           <div className='flex flex-col justify-center items-center text-center space-y-5'>
             <a href={'/'}><img src={lp3i} alt="Politeknik LP3I Kampus Tasikmalaya" className='w-44' /></a>
