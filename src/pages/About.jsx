@@ -33,12 +33,12 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-center items-center gap-8">
             <div className="basis-1/3">
-              <img src={kepalaKampus} alt className="bg-white p-2 rounded-2xl shadow" data-aos="fade-up" />
+              <img src={kepalaKampus} alt className="bg-white p-2 rounded-2xl shadow" />
             </div>
             <div className="basis-1/2">
-              <h5 className="font-bold" data-aos="fade-up" data-aos-delay="100">Sambutan Kepala Kampus</h5>
-              <h3 className="font-bold text-3xl mt-2" data-aos="fade-up" data-aos-delay="200">H. Rudi Kurniawan, ST., MM.</h3>
-              <p className="mt-4 text-sm md:text-base text-gray-700" data-aos="fade-up" data-aos-delay="300">
+              <h5 className="font-bold" data-aos-delay="100">Sambutan Kepala Kampus</h5>
+              <h3 className="font-bold text-3xl mt-2" data-aos-delay="200">H. Rudi Kurniawan, ST., MM.</h3>
+              <p className="mt-4 text-sm md:text-base text-gray-700" data-aos-delay="300">
                 Bahagia sekali rasanya kami bisa berada di tengah anda untuk menghadirkan sekelumit informasi mengenai lembaga pendidikan kami, yang selama ini telah turut membantu ribuan lulusannya meraih cita-cita menjadi profesional dibidangnya masing-masing.<br /><br />
                 Kami merasa bertanggung jawab untuk menyebarkan informasi ini seluas-luasnya agar anda, para generasi muda , tidak keliru dalam menentukan pilihan tempat belajar lanjutan pasca SMA/K, yang kami inginkan agar anda mendapatkan pendidikan terbaik yang dapat dimanfaatkan sepenuhnya dalam pengembangan karir anda dan tentunya juga, peningkatan kualitas hidup Anda.<br /><br />
                 Sebagai pelopor pendidikan profesi di Indonesia, yaitu pendidikan yang berorientasi dunia kerja tanpa meninggalkan kaidah-kaidah akademis, kami terus-menerus meningkatkan kualitas pendidikan dengan cara menyesuaikan kurikulum dengan mengikuti perkembangan yang terjadi di dunia kerja. Itulah yang menyebabkan daya saing lulusan LP3I di mata perusahaan selama ini tetap tinggi dan sulit untuk ditiru oleh lembaga lain. Era globalisasi sudah kita lalui, persaingan untuk terjun kedunia kerja akan semakin keras, kami siap menghadapinya! Bagaimana dengan anda?
@@ -52,8 +52,8 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-center items-center gap-8">
             <div className="basis-1/2">
-              <h3 className="font-bold text-3xl mt-2" data-aos="fade-up" data-aos-delay="100">Sejarah LP3I</h3>
-              <p className="mt-4 text-sm md:text-base text-gray-700" data-aos="fade-up" data-aos-delay="200">
+              <h3 className="font-bold text-3xl mt-2" data-aos-delay="100">Sejarah LP3I</h3>
+              <p className="mt-4 text-sm md:text-base text-gray-700" data-aos-delay="200">
                 Fenomena tidak tertampungnya lulusan pendidikan tinggi, di dunia kerja bukan cerita milik era tahun 2000-an saja. Bila dirunut ke belakang, sebenarnya gejala tersebut sudah mulai muncul ke permukaan sekitar dua puluh tahun sebelumnya. Semakin hari semakin meresahkan masyarakat yang mengalami langsung. Namun hingga menjelang akhir 1980- an, belum ada tanda-tanda pihak yang merasa terpanggil untuk menyelesaikan masalah tersebut, baik pemerintah maupun swasta.
                 <br /><br />
                 Atas dasar itulah, maka Lembaga Pendidikan dan Pengembangan Profesi Indonesia (LP3I) didirikan pada 29 Maret 1989 dengan cabang pertama di Pasar Minggu Jakarta Selatan.
@@ -66,7 +66,7 @@ const About = () => {
               </p>
             </div>
             <div className="basis-1/3">
-              <img src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" data-aos="fade-up" />
+              <img src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" />
             </div>
           </div>
         </div>
@@ -76,11 +76,11 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-center items-center gap-8">
             <div className="basis-1/3">
-              <img src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" data-aos="fade-up" />
+              <img src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" />
             </div>
             <div className="basis-1/2">
-              <h3 className="font-bold text-3xl mt-2" data-aos="fade-up" data-aos-delay="100">Apa itu Pendidikan Vokasi?</h3>
-              <p className="mt-4 text-sm md:text-base text-gray-700" data-aos="fade-up" data-aos-delay="200">
+              <h3 className="font-bold text-3xl mt-2" data-aos-delay="100">Apa itu Pendidikan Vokasi?</h3>
+              <p className="mt-4 text-sm md:text-base text-gray-700" data-aos-delay="200">
                 Pendidikan vokasi adalah jenis pendidikan yang didesain untuk memberikan keterampilan praktis dan pengetahuan yang relevan secara langsung dengan dunia kerja. Pendidikan vokasi berfokus pada persiapan siswa untuk memasuki lapangan kerja tertentu atau industri tertentu setelah menyelesaikan program pendidikan mereka.
                 <br /><br />
                 Tujuan dari pendidikan vokasi adalah untuk menghasilkan lulusan yang siap bekerja dan memiliki keterampilan yang diperlukan untuk memenuhi kebutuhan pasar kerja. Pendidikan vokasi mencakup berbagai bidang seperti teknologi, bisnis, pariwisata, kuliner, desain, otomotif, keperawatan, dan banyak lagi.
@@ -89,23 +89,23 @@ const About = () => {
                 <br /><br />
                 Pendidikan vokasi diakui sebagai pilihan pendidikan yang berharga bagi individu yang ingin memasuki dunia kerja dengan keterampilan dan pengetahuan yang langsung dapat diterapkan. Hal ini juga dapat membuka peluang bagi siswa untuk berkarir di bidang yang mereka minati dan mendapatkan penghasilan yang layak.
               </p>
-              {/* <a href="#" data-aos="fade-up" data-aos-delay="300" className="transition ease-in-out duration-300 inline-block py-2 px-4 text-sm mt-5 text-white bg-lp3i-200 hover:bg-lp3i-600 rounded">
+              {/* <a href="#" data-aos-delay="300" className="transition ease-in-out duration-300 inline-block py-2 px-4 text-sm mt-5 text-white bg-lp3i-200 hover:bg-lp3i-600 rounded">
                 Selengkapnya
               </a> */}
             </div>
           </div>
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-10">
             <div className="basis-1/2">
-              <h3 className="font-bold text-3xl mt-2" data-aos="fade-up" data-aos-delay="100">Pendidikan vokasi di LP3I seperti apa?</h3>
-              <p className="mt-4 text-sm md:text-base text-gray-700" data-aos="fade-up" data-aos-delay="200">
+              <h3 className="font-bold text-3xl mt-2" data-aos-delay="100">Pendidikan vokasi di LP3I seperti apa?</h3>
+              <p className="mt-4 text-sm md:text-base text-gray-700" data-aos-delay="200">
                 Pendidikan di LP3I memiliki fokus kepada latihan berbasis praktek (70% praktek, 30% teori) dan penempatan kerja. Program penempatan kerja kami salah satu yang terbaik di Indonesia. Di LP3I, mahasiswa berkualitas yang performanya sesuai persyaratan akan dibantu penempatan kerja hingga duduk di perusahaan.
               </p>
-              {/* <a href="#" data-aos="fade-up" data-aos-delay="300" className="transition ease-in-out duration-300 inline-block py-2 px-4 text-sm mt-5 text-white bg-lp3i-200 hover:bg-lp3i-600 rounded">
+              {/* <a href="#" data-aos-delay="300" className="transition ease-in-out duration-300 inline-block py-2 px-4 text-sm mt-5 text-white bg-lp3i-200 hover:bg-lp3i-600 rounded">
                 Selengkapnya
               </a> */}
             </div>
             <div className="basis-1/3">
-              <img src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" data-aos="fade-up" />
+              <img src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" />
             </div>
           </div>
         </div>
@@ -115,22 +115,22 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-center items-center gap-8">
             <div className="basis-1/3">
-              <img src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" data-aos="fade-up" />
+              <img src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" />
             </div>
             <div className="basis-1/2">
-              <h3 className="font-bold text-3xl mt-2" data-aos="fade-up" data-aos-delay="100">Visi</h3>
-              <p className="mt-4 text-sm md:text-base text-gray-700" data-aos="fade-up" data-aos-delay="200">
+              <h3 className="font-bold text-3xl mt-2" data-aos-delay="100">Visi</h3>
+              <p className="mt-4 text-sm md:text-base text-gray-700" data-aos-delay="200">
               Pada tahun 2031 ditingkat Asia menjadi institusi pendidikan tinggi vokasional yang mampu menjawab tantangan di era globalisasi dalam menghasilkan sumber daya manusia yang unggul dan berkompeten pada bidang keahlian.
               </p>
             </div>
           </div>
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-8">
             <div className="basis-1/3">
-              <img src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" data-aos="fade-up" />
+              <img src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" />
             </div>
             <div className="basis-1/2">
-              <h3 className="font-bold text-3xl mt-2" data-aos="fade-up" data-aos-delay="100">Misi</h3>
-              <ol className="ml-5 list-outside list-decimal mt-4 text-sm md:text-base text-gray-700 space-y-2" data-aos="fade-up" data-aos-delay="200">
+              <h3 className="font-bold text-3xl mt-2" data-aos-delay="100">Misi</h3>
+              <ol className="ml-5 list-outside list-decimal mt-4 text-sm md:text-base text-gray-700 space-y-2" data-aos-delay="200">
                 <li>Menyelenggarakan pendidikan yang berpusat  pada peserta didik, menggunakan pendekatan link and match serta mengoptimalkan pemanfaatan teknologi.</li>
                 <li>Menyelenggarakan penelitian yang bermanfaat bagi pengembangan IPTEK dan kesejatraan masyarakat.</li>
                 <li>Meningkatkan kualitas sistem penjamin mutu untuk menopang pencapaian institusi.</li>

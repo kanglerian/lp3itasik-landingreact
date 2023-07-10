@@ -52,7 +52,7 @@ const Media = () => {
   }
 
   const listMedias = medias.map((medi, i) =>
-    <li key={i} data-aos="fade-up" data-aos-delay={i * 100}>
+    <li key={i} data-aos-delay={i * 100}>
       <a href={`/media/` + medi.uuid} role="button" className="bg-gray-100 py-1 px-2 rounded text-base text-sky-600 underline md:hover:text-sky-700">{medi.title.slice(0, 40) + "..."}</a>
     </li>
   )

@@ -53,6 +53,7 @@ const Flyer = () => {
       setHeadline(flyers[0].headline);
       setParagraph(flyers[0].paragraph);
       setImage(flyers[0].image);
+      loadingModal();
     })
     .catch((error) => {
       console.log(error.message);
@@ -76,7 +77,6 @@ const Flyer = () => {
     });
     AOS.refresh();
     getFlyer();
-    setTimeout(loadingModal, 3000);
   }, []);
 
   return (
@@ -86,7 +86,7 @@ const Flyer = () => {
           <div className="bg-gray-900 bg-opacity-75 flex items-center justify-center h-screen w-full px-5">
             <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" className="w-full md:w-1/3 bg-slate-100 rounded-xl p-5 max-h-screen overflow-y-auto">
               <div className='relative flex justify-center items-center flex-col gap-5'>
-                <button onClick={handleVisible} className='absolute top-0 right-0'><i className="fa-solid fa-circle-xmark fa-1x"></i></button>
+                <button onClick={handleVisible} className='absolute top-0 right-0 text-white'><i className="fa-solid fa-circle-xmark fa-1x"></i></button>
                 <div className="w-full bg-cover bg-center h-[200px] rounded-xl" style={{ backgroundImage: `url('https://dashboard.politekniklp3i-tasikmalaya.ac.id/${image}')` }}></div>
                 <div className='w-full space-y-2'>
                   <h1 className='text-2xl font-bold' data-aos="fade-up" data-aos-delay="1200">{headline}</h1>

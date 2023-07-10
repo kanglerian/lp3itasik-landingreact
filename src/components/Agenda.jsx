@@ -51,11 +51,11 @@ const Agenda = () => {
       <div className="container mx-auto px-4">
         <div className="py-3 mb-8 text-center rounded-lg">
           {currentLanguage == 'en' ? (
-            <h5 className="font-bold text-3xl"><span className="text-merah-300" data-aos="fade-up">Campus</span> Agenda</h5>
+            <h5 className="font-bold text-3xl"><span className="text-merah-300">Campus</span> Agenda</h5>
             ) : (
-            <h5 className="font-bold text-3xl"><span className="text-merah-300" data-aos="fade-up">Agenda</span> Kampus</h5>
+            <h5 className="font-bold text-3xl"><span className="text-merah-300">Agenda</span> Kampus</h5>
           )}
-          <p className="text-gray-600 text-sm md:text-base mt-2" data-aos="fade-up" data-aos-delay="100">
+          <p className="text-gray-600 text-sm md:text-base mt-2" data-aos-delay="100">
             {currentLanguage == 'en' ? 'The following is a list of activities carried out at the LP3I Polytechnic, Tasikmalaya Campus' : 'Berikut ini adalah daftar kegiatan yang dilakukan di Politeknik LP3I Kampus Tasikmalaya' }</p>
         </div>
         {isLoaded ? (
@@ -64,20 +64,20 @@ const Agenda = () => {
               <div className="flex justify-center">
                 <OwlCarousel className='owl-theme' {...options} loop margin={10} autoplay dots={true}>
                   {agendas.map((agenda, i) =>
-                    <div className="item" key={i} data-aos="fade-up" data-aos-delay={i * 50}>
+                    <div className="item" key={i} data-aos-delay={i * 50}>
                       <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + agenda.image} alt={agenda.title} className="rounded-lg shadow-lg" />
                     </div>
                   )}
                 </OwlCarousel>
               </div>
             ) : (
-              <p className="bg-red-500 text-white text-center text-sm py-2 rounded-lg" data-aos="fade-up">
+              <p className="bg-red-500 text-white text-center text-sm py-2 rounded-lg">
                 {currentLanguage == 'en' ? 'There are no agendas yet' : 'Belum ada agenda'}
               </p>
             )}
           </>
         ) : (
-          <div className='flex items-center justify-center' data-aos="fade-up">
+          <div className='flex items-center justify-center'>
             <div className="w-full md:w-1/3 flex items-center justify-center h-56 md:h-72 bg-gray-100 rounded-lg animate-pulse">
               <i className="fa-regular fa-images fa-3x text-gray-200 animate-pulse"></i>
             </div>

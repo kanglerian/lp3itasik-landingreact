@@ -37,7 +37,7 @@ const Student = () => {
   }
 
   const listStudents = students.map((student, i) =>
-    <div key={i} data-aos="fade-up" data-aos-delay={i * 100} className="item w-96 h-auto border-8 border-white shadow rounded-lg ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
+    <div key={i} data-aos-delay={i * 100} className="item w-96 h-auto border-8 border-white shadow rounded-lg ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
       <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + student.image} alt={student.title} className="rounded-lg" />
       <div className="p-4">
         <h5 className="font-bold text-sm mb-1 text-left text-gray-700">{student.title}</h5>

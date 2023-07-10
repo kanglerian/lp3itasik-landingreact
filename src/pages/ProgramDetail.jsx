@@ -189,7 +189,7 @@ const ProgramDetail = () => {
       <style dangerouslySetInnerHTML={{ __html: "\n\t#media p a {\n\t\tcolor: #0284c7;\n\t\ttext-decoration: underline;\n\t}\n" }} />
       <section className="my-8">
         <div className="container mx-auto px-4">
-          <header data-aos="fade-up">
+          <header>
             <div className="group relative">
               <img className="w-full object-cover rounded-xl h-80" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
               <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-lp3i-200 rounded-xl opacity-90 h-full">
@@ -200,7 +200,7 @@ const ProgramDetail = () => {
               </div>
             </div>
           </header>
-          <nav className="my-5 bg-slate-100 border border-slate-200 py-3 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+          <nav className="my-5 bg-slate-100 border border-slate-200 py-3 rounded-xl" data-aos-delay="100">
             <ul className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-5 text-sm text-center px-4">
               <li onClick={hiddenSection} data-name="visi" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'en' ? 'Vision & Mision' : 'Visi & Misi'}</li>
               <li onClick={hiddenSection} data-name="keunggulan" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">{currentLanguage == 'en' ? 'Superiority' : 'Keunggulan'}</li>
@@ -350,7 +350,7 @@ const ProgramDetail = () => {
                       </div>
                       <OwlCarousel className='owl-theme' {...options} loop margin={10} autoplay dots={true}>
                         {alumnis.filter(item => item.testimoni == 1).map((alumni, i) =>
-                          <div key={i} data-aos="fade-up" data-aos-delay={i * 5} className="p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
+                          <div key={i} data-aos-delay={i * 5} className="p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
                             <div className="flex flex-col items-center justify-center text-center bg-white border border-slate-200 rounded-xl p-5 space-y-2">
                               <div className='w-28 h-28'>
                                 <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-full" />

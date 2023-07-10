@@ -6,10 +6,10 @@ const Type = () => {
       <div className="container mx-auto text-sm px-4">
         <header className='text-center space-y-1 mb-4'>
           <h1 className='text-2xl font-bold text-gray-900' data-aos="fade-up">Program Perkuliahan</h1>
-          <p className='text-gray-700' data-aos="fade-up" data-aos-delay="100">Berikut ini adalah program perkuliahan yang dibuka di Politeknik LP3I Kampus Tasikmalaya.</p>
+          <p className='text-gray-700' data-aos-delay="100">Berikut ini adalah program perkuliahan yang dibuka di Politeknik LP3I Kampus Tasikmalaya.</p>
         </header>
         <div className="flex flex-wrap justify-center items-center">
-          <div className='w-full md:w-1/2 p-5' data-aos="fade-up" data-aos-delay="200">
+          <div className='w-full md:w-1/2 p-5' data-aos-delay="200">
             <div className='bg-white border border-gray-100 rounded-xl p-5'>
               <div className='space-y-5'>
                 <div className='flex items-center gap-3'>
@@ -21,7 +21,7 @@ const Type = () => {
               </div>
             </div>
           </div>
-          <div className='w-full md:w-1/2 p-5' data-aos="fade-up" data-aos-delay="300">
+          <div className='w-full md:w-1/2 p-5' data-aos-delay="300">
             <div className='flex justify-center gap-3 bg-white border border-gray-100 rounded-xl p-5'>
               <div className='space-y-5'>
                 <div className='flex items-center gap-3'>

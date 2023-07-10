@@ -48,7 +48,7 @@ const Information = (props) => {
   }
 
   const listDocumentation = documentations.map((doc, i) =>
-    <div className="item" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
+    <div className="item" key={i} data-aos-delay={i * 5}>
       <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + doc.image} alt={doc.title}
         className="rounded-lg" />
     </div>
@@ -56,15 +56,15 @@ const Information = (props) => {
 
   const listYoutube = youtube.map((yt, i) =>
     <>
-      <div className="w-full md:w-1/2 h-auto" key={i} data-aos="fade-up">
+      <div className="w-full md:w-1/2 h-auto" key={i}>
         <iframe width="100%" height="350px" className="rounded-2xl border-4 border-lp3i-400"
           src={`https://www.youtube.com/embed/` + yt.youtube} title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen />
       </div>
-      <div className="w-full md:w-1/2" data-aos="fade-up">
-        <h5 className="font-bold text-3xl text-white" data-aos="fade-up" data-aos-delay="10">{yt.title}</h5>
-        <p className="text-sm md:text-base text-gray-100 mt-3" data-aos="fade-up" data-aos-delay="20">{yt.description}</p>
+      <div className="w-full md:w-1/2">
+        <h5 className="font-bold text-3xl text-white" data-aos-delay="10">{yt.title}</h5>
+        <p className="text-sm md:text-base text-gray-100 mt-3" data-aos-delay="20">{yt.description}</p>
         {
           props.doc && (
             <div className="mt-5 flex justify-center">
@@ -98,16 +98,16 @@ const Information = (props) => {
               listYoutube
             ) : (
               <>
-                <div className="w-full md:w-1/2 h-auto" data-aos="fade-up">
+                <div className="w-full md:w-1/2 h-auto">
                   <iframe width="100%" height="350px" className="rounded-2xl border-4 border-gray-200"
                     src="https://www.youtube.com/embed/Vo1R5cElVqQ" title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen />
                 </div>
                 <div className="w-full md:w-1/2">
-                  <h1 className="font-bold text-3xl text-white" data-aos="fade-up" data-aos-delay="10">LP3I
+                  <h1 className="font-bold text-3xl text-white" data-aos-delay="10">LP3I
                     Tasikmalaya – Cover Condong Pada Mimpi</h1>
-                  <p className="text-sm md:text-base text-gray-100 mt-3" data-aos="fade-up" data-aos-delay="20">Video ini berisi
+                  <p className="text-sm md:text-base text-gray-100 mt-3" data-aos-delay="20">Video ini berisi
                     tentang pendidikan vokasi di LP3I Tasikmalaya mulai dari kegiatan Pengenalan Lingkungan Kampus,
                     kegiatan praktek akuntansi, praktek otomotif, praktek informatika, praktek manajemen
                     perkantoran, dan proses penempatan kerja yang menjadi salah satu program unggulan di LP3I.</p>
@@ -123,7 +123,7 @@ const Information = (props) => {
             )}
           </div>
         ) : (
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4" data-aos="fade-up">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
             <div
               className="w-full md:w-1/2 flex items-center justify-center h-56 md:h-80 bg-lp3i-300 rounded-lg animate-pulse">
               <i className="fa-regular fa-images fa-3x text-lp3i-300 animate-pulse"></i>

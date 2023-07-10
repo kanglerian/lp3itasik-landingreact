@@ -23,7 +23,7 @@ const Media = () => {
   }
 
   const listMedias = medias.map((media, i) =>
-    <div data-aos="fade-up" data-aos-delay={i * 5} className="bg-white border border-gray-100 rounded-xl p-5 md:w-[400px] ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300 space-y-3" key={i}>
+    <div data-aos-delay={i * 5} className="bg-white border border-gray-100 rounded-xl p-5 md:w-[400px] ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300 space-y-3" key={i}>
       <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + media.image} alt={media.title.slice(0, 70) + "..."} className="rounded-lg" />
       <h5 className="font-bold text-lg">{media.title}</h5>
       <div className="text-sm text-gray-600" dangerouslySetInnerHTML={{ __html: media.description.slice(0, 150) + "..." }}></div>
@@ -70,13 +70,13 @@ const Media = () => {
                 </div>
               </div>
             ) : (
-              <p className="bg-red-500 text-white text-center text-sm py-2 rounded-lg" data-aos="fade-up">
+              <p className="bg-red-500 text-white text-center text-sm py-2 rounded-lg">
                 {currentLanguage == 'en' ? 'No news yet' : 'Belum ada berita'}
               </p>
             )}
           </>
         ) : (
-          <div className='flex items-center justify-center' data-aos="fade-up">
+          <div className='flex items-center justify-center'>
             <div className="w-[400px] flex flex-col items-start justify-start bg-gray-100 rounded-lg animate-pulse p-5">
               <div className='w-full h-24 rounded-lg bg-gray-200 animate-pulse'></div>
               <div className='w-4/6 h-5 rounded-lg bg-gray-200 my-3 animate-pulse'></div>

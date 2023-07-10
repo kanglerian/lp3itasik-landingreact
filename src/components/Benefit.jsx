@@ -31,7 +31,7 @@ const Benefit = () => {
   }, []);
 
   const listBenefit = benefits.map((benefit, i) =>
-    <div className="text-center w-[400px]" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
+    <div className="text-center w-[400px]" key={i} data-aos-delay={i * 5}>
       <div className="bg-white border border-gray-100 text-center p-4 rounded-xl transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
         <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + benefit.image} alt={benefit.title} className="inline w-20 rounded-full" />
         <div className="mt-3 bg-gray-50 p-2 rounded">
@@ -50,12 +50,12 @@ const Benefit = () => {
             listBenefit
           ) : (
             <>
-              <div className="w-[400px] flex flex-col items-center justify-center bg-gray-100 rounded-lg animate-pulse p-5" data-aos="fade-up">
+              <div className="w-[400px] flex flex-col items-center justify-center bg-gray-100 rounded-lg animate-pulse p-5">
                 <div className='w-20 h-20 rounded-full bg-gray-200'></div>
                 <div className='w-full h-5 rounded-lg bg-gray-200 my-3'></div>
                 <div className='w-full h-20 rounded-lg bg-gray-200'></div>
               </div>
-              <div className="w-[400px] flex flex-col items-center justify-center bg-gray-100 rounded-lg animate-pulse p-5" data-aos="fade-up" data-aos-delay="50">
+              <div className="w-[400px] flex flex-col items-center justify-center bg-gray-100 rounded-lg animate-pulse p-5" data-aos-delay="50">
                 <div className='w-20 h-20 rounded-full bg-gray-200 animate-pulse'></div>
                 <div className='w-full h-5 rounded-lg bg-gray-200 my-3 animate-pulse'></div>
                 <div className='w-full h-20 rounded-lg bg-gray-200 animate-pulse'></div>

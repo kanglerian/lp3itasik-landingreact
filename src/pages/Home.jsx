@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <Suspense fallback={renderLoader()}>
       <Whatsapp/>
-      {/* <Flyer /> */}
+      <Flyer />
       <Navbar />
       <Banner locate="L" />
       <Link />

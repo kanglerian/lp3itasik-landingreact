@@ -58,7 +58,7 @@ const Program = () => {
               <p className='text-base'>{currentLanguage == 'en' ? 'The following is a list of D3 level study programs at the LP3I Polytechnic, Tasikmalaya Campus' : 'Berikut adalah daftar program studi jenjang D3 di Politeknik LP3I Kampus Tasikmalaya'}</p>
               <div className="flex flex-wrap flex-col md:flex-row justify-center gap-5 my-8">
                 {tasikPrograms.map((tasik, i) =>
-                  <div className="bg-lp3i-400 rounded-xl p-4 relative w-1/1 md:w-1/3" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
+                  <div className="bg-lp3i-400 rounded-xl p-4 relative w-1/1 md:w-1/3" key={i} data-aos-delay={i * 5}>
                     <img className="w-full rounded-lg" alt={tasik.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + tasik.image} />
                     <div className="pt-4 text-left">
                       <h5 className="font-bold text-sm mb-1 text-left text-white">{tasik.level} {tasik.title}</h5>
@@ -87,7 +87,7 @@ const Program = () => {
               <p className='text-base'>{currentLanguage == 'en' ? 'The following is a list of 2-year Vocational level study programs at LP3I Tasikmalaya' : 'Berikut adalah daftar program studi jenjang Vokasi 2 Tahun di LP3I Tasikmalaya'}</p>
               <div className="flex flex-col md:flex-row justify-center gap-5 my-8">
                 {vokasiPrograms.map((vokasi, i) =>
-                  <div className="bg-lp3i-400 rounded-xl p-4 relative w-1/1 md:w-1/3" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
+                  <div className="bg-lp3i-400 rounded-xl p-4 relative w-1/1 md:w-1/3" key={i} data-aos-delay={i * 5}>
                     <img className="w-full rounded-lg" alt={vokasi.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + vokasi.image} />
                     <div className="pt-4 text-left">
                       <h5 className="font-bold text-sm mb-1 text-left text-white">{vokasi.level} {vokasi.title}</h5>
@@ -121,7 +121,7 @@ const Program = () => {
                 {currentLanguage == 'en' ? 'The following is a list of D3 level study programs at the LP3I Polytechnic' : 'Berikut adalah daftar program studi jenjang D3 di Politeknik LP3I'}</p>
               <div className="flex flex-wrap flex-col md:flex-row justify-center gap-5 my-8">
                 {utamaPrograms.map((utama, i) =>
-                  <div className="bg-lp3i-400 rounded-xl p-4 relative w-1/1 md:w-1/3" key={i} data-aos="fade-up" data-aos-delay={i * 5}>
+                  <div className="bg-lp3i-400 rounded-xl p-4 relative w-1/1 md:w-1/3" key={i} data-aos-delay={i * 5}>
                   <img className="w-full rounded-lg" alt={utama.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + utama.image} />
                   <div className="pt-4 text-left">
                     <h5 className="font-bold text-sm mb-1 text-left text-white">{utama.level} {utama.title}</h5>

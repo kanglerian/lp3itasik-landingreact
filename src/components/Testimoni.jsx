@@ -60,7 +60,7 @@ const Testimoni = () => {
                 </div>
                 <OwlCarousel className='owl-theme' {...options} loop margin={10} autoplay dots={true}>
                   {alumnis.filter(item => item.testimoni == 1).map((alumni, i) =>
-                    <div key={i} data-aos="fade-up" data-aos-delay={i * 5} className="p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
+                    <div key={i} data-aos-delay={i * 5} className="p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
                       <div className="flex flex-col items-center justify-center text-center bg-white border border-gray-100 rounded-xl p-5 space-y-2">
                         <div className='w-28 h-28'>
                           <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-full" />
