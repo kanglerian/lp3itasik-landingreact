@@ -6,6 +6,6 @@ export default defineConfig({
   // base: 'https://politekniklp3i-tasikmalaya.ac.id/',
   plugins: [react()],
   build: {
-    chunkSizeWarningLimit: 1600,
+    chunkSizeWarningLimit: 2000,
   },
 })
