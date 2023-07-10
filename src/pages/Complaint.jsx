@@ -73,7 +73,7 @@ const Program = () => {
           </div>
         </header>
         <section>
-          <div className='max-w-md mx-auto text-base space-y-2 py-10'>
+          <div className='max-w-md mx-auto text-base space-y-2 py-10 px-4'>
             {
               success && (
                 <div className='bg-emerald-500 py-3 px-3 text-white rounded-lg'>
