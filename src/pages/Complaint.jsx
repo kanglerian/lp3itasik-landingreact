@@ -20,7 +20,7 @@ const Program = () => {
 
   const currentLanguage = localStorage.getItem('language') || 'id';
   const [title, setTitle] = useState('');
-  const [divisi, setDivisi] = useState('');
+  const [division, setDivisi] = useState('');
   const [message, setMessage] = useState('');
 
   const [success, setSuccess] = useState(false);
@@ -28,10 +28,13 @@ const Program = () => {
 
   const handleWhatsapp = async () => {
     let now = new Date();
-    let messageSend = `*[Pengaduan Baru!]*\n\n*Judul:* ${title}\n*Divisi:* ${divisi}\n*Pesan:* "${message}"\n\n\nDikirim secara otomatis pada tanggal ${now.toTimeString()} ${now.toDateString()}`;
+    let messageSend = `*[Pengaduan Baru!]*\n\n*Judul:* ${title}\n*Divisi:* ${division}\n*Pesan:* "${message}"\n\n\nDikirim secara otomatis pada tanggal ${now.toTimeString()} ${now.toDateString()}`;
     await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/whatsappbot/report`, {
       target: '120363144296540927@g.us',
-      message: messageSend
+      title: title,
+      division: division,
+      message: message,
+      messageSend: messageSend
     })
       .then((res) => {
         setTitle('');
@@ -92,7 +95,7 @@ const Program = () => {
               </div>
               <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900">Pilih Divisi</label>
-                <select onChange={(e) => setDivisi(e.target.value)} value={divisi} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required >
+                <select onChange={(e) => setDivisi(e.target.value)} value={division} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required >
                   <option>Pilih Divisi</option>
                   <option value="Marketing">Marketing</option>
                   <option value="C&P">C&P</option>
