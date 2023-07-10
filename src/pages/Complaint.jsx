@@ -95,11 +95,18 @@ const Program = () => {
                   <option>Pilih Divisi</option>
                   <option value="Marketing">Marketing</option>
                   <option value="C&P">C&P</option>
+                  <option value="IT">IT</option>
+                  <option value="HRD & Finance">HRD & Finance</option>
+                  <option value="Akademik">Akademik</option>
+                  <option value="Prodi & Dosen">Prodi & Dosen</option>
+                  <option value="Security (Satpam)">Security (Satpam)</option>
+                  <option value="Penjamin Mutu Internal">Penjamin Mutu Internal</option>
+                  <option value="Fasilitas">Fasilitas</option>
                 </select>
               </div>
               <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Isi Laporan</label>
-                <textarea onChange={(e) => setMessage(e.target.value)} rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tulis isi pengaduan anda disini..." defaultValue={message} />
+                <textarea onChange={(e) => setMessage(e.target.value)} rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tulis isi pengaduan anda disini..." value={message} defaultValue={message} />
               </div>
               <button onClick={handleWhatsapp} className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center"><i className="fa-solid fa-paper-plane"></i> Kirim sekarang!</button>
             </div>
