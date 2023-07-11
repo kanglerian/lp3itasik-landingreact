@@ -19,7 +19,7 @@ const Program = () => {
 
   const currentLanguage = localStorage.getItem('language') || 'id';
   const [title, setTitle] = useState('');
-  const [division, setDivisi] = useState('');
+  const [categories, setCategories] = useState('');
   const [message, setMessage] = useState('');
 
   const [success, setSuccess] = useState(false);
@@ -27,11 +27,11 @@ const Program = () => {
 
   const handleWhatsapp = async () => {
     let now = new Date();
-    let messageSend = `*[Pengaduan Baru!]*\n\n*Judul:* ${title}\n*Divisi:* ${division}\n*Pesan:* "${message}"\n\n\nDikirim secara otomatis pada tanggal ${now.toTimeString()} ${now.toDateString()}`;
-    await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/whatsappbot/report`, {
+    let messageSend = `*[Pengaduan Baru!]*\n\n*Judul:* ${title}\n*Divisi:* ${categories}\n*Pesan:* "${message}"\n\n\nDikirim secara otomatis pada tanggal ${now.toTimeString()} ${now.toDateString()}`;
+    await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/complaint/report`, {
       target: '120363144296540927@g.us',
       title: title,
-      division: division,
+      categories: categories,
       message: message,
       messageSend: messageSend
     })
@@ -64,9 +64,9 @@ const Program = () => {
             <a href={'/'}><img src={lp3i} alt="Politeknik LP3I Kampus Tasikmalaya" className='w-44' /></a>
             <div className='space-y-3'>
               <h1 className="text-3xl font-bold text-white">
-                {currentLanguage == 'en' ? "Service and Complaint Center" : "Pusat Pelayanan dan Pengaduan"}
+                {currentLanguage == 'en' ? "Customer Care" : "Customer Care"}
               </h1>
-              <p className="text-base text-white">Laporan Anda akan kami sambut dengan baik. Silakan sampaikan laporan Anda untuk menjamin penanganan yang tepat dan efektif.</p>
+              <p className="text-base text-white">Silahkan berikan masukan dan saran anda dengan jelas.</p>
             </div>
           </div>
         </header>
@@ -92,18 +92,15 @@ const Program = () => {
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tulis judul laporan disini..." required />
               </div>
               <div>
-                <label className="block mb-2 text-sm font-medium text-gray-900">Pilih Divisi</label>
-                <select onChange={(e) => setDivisi(e.target.value)} value={division} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required >
-                  <option>Pilih Divisi</option>
-                  <option value="Marketing">Marketing</option>
-                  <option value="C&P">C&P</option>
-                  <option value="IT">IT</option>
-                  <option value="HRD & Finance">HRD & Finance</option>
-                  <option value="Akademik">Akademik</option>
-                  <option value="Prodi & Dosen">Prodi & Dosen</option>
-                  <option value="Security (Satpam)">Security (Satpam)</option>
-                  <option value="Penjamin Mutu Internal">Penjamin Mutu Internal</option>
-                  <option value="Fasilitas">Fasilitas</option>
+                <label className="block mb-2 text-sm font-medium text-gray-900">Kategori Layanan</label>
+                <select onChange={(e) => setCategories(e.target.value)} value={categories} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required >
+                  <option>Pilih Kategori Layanan</option>
+                  <option value="Sarana dan prasana">Sarana dan prasana</option>
+                  <option value="Proses belajar mengajar">Proses belajar mengajar</option>
+                  <option value="Kebersihan, kenyamanan dan keamanan (umum)">Kebersihan, kenyamanan dan keamanan (umum)</option>
+                  <option value="Kurikulum">Kurikulum</option>
+                  <option value="Manajemen">Manajemen</option>
+                  <option value="Kegiatan kemahasiswaan">Kegiatan kemahasiswaan</option>
                 </select>
               </div>
               <div>
