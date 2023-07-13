@@ -37,7 +37,7 @@ const Home = () => {
       <Program />
       <Media />
       <Agenda />
-      {/* <Information doc={true} locate="L" /> */}
+      <Information doc={true} locate="L" />
       <Testimoni />
       <Companies />
       <Footer />
