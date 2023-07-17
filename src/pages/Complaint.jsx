@@ -33,6 +33,7 @@ const Program = () => {
   }
 
   const handleWhatsapp = async () => {
+    console.log(categories);
     await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/complaint/report`, {
       target: '120363144296540927@g.us',
       nim: nim,
@@ -90,7 +91,7 @@ const Program = () => {
             {
               failed && (
                 <div className='bg-red-500 py-3 px-3 text-white rounded-lg mb-6'>
-                  <h2 className='text-sm'><i className="fa-solid fa-circle-xmark"></i> Mohon maaf Server sedang Maintenance. Silahkan kembali nanti!</h2>
+                  <h2 className='text-sm'><i className="fa-solid fa-circle-xmark"></i> Mohon maaf Server sedang Maintenance.</h2>
                 </div>
               )
             }
@@ -105,6 +106,9 @@ const Program = () => {
               <li className="mr-2">
                 <button onClick={() => handleCategories(2)} className={`inline-block px-4 py-3 rounded-lg ${categories === 2 ? 'bg-blue-600 text-white' : 'hover:text-gray-900 hover:bg-gray-100'}`}>Dosen</button>
               </li>
+              <li className="mr-2">
+                <button onClick={() => handleCategories(3)} className={`inline-block px-4 py-3 rounded-lg ${categories === 3 ? 'bg-blue-600 text-white' : 'hover:text-gray-900 hover:bg-gray-100'}`}>Umum</button>
+              </li>
             </ul>
 
             <div>
@@ -117,8 +121,15 @@ const Program = () => {
                   </div>
                 }
                 {
-                  categories != 2 &&
-                  <>
+                  categories == 3 &&
+                  <div>
+                    <label className="block mb-2 text-sm font-medium text-gray-900">Nama Lengkap</label>
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tulis nama anda disini disini..." required />
+                  </div>
+                }
+                {
+                  categories != 2 && categories != 3 && 
+                    <>
                     <div>
                       <label className="block mb-2 text-sm font-medium text-gray-900">Tuliskan NIM</label>
                       <input type="text" value={nim} onChange={(e) => setNim(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tulis nomor induk mahasiswa disini..." required />
@@ -128,6 +139,7 @@ const Program = () => {
                       <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tulis judul masukan disini..." required />
                     </div>
                   </>
+                  
                 }
                 <div>
                   <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Isi Masukan dan Solusi</label>
