@@ -90,7 +90,7 @@ const Program = () => {
             {
               failed && (
                 <div className='bg-red-500 py-3 px-3 text-white rounded-lg mb-6'>
-                  <h2 className='text-sm'><i className="fa-solid fa-circle-xmark"></i> Pengiriman gagal!</h2>
+                  <h2 className='text-sm'><i className="fa-solid fa-circle-xmark"></i> Mohon maaf Server sedang Maintenance. Silahkan kembali nanti!</h2>
                 </div>
               )
             }
