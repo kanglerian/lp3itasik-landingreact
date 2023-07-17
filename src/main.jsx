@@ -71,7 +71,7 @@ const router = createBrowserRouter([
     element: <MediaDetail/>
   },
   {
-    path: "/complaint",
+    path: "/suggestion",
     element: <Complaint/>
   },
 ]);

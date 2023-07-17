@@ -18,24 +18,32 @@ const renderLoader = () =>
 const Program = () => {
 
   const currentLanguage = localStorage.getItem('language') || 'id';
+
+  const [nim, setNim] = useState('');
+  const [name, setName] = useState('');
   const [title, setTitle] = useState('');
-  const [categories, setCategories] = useState('');
   const [message, setMessage] = useState('');
+  const [categories, setCategories] = useState(0);
 
   const [success, setSuccess] = useState(false);
   const [failed, setFailed] = useState(false);
 
+  const handleCategories = async (id) => {
+    setCategories(id);
+  }
+
   const handleWhatsapp = async () => {
-    let now = new Date();
-    let messageSend = `*[Pengaduan Baru!]*\n\n*Judul:* ${title}\n*Divisi:* ${categories}\n*Pesan:* "${message}"\n\n\nDikirim secara otomatis pada tanggal ${now.toTimeString()} ${now.toDateString()}`;
     await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/complaint/report`, {
       target: '120363144296540927@g.us',
+      nim: nim,
+      name: name,
       title: title,
       categories: categories,
       message: message,
-      messageSend: messageSend
     })
       .then((res) => {
+        setNim('');
+        setName('');
         setTitle('');
         setMessage('');
         setSuccess(true);
@@ -64,51 +72,71 @@ const Program = () => {
             <a href={'/'}><img src={lp3i} alt="Politeknik LP3I Kampus Tasikmalaya" className='w-44' /></a>
             <div className='space-y-3'>
               <h1 className="text-3xl font-bold text-white">
-                {currentLanguage == 'en' ? "Customer Care" : "Customer Care"}
+                {currentLanguage == 'en' ? "Criticism and Suggestions" : "Kritik dan Saran"}
               </h1>
               <p className="text-base text-white">Silahkan berikan masukan dan saran anda dengan jelas.</p>
             </div>
           </div>
         </header>
         <section>
-          <div className='max-w-md mx-auto text-base space-y-2 py-10 px-4'>
+          <div className='max-w-md mx-auto text-base py-10 px-4'>
             {
               success && (
-                <div className='bg-emerald-500 py-3 px-3 text-white rounded-lg'>
+                <div className='bg-emerald-500 py-3 px-3 text-white rounded-lg mb-6'>
                   <h2 className='text-sm'><i className="fa-solid fa-circle-check"></i> Pengaduan terkirim!</h2>
                 </div>
               )
             }
             {
               failed && (
-                <div className='bg-red-500 py-3 px-3 text-white rounded-lg'>
+                <div className='bg-red-500 py-3 px-3 text-white rounded-lg mb-6'>
                   <h2 className='text-sm'><i className="fa-solid fa-circle-xmark"></i> Pengiriman gagal!</h2>
                 </div>
               )
             }
-            <div className='space-y-5'>
-              <div>
-                <label className="block mb-2 text-sm font-medium text-gray-900">Judul Laporan</label>
-                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tulis judul laporan disini..." required />
+
+            <ul className="flex flex-wrap text-sm font-medium justify-center text-center text-gray-500 mb-6">
+              <li className="mr-2">
+                <button onClick={() => handleCategories(0)} className={`inline-block px-4 py-3 rounded-lg ${categories === 0 ? 'bg-blue-600 text-white' : 'hover:text-gray-900 hover:bg-gray-100'}`}>Mahasiswa</button>
+              </li>
+              <li className="mr-2">
+                <button onClick={() => handleCategories(1)} className={`inline-block px-4 py-3 rounded-lg ${categories === 1 ? 'bg-blue-600 text-white' : 'hover:text-gray-900 hover:bg-gray-100'}`}>Alumni</button>
+              </li>
+              <li className="mr-2">
+                <button onClick={() => handleCategories(2)} className={`inline-block px-4 py-3 rounded-lg ${categories === 2 ? 'bg-blue-600 text-white' : 'hover:text-gray-900 hover:bg-gray-100'}`}>Dosen</button>
+              </li>
+            </ul>
+
+            <div>
+              <div className='space-y-4' id='mahasiswa'>
+                {
+                  categories == 2 &&
+                  <div>
+                    <label className="block mb-2 text-sm font-medium text-gray-900">Nama Dosen</label>
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tulis nama anda disini disini..." required />
+                  </div>
+                }
+                {
+                  categories != 2 &&
+                  <>
+                    <div>
+                      <label className="block mb-2 text-sm font-medium text-gray-900">Tuliskan NIM</label>
+                      <input type="text" value={nim} onChange={(e) => setNim(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tulis nomor induk mahasiswa disini..." required />
+                    </div>
+                    <div>
+                      <label className="block mb-2 text-sm font-medium text-gray-900">Judul Masukan</label>
+                      <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tulis judul masukan disini..." required />
+                    </div>
+                  </>
+                }
+                <div>
+                  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Isi Masukan dan Solusi</label>
+                  <textarea onChange={(e) => setMessage(e.target.value)} rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tulis isi masukan dan solusi anda disini..." value={message} />
+                </div>
               </div>
-              <div>
-                <label className="block mb-2 text-sm font-medium text-gray-900">Kategori Layanan</label>
-                <select onChange={(e) => setCategories(e.target.value)} value={categories} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required >
-                  <option>Pilih Kategori Layanan</option>
-                  <option value="Sarana dan prasana">Sarana dan prasana</option>
-                  <option value="Proses belajar mengajar">Proses belajar mengajar</option>
-                  <option value="Kebersihan, kenyamanan dan keamanan (umum)">Kebersihan, kenyamanan dan keamanan (umum)</option>
-                  <option value="Kurikulum">Kurikulum</option>
-                  <option value="Manajemen">Manajemen</option>
-                  <option value="Kegiatan kemahasiswaan">Kegiatan kemahasiswaan</option>
-                </select>
-              </div>
-              <div>
-                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Isi Laporan</label>
-                <textarea onChange={(e) => setMessage(e.target.value)} rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tulis isi pengaduan anda disini..." value={message} defaultValue={message} />
-              </div>
-              <button onClick={handleWhatsapp} className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center"><i className="fa-solid fa-paper-plane"></i> Kirim sekarang!</button>
+              <button onClick={handleWhatsapp} className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center mt-3"><i className="fa-solid fa-paper-plane"></i> Kirim sekarang!</button>
             </div>
+
           </div>
         </section>
         <footer className='container mx-auto pb-3 px-4'>
