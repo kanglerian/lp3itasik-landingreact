@@ -20,6 +20,7 @@ import StudentDetail from './pages/StudentDetail';
 import MediaDetail from './pages/MediaDetail';
 import CareerCenter from './pages/CareerCenter';
 import Complaint from './pages/Complaint';
+import Redirect from './pages/Redirect';
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
   {
     path: "/suggestion",
     element: <Complaint/>
+  },
+  {
+    path: "/complaint",
+    element: <Redirect/>
   },
 ]);
 
