@@ -21,6 +21,7 @@ import MediaDetail from './pages/MediaDetail';
 import CareerCenter from './pages/CareerCenter';
 import Complaint from './pages/Complaint';
 import Redirect from './pages/Redirect';
+import NotFound from './pages/NotFound';
 
 const router = createBrowserRouter([
   {
@@ -73,7 +74,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/suggestion",
-    element: <Complaint/>
+    element: <NotFound/>
   },
   {
     path: "/complaint",
