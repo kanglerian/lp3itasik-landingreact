@@ -7,6 +7,7 @@ const Flyer = () => {
   const [isVisible, setVisible] = useState(false);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [school, setSchool] = useState('');
   const [success, setSuccess] = useState(false);
   const [failed, setFailed] = useState(false);
 
@@ -18,7 +19,8 @@ const Flyer = () => {
     await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/whatsappbot/send`,{
       target: '120363146792473866@g.us',
       name: name,
-      whatsapp: phone
+      whatsapp: phone,
+      school: school
     })
     .then((res) => {
       console.log(res);
@@ -32,11 +34,13 @@ const Flyer = () => {
     await axios.post(`https://database.politekniklp3i-tasikmalaya.ac.id/api/storewebsite`,{
       name: name,
       phone: phone,
+      school: school,
     })
     .then((res) => {
       handleWhatsapp();
       setName('');
       setPhone('');
+      setSchool('');
       setSuccess(true);
       setFailed(false);
     })
@@ -106,6 +110,7 @@ const Flyer = () => {
                     )
                   }
                   <input data-aos-delay="1400" type='text' value={name} onChange={(e) => setName(e.target.value)} placeholder='Nama lengkap kamu' className='w-full border text-sm border-gray-200 rounded-lg' />
+                  <input data-aos-delay="1500" type='text' value={school} onChange={(e) => setSchool(e.target.value)} placeholder='Asal sekolah' className='w-full border text-sm border-gray-200 rounded-lg' />
                   <input data-aos-delay="1500" type='text' value={phone} onChange={(e) => setPhone(e.target.value)} placeholder='No whatsapp' className='w-full border text-sm border-gray-200 rounded-lg' />
                   <button data-aos-delay="1700" onClick={handleSend} className='w-full text-sm bg-red-500 text-white px-4 py-2 rounded-lg'>Dapatkan Beasiswa</button>
                 </div>
