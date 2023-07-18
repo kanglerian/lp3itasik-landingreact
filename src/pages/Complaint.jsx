@@ -33,12 +33,11 @@ const Program = () => {
   }
 
   const handleWhatsapp = async () => {
-    console.log(categories);
-    // await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/complaint/report`, {
-    // await axios.post(`http://127.0.0.1:4003/report`, {
-    await axios.post(`http://103.163.111.39:4003/report`, {
-      // target: '120363144296540927@g.us',
-      target: '6281286501015@c.us',
+    await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/complaint/report`, {
+      // await axios.post(`http://127.0.0.1:4003/report`, {
+      // await axios.post(`http://103.163.111.39:4003/report`, {
+      target: '120363144296540927@g.us',
+      // target: '6281286501015@c.us',
       nim: nim,
       name: name,
       title: title,
@@ -131,8 +130,8 @@ const Program = () => {
                   </div>
                 }
                 {
-                  categories != 2 && categories != 3 && 
-                    <>
+                  categories != 2 && categories != 3 &&
+                  <>
                     <div>
                       <label className="block mb-2 text-sm font-medium text-gray-900">Tuliskan NIM</label>
                       <input type="text" value={nim} onChange={(e) => setNim(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tulis nomor induk mahasiswa disini..." required />
@@ -142,7 +141,7 @@ const Program = () => {
                       <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tulis judul masukan disini..." required />
                     </div>
                   </>
-                  
+
                 }
                 <div>
                   <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Isi Masukan dan Solusi</label>
