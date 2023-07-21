@@ -7,7 +7,6 @@ const Flyer = () => {
   const [isVisible, setVisible] = useState(false);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [school, setSchool] = useState('');
   const [success, setSuccess] = useState(false);
   const [failed, setFailed] = useState(false);
 
@@ -17,7 +16,6 @@ const Flyer = () => {
 
   const handleWhatsapp = async () => {
     await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/whatsappbot/send`,{
-    // await axios.post(`http://127.0.0.1:4002/send`,{
       target: '120363146792473866@g.us',
       name: name,
       whatsapp: phone

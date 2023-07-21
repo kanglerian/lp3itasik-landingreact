@@ -74,7 +74,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/suggestion",
-    element: <NotFound/>
+    element: <Complaint/>
   },
   {
     path: "/complaint",
