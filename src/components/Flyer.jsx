@@ -15,17 +15,21 @@ const Flyer = () => {
   const [image, setImage] = useState('');
 
   const handleWhatsapp = async () => {
-    await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/whatsappbot/send`,{
-      target: '120363146792473866@g.us',
-      name: name,
-      whatsapp: phone
-    })
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    if(phone.length < 10) {
+      alert('Nomor telpon tidak benar!');
+    } else {
+      await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/whatsappbot/send`,{
+        target: '120363146792473866@g.us',
+        name: name,
+        whatsapp: phone
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    }
   }
 
   const handleSend = async () => {
