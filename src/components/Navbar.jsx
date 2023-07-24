@@ -223,6 +223,11 @@ const Navbar = () => {
                       <div className="z-10 absolute mt-3 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                         <ul className="py-2 text-sm text-gray-900">
                           <li>
+                            <a href={`/suggestion`} className="block px-4 py-2 hover:bg-gray-100">
+                              {currentLanguage == 'en' ? 'Criticism and Suggestions' : 'Kritik & Saran'}
+                            </a>
+                          </li>
+                          <li>
                             <a href="#" className="block px-4 py-2 hover:bg-gray-100">
                               {currentLanguage == 'en' ? 'Academic' : 'Akademik'}
                             </a>

@@ -34,10 +34,7 @@ const Program = () => {
 
   const handleWhatsapp = async () => {
     await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/complaint/report`, {
-      // await axios.post(`http://127.0.0.1:4003/report`, {
-      // await axios.post(`http://103.163.111.39:4003/report`, {
       target: '120363144296540927@g.us',
-      // target: '6281286501015@c.us',
       nim: nim,
       name: name,
       title: title,
@@ -93,7 +90,7 @@ const Program = () => {
             {
               failed && (
                 <div className='bg-red-500 py-3 px-3 text-white rounded-lg mb-6'>
-                  <h2 className='text-sm'><i className="fa-solid fa-circle-xmark"></i> Mohon maaf Server sedang Maintenance.</h2>
+                  <h2 className='text-sm'><i className="fa-solid fa-circle-xmark"></i> Mohon maaf Server sedang maintenance.</h2>
                 </div>
               )
             }
@@ -137,7 +134,6 @@ const Program = () => {
                       <input type="text" value={nim} onChange={(e) => setNim(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tulis nomor induk mahasiswa disini..." required />
                     </div>
                   </>
-
                 }
                 <div>
                   <label className="block mb-2 text-sm font-medium text-gray-900">Judul Masukan</label>
