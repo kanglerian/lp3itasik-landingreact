@@ -11,7 +11,6 @@ const Navbar = () => {
 
   const [showAbout, setAbout] = useState(false);
   const [showProgram, setProgram] = useState(false);
-  const [showService, setService] = useState(false);
 
   const [utamaPrograms, setUtama] = useState([])
   const [tasikPrograms, setTasik] = useState([])
@@ -40,10 +39,6 @@ const Navbar = () => {
 
   const toggleProgram = () => {
     setProgram(!showProgram)
-  }
-
-  const toggleService = () => {
-    setService(!showService)
   }
 
   const toggleNavbar = () => {
@@ -211,45 +206,9 @@ const Navbar = () => {
                     </a>
                   </li>
                   <li>
-                    <button onClick={toggleService} className="flex items-center justify-between w-full py-2 px-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-cyan-700 md:p-0 md:w-auto">
-                      {currentLanguage == 'en' ? 'Service' : 'Layanan'}
-                      {showService ? (
-                        <i className="ml-2 fa-solid fa-chevron-up" />
-                      ) : (
-                        <i className="ml-2 fa-solid fa-chevron-down" />
-                      )}
-                    </button>
-                    {showService &&
-                      <div className="z-10 absolute mt-3 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                        <ul className="py-2 text-sm text-gray-900">
-                          <li>
-                            <a href={`/suggestion`} className="block px-4 py-2 hover:bg-gray-100">
-                              {currentLanguage == 'en' ? 'Criticism and Suggestions' : 'Kritik & Saran'}
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                              {currentLanguage == 'en' ? 'Academic' : 'Akademik'}
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://siakad.plb.ac.id/" className="block px-4 py-2 hover:bg-gray-100">
-                              SIAKAD
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://lms.plb.ac.id/" className="block px-4 py-2 hover:bg-gray-100">
-                              LMS
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://karyawan.politekniklp3i-tasikmalaya.ac.id/" className="block px-4 py-2 hover:bg-gray-100">
-                              {currentLanguage == 'en' ? 'Employee class' : 'Kelas karyawan'}
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    }
+                    <a href={`/kelas-karyawan`} className="block md:inline py-2 px-4 text-gray-900 md:hover:text-cyan-800 md:p-0">
+                      {currentLanguage == 'en' ? 'Employee Class' : 'Kelas Karyawan'}
+                    </a>
                   </li>
                   <div className="py-2 md:p-0">
                     <a role="button" target="_blank" href="https://pmb.politekniklp3i-tasikmalaya.ac.id/" className="transition ease-in-out duration-300 block md:inline-block py-2 px-4 text-white bg-cyan-700 hover:bg-cyan-800 rounded"><i className="fa-solid fa-headset mr-1" /> PMB Online</a>

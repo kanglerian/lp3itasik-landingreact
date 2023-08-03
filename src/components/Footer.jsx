@@ -11,10 +11,10 @@ const Footer = () => {
             <img src={logoLP3I} alt="Politeknik LP3I Kampus Tasikmalaya" className="w-52" />
             <a role="button" target="_blank" href="https://goo.gl/maps/1dxJCzGBDvgNje8cA" className="block text-sm text-gray-700 my-3">Jl. Ir. H. Juanda No.106, Panglayungan, Kec. Cipedes<br />Kota Tasikmalaya, Jawa Barat 46151</a>
             <div className="flex gap-4 justify-start text-gray-600">
-              <a target="_blank" href="https://www.facebook.com/lp3itasik"><i className="fa-brands fa-facebook-f fa-2x" /></a>
-              <a target="_blank" href="https://www.instagram.com/lp3i.tasik/"><i className="fa-brands fa-instagram fa-2x" /></a>
-              <a target="_blank" href="https://www.youtube.com/channel/UCX7vz8wEj4lHlVSbpYwC_nQ"><i className="fa-brands fa-youtube fa-2x" /></a>
-              <a target="_blank" href="https://www.tiktok.com/@lp3i.tasik"><i className="fa-brands fa-tiktok fa-2x" /></a>
+              <a target="_blank" href="https://www.facebook.com/lp3itasik"><i className="fa-brands fa-facebook-f" /></a>
+              <a target="_blank" href="https://www.instagram.com/lp3i.tasik/"><i className="fa-brands fa-instagram" /></a>
+              <a target="_blank" href="https://www.youtube.com/channel/UCX7vz8wEj4lHlVSbpYwC_nQ"><i className="fa-brands fa-youtube" /></a>
+              <a target="_blank" href="https://www.tiktok.com/@lp3i.tasik"><i className="fa-brands fa-tiktok" /></a>
             </div>
           </div>
           <div>

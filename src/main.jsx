@@ -19,6 +19,7 @@ import ProgramDetail from './pages/ProgramDetail';
 import StudentDetail from './pages/StudentDetail';
 import MediaDetail from './pages/MediaDetail';
 import CareerCenter from './pages/CareerCenter';
+import KelasKaryawan from './pages/KelasKaryawan';
 import Complaint from './pages/Complaint';
 import Redirect from './pages/Redirect';
 import NotFound from './pages/NotFound';
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
   {
     path: "/complaint",
     element: <Redirect/>
+  },
+  {
+    path: "/kelas-karyawan",
+    element: <KelasKaryawan/>
   },
 ]);
 
