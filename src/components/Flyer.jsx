@@ -53,7 +53,7 @@ const Flyer = () => {
   const getFlyer = async () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/flyers`)
     .then((res) => {
-      let flyers = res.data;
+      let flyers = res.data.filter(flyer => flyer.status == '1' && flyer.location == 'R')
       setHeadline(flyers[0].headline);
       setParagraph(flyers[0].paragraph);
       setImage(flyers[0].image);
