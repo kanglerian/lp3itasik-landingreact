@@ -9,12 +9,12 @@ const Footer = () => {
         <div className="flex md:flex-row flex-col justify-between gap-5">
           <div>
             <img src={logoLP3I} alt="Politeknik LP3I Kampus Tasikmalaya" className="w-52" />
-            <a role="button" target="_blank" href="https://goo.gl/maps/1dxJCzGBDvgNje8cA" className="block text-sm text-gray-700 my-3">Jl. Ir. H. Juanda No.106, Panglayungan, Kec. Cipedes<br />Kota Tasikmalaya, Jawa Barat 46151</a>
+            <a role="button" target="_blank" href="https://goo.gl/maps/1dxJCzGBDvgNje8cA" className="block text-sm text-gray-700 my-3" rel="noreferrer">Jl. Ir. H. Juanda No.106, Panglayungan, Kec. Cipedes<br />Kota Tasikmalaya, Jawa Barat 46151</a>
             <div className="flex gap-4 justify-start text-gray-600">
-              <a target="_blank" href="https://www.facebook.com/lp3itasik"><i className="fa-brands fa-facebook-f" /></a>
-              <a target="_blank" href="https://www.instagram.com/lp3i.tasik/"><i className="fa-brands fa-instagram" /></a>
-              <a target="_blank" href="https://www.youtube.com/channel/UCX7vz8wEj4lHlVSbpYwC_nQ"><i className="fa-brands fa-youtube" /></a>
-              <a target="_blank" href="https://www.tiktok.com/@lp3i.tasik"><i className="fa-brands fa-tiktok" /></a>
+              <a target="_blank" href="https://www.facebook.com/lp3itasik" rel="noreferrer"><i className="fa-brands fa-facebook-f" /></a>
+              <a target="_blank" href="https://www.instagram.com/lp3i.tasik/" rel="noreferrer"><i className="fa-brands fa-instagram" /></a>
+              <a target="_blank" href="https://www.youtube.com/channel/UCX7vz8wEj4lHlVSbpYwC_nQ" rel="noreferrer"><i className="fa-brands fa-youtube" /></a>
+              <a target="_blank" href="https://www.tiktok.com/@lp3i.tasik" rel="noreferrer"><i className="fa-brands fa-tiktok" /></a>
             </div>
           </div>
           <div>
@@ -25,7 +25,7 @@ const Footer = () => {
               <li><a href={`/suggestion`}>{currentLanguage == 'en' ? 'Criticism and Suggestions' : 'Kritik dan Saran'}</a></li>
               <li><a href="https://siakad.plb.ac.id/">{currentLanguage == 'en' ? 'Academic System' : 'Sistem Akademik'} (SIAKAD)</a></li>
               <li><a href="https://lms.plb.ac.id/">Learning Management System (LMS)</a></li>
-              <li><a href="https://schoolarship.politekniklp3i-tasikmalaya.ac.id/" role="button" target="_blank">{currentLanguage == 'en' ? 'Schoolarship Check' : 'Cek Beasiswa'}</a></li>
+              <li><a href="https://schoolarship.politekniklp3i-tasikmalaya.ac.id/" role="button" target="_blank" rel="noreferrer">{currentLanguage == 'en' ? 'Schoolarship Check' : 'Cek Beasiswa'}</a></li>
             </ul>
           </div>
           <div>
@@ -46,7 +46,7 @@ const Footer = () => {
               <li><a href="#">Himpunan Mahasiswa Manajemen Keuangan Perbankan</a></li>
               <li><a href="#">Himpunan Mahasiswa Manajemen Pemasaran</a></li>
               <li><a href="#">Unit Kegiatan Mahasiswa LP3I Sport Club</a></li>
-              <li><a href="#">Unit Kegiatan Mahasiswa LP3I Computer Club</a></li>
+              {/* <li><a href="#">Unit Kegiatan Mahasiswa LP3I Computer Club</a></li> */}
               <li><a href="#">Unit Kegiatan Mahasiswa LP3I Moslem Association</a></li>
               <li><a href="#">Unit Kegiatan Mahasiswa LP3I Innovation Art Club</a></li>
               <li><a href="#">Unit Kegiatan Mahasiswa Student English Association of LP3I</a></li>

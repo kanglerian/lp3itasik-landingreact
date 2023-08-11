@@ -26,7 +26,6 @@ const Navbar = () => {
         setUtama(foundUtama);
         setTasik(foundTasik);
         setVokasi(foundVokasi);
-        setIsLoaded(true);
       })
       .catch((error) => {
         console.log(error.message);
@@ -58,12 +57,12 @@ const Navbar = () => {
               <div className="flex items-center gap-2">
                 <LanguageSwitcher />
                 <span className="hidden md:inline"><i className="fa-solid fa-phone" /> (0265)311766</span>
-                <a href="https://bit.ly/InfoPMBLP3ITasik" target="_blank"><i className="fa-brands fa-whatsapp" /> 0813-1360-8558</a>
+                <a href="https://bit.ly/InfoPMBLP3ITasik" target="_blank" rel="noreferrer"><i className="fa-brands fa-whatsapp" /> 0813-1360-8558</a>
               </div>
               <div className="flex gap-3">
                 <a href={`/suggestion`}>{currentLanguage == 'en' ? 'Criticism and Suggestions' : 'Kritik & Saran'}</a>
-                <a href="https://brosur.politekniklp3i-tasikmalaya.ac.id/" target="_blank">{currentLanguage == 'en' ? 'Digital Brochure' : 'Brosur Digital'}</a>
-                <a href="https://virtualkampus.politekniklp3i-tasikmalaya.ac.id/" target="_blank" className="hidden md:inline">{currentLanguage == 'en' ? 'Virtual Kampus' : 'Virtual Campus'}</a>
+                {/* <a href="https://brosur.politekniklp3i-tasikmalaya.ac.id/" target="_blank" rel="noreferrer">{currentLanguage == 'en' ? 'Digital Brochure' : 'Brosur Digital'}</a> */}
+                <a href="https://virtualkampus.politekniklp3i-tasikmalaya.ac.id/" target="_blank" className="hidden md:inline" rel="noreferrer">{currentLanguage == 'en' ? 'Virtual Kampus' : 'Virtual Campus'}</a>
               </div>
             </div>
           </div>
@@ -138,13 +137,13 @@ const Navbar = () => {
                         {
                           tasikPrograms.length > 0 && (
                             <>
-                              <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                                <div class="font-medium truncate">Politeknik LP3I Kampus Tasikmalaya</div>
+                              <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                                <div className="font-medium truncate">Politeknik LP3I Kampus Tasikmalaya</div>
                               </div>
                               <ul className="py-2 text-sm text-gray-900">
                                 {tasikPrograms.map((tasik, i) =>
                                   <li key={i} className='flex items-center px-4 hover:bg-gray-100 gap-2'>
-                                    <i class="fa-regular fa-circle-dot"></i>
+                                    <i className="fa-regular fa-circle-dot"></i>
                                     <a href={`/programs/` + tasik.uuid} className="block pr-4 py-2">
                                       {tasik.title}
                                     </a>
@@ -157,13 +156,13 @@ const Navbar = () => {
                         {
                           utamaPrograms.length > 0 && (
                             <>
-                              <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                                <div class="font-medium truncate">Kampus Utama</div>
+                              <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                                <div className="font-medium truncate">Kampus Utama</div>
                               </div>
                               <ul className="py-2 text-sm text-gray-900">
                                 {utamaPrograms.map((utama, i) =>
                                   <li key={i} className='flex items-center px-4 hover:bg-gray-100 gap-2'>
-                                    <i class="fa-regular fa-circle-dot"></i>
+                                    <i className="fa-regular fa-circle-dot"></i>
                                     <a href={`/programs/` + utama.uuid} className="block pr-4 py-2">
                                       {utama.title}
                                     </a>
@@ -176,13 +175,13 @@ const Navbar = () => {
                         {
                           vokasiPrograms.length > 0 && (
                             <>
-                              <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                                <div class="font-medium truncate">LP3I Tasikmalaya</div>
+                              <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                                <div className="font-medium truncate">LP3I Tasikmalaya</div>
                               </div>
                               <ul className="py-2 text-sm text-gray-900">
                                 {vokasiPrograms.map((vokasi, i) =>
                                   <li key={i} className='flex items-center px-4 hover:bg-gray-100 gap-2'>
-                                    <i class="fa-regular fa-circle-dot"></i>
+                                    <i className="fa-regular fa-circle-dot"></i>
                                     <a href={`/programs/` + vokasi.uuid} className="block pr-4 py-2">
                                       {vokasi.title}
                                     </a>
@@ -211,7 +210,7 @@ const Navbar = () => {
                     </a>
                   </li>
                   <div className="py-2 md:p-0">
-                    <a role="button" target="_blank" href="https://pmb.politekniklp3i-tasikmalaya.ac.id/" className="transition ease-in-out duration-300 block md:inline-block py-2 px-4 text-white bg-cyan-700 hover:bg-cyan-800 rounded"><i className="fa-solid fa-headset mr-1" /> PMB Online</a>
+                    <a role="button" target="_blank" href="https://pmb.politekniklp3i-tasikmalaya.ac.id/" className="transition ease-in-out duration-300 block md:inline-block py-2 px-4 text-white bg-cyan-700 hover:bg-cyan-800 rounded" rel="noreferrer"><i className="fa-solid fa-headset mr-1" /> PMB Online</a>
                   </div>
                 </ul>
               </div>
