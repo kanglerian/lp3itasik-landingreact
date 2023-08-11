@@ -76,7 +76,7 @@ const NavbarKaryawan = () => {
                     </a>
                   </li>
                   <div className="py-2 md:p-0">
-                    <a role="button" target="_blank" href="https://pmb.politekniklp3i-tasikmalaya.ac.id/" className="transition ease-in-out duration-300 block md:inline-block py-2 px-4 text-white bg-cyan-700 hover:bg-cyan-800 rounded"><i className="fa-solid fa-headset mr-1" /> PMB Online</a>
+                    <a role="button" target="_blank" href="https://pmb.politekniklp3i-tasikmalaya.ac.id/" className="transition ease-in-out duration-300 block md:inline-block py-2 px-4 text-white bg-cyan-700 hover:bg-cyan-800 rounded" rel="noreferrer"><i className="fa-solid fa-headset mr-1" /> PMB Online</a>
                   </div>
                 </ul>
               </div>
