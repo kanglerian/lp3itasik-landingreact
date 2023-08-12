@@ -92,8 +92,8 @@ const CareerCenter = () => {
 
       <section className="flex flex-col md:flex-row items-center justify-between bg-white container mx-auto px-4 py-12 gap-5">
         <div className="w-full md:w-3/6">
-          <h1 className="mb-4 text-5xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">LP3I: Kuliah Fleksibel, Sukses Karir Terjamin!</h1>
-          <p className="mb-8 text-base md:text-lg font-normal text-gray-500">LP3I hadir dengan kuliah fleksibel, karir unggul, impian terwujud. Bergabunglah dan raih kesuksesan bersama kami sekarang!</p>
+          <h1 className="mb-4 text-5xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">LP3I: Kuliah Sambil Bekerja, Sukses Karir Terjamin!</h1>
+          <p className="mb-8 text-base md:text-lg font-normal text-gray-500">LP3I hadir dengan kuliah mendukungmu untuk kuliah sambil bekerja, karir unggul, impian terwujud. Bergabunglah dan raih kesuksesan bersama kami sekarang!</p>
           <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
             <a href="https://api.whatsapp.com/send?phone=6281313608558&text=Hallo%20Kak,%20Boleh%20minta%20informasi%20Pendaftaran%20Mahasiswa%20Politeknik%20LP3I%20Kampus%20Tasikmalaya%3F" className="inline-flex justify-center items-center py-3 px-5 text-sm md:text-base font-medium text-center text-white rounded-lg bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-blue-300 ">
               Hubungi Kami!

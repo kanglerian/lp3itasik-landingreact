@@ -82,7 +82,7 @@ const router = createBrowserRouter([
     element: <Redirect/>
   },
   {
-    path: "/kelas-karyawan",
+    path: "/reguler-sore",
     element: <KelasKaryawan/>
   },
 ]);

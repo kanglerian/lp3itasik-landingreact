@@ -14,9 +14,9 @@ const Type = () => {
               <div className='space-y-5'>
                 <div className='flex items-center gap-3'>
                 <i class="fa-solid fa-cloud-sun fa-2x text-gray-900"></i>
-                  <h3 className='font-bold text-2xl text-gray-900'>Kelas Reguler</h3>
+                  <h3 className='font-bold text-2xl text-gray-900'>Reguler Pagi</h3>
                 </div>
-                <p className='text-sm text-gray-700'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae ipsam fugit nesciunt excepturi, perferendis sapiente veritatis delectus ab at nostrum asperiores voluptate ut voluptates quaerat modi ducimus cum incidunt earum iusto. Harum magnam laborum delectus a facere eaque eos laboriosam dolor odio temporibus ut et dolore dignissimos quibusdam autem quae quidem officia voluptates amet.</p>
+                <p className='text-sm text-gray-700'>Jadwal kuliah yang dimulai dari hari Senin sampai dengan Jum'at dari jam 08.00 WIB s.d 16.00 WIB. Aktif di organisasi membuatmu menjadi lebih banyak relasi!</p>
                 <a href="https://api.whatsapp.com/send?phone=6281313608558" target='_blank' className='inline-block bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md'>Daftar sekarang!</a>
               </div>
             </div>
@@ -26,9 +26,9 @@ const Type = () => {
               <div className='space-y-5'>
                 <div className='flex items-center gap-3'>
                   <i class="fa-solid fa-cloud-moon fa-2x text-gray-900"></i>
-                  <h3 className='font-bold text-2xl text-gray-900'>Kelas Non Reguler / Malam</h3>
+                  <h3 className='font-bold text-2xl text-gray-900'>Reguler Sore</h3>
                 </div>
-                <p className='text-sm text-gray-700'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae ipsam fugit nesciunt excepturi, perferendis sapiente veritatis delectus ab at nostrum asperiores voluptate ut voluptates quaerat modi ducimus cum incidunt earum iusto. Harum magnam laborum delectus a facere eaque eos laboriosam dolor odio temporibus ut et dolore dignissimos quibusdam autem quae quidem officia voluptates amet.</p>
+                <p className='text-sm text-gray-700'>Jadwal kuliah yang dimulai dari hari Senin sampai dengan Jum'at dari jam 16.00 WIB s.d 20.30 WIB. Cocok buat kamu yang ingin kuliah sambil bekerja.</p>
                 <a href="https://api.whatsapp.com/send?phone=6281313608558" target='_blank' className='inline-block bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md'>Daftar sekarang!</a>
               </div>
             </div>

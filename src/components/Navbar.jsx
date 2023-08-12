@@ -205,7 +205,7 @@ const Navbar = () => {
                     </a>
                   </li>
                   <li>
-                    <a href={`/kelas-karyawan`} className="block md:inline py-2 px-4 text-gray-900 md:hover:text-cyan-800 md:p-0">
+                    <a href={`/reguler-sore`} className="block md:inline py-2 px-4 text-gray-900 md:hover:text-cyan-800 md:p-0">
                       {currentLanguage == 'en' ? 'Reguler Sore' : 'Reguler Sore'}
                     </a>
                   </li>
