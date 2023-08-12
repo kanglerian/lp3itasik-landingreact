@@ -145,8 +145,8 @@ const CareerCenter = () => {
         <div className='flex flex-col md:flex-row mt-10 gap-5'>
           <div className='w-full md:w-1/3 flex flex-col items-center text-center'>
             <img src={onlineTeach} alt="" className='w-14 h-14 mb-2' />
-            <h4 className='text-lg font-bold text-gray-800'>Waktu Fleksibel</h4>
-            <p className='text-sm font-light text-gray-700'>Nikmati Waktu Fleksibel kuliah, atur belajar sesuai kebutuhan Anda.</p>
+            <h4 className='text-lg font-bold text-gray-800'>Bisa Sambil Bekerja</h4>
+            <p className='text-sm font-light text-gray-700'>Nikmati Waktu kuliah sambil bekerja, atur belajar sesuai kebutuhan Anda.</p>
           </div>
           <div className='w-full md:w-1/3 flex flex-col items-center text-center'>
             <img src={budgetIcon} alt="" className='w-14 h-14 mb-2' />
