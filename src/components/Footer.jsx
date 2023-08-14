@@ -31,7 +31,6 @@ const Footer = () => {
           <div>
             <h5 className="text-gray-700 font-bold text-left md:text-right text-xl">{currentLanguage == 'en' ? 'About Campus' : 'Tentang Kampus'}</h5>
             <ul className="text-gray-500 mt-4 text-xs text-left md:text-right space-y-2">
-              <li><a href="https://brosur.politekniklp3i-tasikmalaya.ac.id/">{currentLanguage == 'en' ? 'Digital Brochure' : 'Brosur Digital'}</a></li>
               <li><a href={`/about`}>{currentLanguage == 'en' ? 'Get to know LP3I' : 'Mengenal LP3I'}</a></li>
               <li><a href={`/about`}>{currentLanguage == 'en' ? 'History of LP3I' : 'Sejarah LP3I'}</a></li>
               <li><a href={`/about`}>{currentLanguage == 'en' ? 'Vision & Mission' : 'Visi & Misi'}</a></li>
