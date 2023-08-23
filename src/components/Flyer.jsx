@@ -33,9 +33,14 @@ const Flyer = () => {
   }
 
   const handleSend = async () => {
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth();
+    const currentYear = currentDate.getFullYear();
+    const startYear = currentMonth >= 9 ? currentYear + 1 : currentYear;
     await axios.post(`https://database.politekniklp3i-tasikmalaya.ac.id/api/storewebsite`,{
       name: name,
       phone: phone,
+      pmb: startYear
     })
     .then((res) => {
       handleWhatsapp();
