@@ -1,23 +1,18 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
+import { Document, Page } from 'react-pdf';
 import axios from 'axios'
 
-import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
+import { Viewer, Worker } from '@react-pdf-viewer/core';
+import '@react-pdf-viewer/core/lib/styles/index.css';
 
 import pdfBrosur from '../assets/pdf/brosur.pdf';
 
 const Navbar = lazy(() => import('../components/Navbar'))
 const Footer = lazy(() => import('../components/Footer'))
 const Banner = lazy(() => import('../components/Banner'))
-const Information = lazy(() => import('../components/Information'))
 
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-
-import { Player, Controls } from '@lottiefiles/react-lottie-player';
-
-import emptyAnimate from '../assets/empty.json'
 
 const renderLoader = () =>
   <div role="status" className='flex justify-center items-center h-screen'>
@@ -28,12 +23,16 @@ const renderLoader = () =>
     <span className="sr-only">Loading...</span>
   </div>;
 
-const CareerCenter = () => {
+const UppmPage = () => {
   const currentLanguage = localStorage.getItem('language') || 'id';
-
   const [penelitian, setPenelitian] = useState([])
 
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages);
+  }
+
   const getPanduanUPPM = async () => {
+
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/panduanuppm`)
       .then((response) => {
         let panduanPenelitian = response.data.filter(panduan => panduan.status == '1' && panduan.type == 'Penelitian');
@@ -47,16 +46,21 @@ const CareerCenter = () => {
   const listPanduanPenelitian = penelitian.map((panduan, i) =>
     <div key={i} className='flex flex-col md:flex-row items-center justify-center gap-5'>
       <div className='w-full md:w-1/2'>
-        <iframe
+        {/* <iframe
           title="Embedded PDF"
           width="100%"
           height="550px"
           src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/${panduan.file_uppm}`}
           className='rounded-xl'
-        ></iframe>
+        ></iframe> */}
+        <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
+          <div style={{ height:'600px' }}>
+          <Viewer fileUrl={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/${panduan.file_uppm}`} />
+          </div>
+        </Worker>
       </div>
       <div className='w-full md:w-1/2 space-y-3'>
-      {panduan.file_uppm}
+        {panduan.file_uppm}
         <h2 className='font-bold text-2xl text-gray-800'>{panduan.title}</h2>
         <p className='text-sm text-gray-700'>{panduan.description}</p>
       </div>
@@ -159,4 +163,4 @@ const CareerCenter = () => {
   )
 }
 
-export default CareerCenter
+export default UppmPage;
