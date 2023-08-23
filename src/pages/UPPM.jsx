@@ -25,77 +25,43 @@ const renderLoader = () =>
       <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
       <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill" />
     </svg>
-    <span class="sr-only">Loading...</span>
+    <span className="sr-only">Loading...</span>
   </div>;
 
 const CareerCenter = () => {
   const currentLanguage = localStorage.getItem('language') || 'id';
 
-  const [alumnis, setAlumni] = useState([])
-  const [documentations, setDocumentation] = useState([])
-  const [companies, setCompany] = useState([])
+  const [penelitian, setPenelitian] = useState([])
 
-  const [compLoaded, setCompLoaded] = useState(false)
-  const [docLoaded, setDocLoaded] = useState(false)
-
-  const options = {
-    responsive: {
-      0: {
-        items: 1
-      },
-      992: {
-        items: 3
-      }
-    }
-  }
-
-  const getAlumni = async () => {
-    await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/programalumnis`)
+  const getPanduanUPPM = async () => {
+    await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/panduanuppm`)
       .then((response) => {
-        let data = response.data.filter(dat => dat.status == '1')
-        setAlumni(data)
+        let panduanPenelitian = response.data.filter(panduan => panduan.status == '1' && panduan.type == 'Penelitian');
+        setPenelitian(panduanPenelitian)
       })
       .catch((error) => {
         console.log(error.message);
       })
   }
 
-  const getDocumentation = async () => {
-    await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/documentations`)
-      .then((response) => {
-        let docs = response.data.filter(doc => doc.status == '1')
-        setDocumentation(docs)
-        setDocLoaded(true)
-      })
-      .catch((error) => {
-        console.log(error.message);
-      })
-  }
-
-  const getCompanies = async () => {
-    await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/companies`)
-      .then((response) => {
-        let companies = response.data.filter(company => company.status == '1')
-        setCompany(companies)
-        setCompLoaded(true)
-      })
-      .catch((error) => {
-        console.log(error.message);
-      })
-  }
-
-  const listCompanies = companies.map((company, i) =>
-    <div className="w-1/2 md:w-1/6 p-4 item" key={i} data-aos-delay={i * 5}>
-      <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + company.image} alt={company.title} className="rounded-lg" />
+  const listPanduanPenelitian = penelitian.map((panduan, i) =>
+    <div key={i} className='flex flex-col md:flex-row items-center justify-center gap-5'>
+      <div className='w-full md:w-1/2'>
+        <iframe
+          title="Embedded PDF"
+          width="100%"
+          height="550px"
+          src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/${panduan.file_uppm}`}
+          className='rounded-xl'
+        ></iframe>
+      </div>
+      <div className='w-full md:w-1/2 space-y-3'>
+      {panduan.file_uppm}
+        <h2 className='font-bold text-2xl text-gray-800'>{panduan.title}</h2>
+        <p className='text-sm text-gray-700'>{panduan.description}</p>
+      </div>
     </div>
-  )
-
-  const listDocumentation = documentations.map((doc, i) =>
-    <div className="item" key={i} data-aos-delay={i * 5}>
-      <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + doc.image} alt={doc.title}
-        className="rounded-lg" />
-    </div>
-  )
+  );
 
   const hiddenSection = (content) => {
     let data = content.target.dataset.name;
@@ -121,9 +87,7 @@ const CareerCenter = () => {
   }
 
   useEffect(() => {
-    getAlumni()
-    getDocumentation()
-    getCompanies()
+    getPanduanUPPM()
     AOS.init({
       duration: 800,
       easing: 'ease-in-out',
@@ -148,21 +112,7 @@ const CareerCenter = () => {
 
         {/* Penelitian */}
         <section id="penelitian" className="container mx-auto px-4 my-8">
-          <div className='flex flex-col md:flex-row items-center justify-center gap-5'>
-            <div className='w-full md:w-1/2'>
-              <iframe
-                title="Embedded PDF"
-                width="100%"
-                height="550px"
-                src={pdfBrosur}
-                className='rounded-xl'
-              ></iframe>
-            </div>
-            <div className='w-full md:w-1/2 space-y-3'>
-              <h2 className='font-bold text-2xl text-gray-800'>Panduan Penelitian Sopyan</h2>
-              <p className='text-sm text-gray-700'>Selamat datang di bagian Panduan Penelitian kami! Kami mengundang Anda untuk menjelajahi panduan yang berisi panduan langkah demi langkah yang berharga untuk memulai penelitian Anda. Langkah pertama adalah membaca dan mengunduh berkas ini, yang akan membantu Anda memahami proses penelitian secara mendalam. Panduan kami dirancang untuk memandu Anda melalui setiap tahap, dari perumusan pertanyaan penelitian hingga analisis hasil yang akurat. Jangan lewatkan kesempatan ini untuk memanfaatkan panduan yang telah kami siapkan dengan cermat guna membantu Anda mencapai kesuksesan dalam perjalanan penelitian Anda. Selamat membaca dan mengeksplorasi!</p>
-            </div>
-          </div>
+          {listPanduanPenelitian}
         </section>
 
         {/* PKM */}
