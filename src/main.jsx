@@ -22,6 +22,7 @@ import CareerCenter from './pages/CareerCenter';
 import KelasKaryawan from './pages/KelasKaryawan';
 import Complaint from './pages/Complaint';
 import Redirect from './pages/Redirect';
+import UPPM from './pages/UPPM';
 import NotFound from './pages/NotFound';
 
 const router = createBrowserRouter([
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
   {
     path: "/reguler-sore",
     element: <KelasKaryawan/>
+  },
+  {
+    path: "/uppm",
+    element: <UPPM/>
   },
 ]);
 
