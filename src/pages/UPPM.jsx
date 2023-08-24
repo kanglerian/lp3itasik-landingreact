@@ -2,14 +2,9 @@ import React, { useState, useEffect, lazy, Suspense } from 'react'
 import axios from 'axios'
 import urljoin from 'url-join'
 
-import pdfBrosur from '../assets/pdf/brosur.pdf';
-
 const Navbar = lazy(() => import('../components/Navbar'))
 const Footer = lazy(() => import('../components/Footer'))
 const Banner = lazy(() => import('../components/Banner'))
-
-import AOS from 'aos'
-import 'aos/dist/aos.css'
 
 const renderLoader = () =>
   <div role="status" className='flex justify-center items-center h-screen'>
@@ -22,34 +17,103 @@ const renderLoader = () =>
 
 const UppmPage = () => {
   const [penelitian, setPenelitian] = useState([]);
+  const [pkm, setPkm] = useState([]);
+  const [kkn, setKkn] = useState([]);
+
+  const [dataPenelitian, setDataPenelitian] = useState([]);
+  const [luaranPenelitian, setLuaranPenelitian] = useState([]);
+  const [dataPkm, setDataPkm] = useState([]);
+  const [luaranPkm, setLuaranPkm] = useState([]);
 
   const getPanduanUPPM = async () => {
-
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/panduanuppm`)
       .then((response) => {
         let panduanPenelitian = response.data.filter(panduan => panduan.status == '1' && panduan.type == 'Penelitian');
-        setPenelitian(panduanPenelitian)
+        let panduanPkm = response.data.filter(panduan => panduan.status == '1' && panduan.type == 'PKM');
+        let panduanKkn = response.data.filter(panduan => panduan.status == '1' && panduan.type == 'KKN');
+        setPenelitian(panduanPenelitian);
+        setPkm(panduanPkm);
+        setKkn(panduanKkn);
       })
       .catch((error) => {
         console.log(error.message);
       })
   }
 
-  const listPanduanPenelitian = penelitian.map((panduan, i) =>
+  const getDataPenelitian = async () => {
+    await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/datapenelitianuppm`)
+      .then((response) => {
+        let data = response.data.filter(content => content.status == '1');
+        console.log(data);
+        setDataPenelitian(data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      })
+  }
+
+  const getDataPkm = async () => {
+    await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/datapkmuppm`)
+      .then((response) => {
+        let data = response.data.filter(content => content.status == '1');
+        console.log(data);
+        setDataPkm(data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      })
+  }
+
+  const listPanduanPenelitian = penelitian.map((panpen, i) =>
     <div key={i} className='flex flex-col md:flex-row items-center justify-center gap-5'>
-      <div className='w-full md:w-1/2'>
+      <div className='w-full md:w-1/2 order-2 md:order-none'>
         <iframe
           title="Embedded PDF"
           width="100%"
           height="550px"
-          src={urljoin('https://dashboard.politekniklp3i-tasikmalaya.ac.id/', panduan.file_uppm)}
+          src={urljoin('https://dashboard.politekniklp3i-tasikmalaya.ac.id/', panpen.file_uppm)}
           className='rounded-xl'
         ></iframe>
       </div>
-      <div className='w-full md:w-1/2 space-y-3'>
+      <div className='w-full md:w-1/2 space-y-3 order-1 md:order-none'>
+        <h2 className='font-bold text-2xl text-gray-800'>{panpen.title}</h2>
+        <p className='text-base text-gray-700'>{panpen.description}</p>
+      </div>
+    </div>
+  );
 
-        <h2 className='font-bold text-2xl text-gray-800'>{panduan.title}</h2>
-        <p className='text-sm text-gray-700'>{panduan.description}</p>
+  const listPkmPenelitian = pkm.map((panpkm, i) =>
+    <div key={i} className='flex flex-col md:flex-row items-center justify-center gap-5'>
+      <div className='w-full md:w-1/2 order-2 md:order-none'>
+        <iframe
+          title="Embedded PDF"
+          width="100%"
+          height="550px"
+          src={urljoin('https://dashboard.politekniklp3i-tasikmalaya.ac.id/', panpkm.file_uppm)}
+          className='rounded-xl'
+        ></iframe>
+      </div>
+      <div className='w-full md:w-1/2 space-y-3 order-1 md:order-none'>
+        <h2 className='font-bold text-2xl text-gray-800'>{panpkm.title}</h2>
+        <p className='text-base text-gray-700'>{panpkm.description}</p>
+      </div>
+    </div>
+  );
+
+  const listKknPenelitian = kkn.map((pankkn, i) =>
+    <div key={i} className='flex flex-col md:flex-row items-center justify-center gap-5'>
+      <div className='w-full md:w-1/2 order-2 md:order-none'>
+        <iframe
+          title="Embedded PDF"
+          width="100%"
+          height="550px"
+          src={urljoin('https://dashboard.politekniklp3i-tasikmalaya.ac.id/', pankkn.file_uppm)}
+          className='rounded-xl'
+        ></iframe>
+      </div>
+      <div className='w-full md:w-1/2 space-y-3 order-1 md:order-none'>
+        <h2 className='font-bold text-2xl text-gray-800'>{pankkn.title}</h2>
+        <p className='text-base text-gray-700'>{pankkn.description}</p>
       </div>
     </div>
   );
@@ -78,13 +142,9 @@ const UppmPage = () => {
   }
 
   useEffect(() => {
-    getPanduanUPPM()
-    AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
-      offset: 100,
-      once: true
-    });
+    getPanduanUPPM();
+    getDataPenelitian();
+    getDataPkm();
   }, []);
 
   return (
@@ -102,48 +162,280 @@ const UppmPage = () => {
         </nav>
 
         {/* Penelitian */}
-        <section id="penelitian" className="container mx-auto px-4 my-8">
+        <section id="penelitian" className="container mx-auto px-4 my-8 space-y-10">
           {listPanduanPenelitian}
+          <hr />
+          {/* Data Penelitian */}
+          <div className='space-y-5'>
+            <div className='text-center space-y-1'>
+              <h2 className='font-bold text-2xl text-gray-900'>Data Penelitian</h2>
+              <p className='text-base text-gray-700'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, voluptates? Quos, id. Dolorum, nemo. Nihil.</p>
+            </div>
+            <div class="relative overflow-x-auto">
+              <table class="w-full text-sm text-left text-gray-500 ">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                  <tr>
+                    <th scope="col" class="px-6 py-3">
+                      No
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Penulis
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Judul Artikel
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Tahun Terbit
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    dataPenelitian.map((dataPen, i) =>
+                      <tr class="bg-white border-b">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                          {i + 1}
+                        </th>
+                        <td class="px-6 py-4">
+                          {dataPen.writter}
+                        </td>
+                        <td class="px-6 py-4 text-wrap">
+                          {dataPen.title}
+                        </td>
+                        <td class="px-6 py-4">
+                          {dataPen.year}
+                        </td>
+                      </tr>
+                    )
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <hr />
+          {/* Luaran Penelitian */}
+          <div className='space-y-5'>
+            <div className='text-center space-y-1'>
+              <h2 className='font-bold text-2xl text-gray-900'>Luaran Penelitian</h2>
+              <p className='text-base text-gray-700'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, voluptates? Quos, id. Dolorum, nemo. Nihil.</p>
+            </div>
+            <div class="relative overflow-x-auto h-72 shadow-sm border border-gray-200 rounded-lg">
+              <table class="w-full text-sm text-left text-gray-500 ">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                  <tr>
+                    <th scope="col" class="px-6 py-3">
+                      No
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Penulis
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Judul Artikel
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Tahun Terbit
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Jenis Publikasi
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Index Jurnal
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Artikel
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="bg-white border-b">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                      1
+                    </th>
+                    <td class="px-6 py-4">
+                      Jajang Burhanudin
+                    </td>
+                    <td class="px-6 py-4">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus animi accusamus recusandae temporibus velit mollitia odio consectetur quos error quis.
+                    </td>
+                    <td class="px-6 py-4">
+                      2019
+                    </td>
+                    <td class="px-6 py-4">
+                      Jurnal Internasional
+                    </td>
+                    <td class="px-6 py-4">
+                      Jurnal Internasional
+                    </td>
+                    <td class="px-6 py-4">
+                      <a href="#" className='bg-lp3i-100 hover:bg-lp3i-200 px-3 py-1 rounded-lg text-white'>
+                        <i className="fa-solid fa-eye"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </section>
 
         {/* PKM */}
-        <section id="pkm" className="hidden container mx-auto px-4 my-8">
-          <div className='flex flex-col md:flex-row items-center justify-center gap-5'>
-            <div className='w-full md:w-1/2'>
-              <iframe
-                title="Embedded PDF"
-                width="100%"
-                height="550px"
-                src={pdfBrosur}
-                className='rounded-xl'
-              ></iframe>
+        <section id="pkm" className="hidden container mx-auto px-4 my-8 space-y-10">
+          {listPkmPenelitian}
+          <hr />
+          {/* Data PKM */}
+          <div className='space-y-5'>
+            <div className='text-center space-y-1'>
+              <h2 className='font-bold text-2xl text-gray-900'>Data PKM</h2>
+              <p className='text-base text-gray-700'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, voluptates? Quos, id. Dolorum, nemo. Nihil.</p>
             </div>
-            <div className='w-full md:w-1/2 space-y-3'>
-              <h2 className='font-bold text-2xl text-gray-800'>Panduan PKM</h2>
-              <p className='text-sm text-gray-700'>Selamat datang di bagian Panduan PKM Pengabdian kepada Masyarakat kami! Kami dengan hangat mengundang Anda untuk menjelajahi panduan komprehensif ini yang akan membantu Anda memulai perjalanan berharga dalam pengabdian kepada masyarakat. Langkah pertama yang kami anjurkan adalah membaca dan mengunduh berkas yang telah kami sediakan di sini. Berkas ini berisi informasi penting mengenai tahapan-tahapan yang perlu Anda lalui dalam merencanakan dan melaksanakan proyek pengabdian Anda. Kami telah merangkum strategi sukses, tips kolaborasi yang efektif, serta cara mengukur dampak positif pada masyarakat yang Anda layani. Jangan sia-siakan kesempatan ini untuk memberikan kontribusi nyata pada masyarakat melalui proyek PKM Anda. Selamat membaca dan menginspirasi masyarakat!</p>
+            <div class="relative overflow-x-auto h-72 shadow-sm border border-gray-200 rounded-lg">
+              <table class="w-full text-sm text-left text-gray-500 ">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                  <tr>
+                    <th scope="col" class="px-6 py-3">
+                      No
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Pengabdian Kepada Masyarakat
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Tahun
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {dataPkm.map((datPk, i) =>
+                    <tr class="bg-white border-b">
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                        {i + 1}
+                      </th>
+                      <td class="px-6 py-4 text-wrap">
+                        {datPk.title}
+                      </td>
+                      <td class="px-6 py-4">
+                        {datPk.year}
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <hr />
+          {/* Luaran PKM */}
+          <div className='space-y-5'>
+            <div className='text-center space-y-1'>
+              <h2 className='font-bold text-2xl text-gray-900'>Luaran PKM</h2>
+              <p className='text-base text-gray-700'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, voluptates? Quos, id. Dolorum, nemo. Nihil.</p>
+            </div>
+            <div class="relative overflow-x-auto">
+              <table class="w-full text-sm text-left text-gray-500 ">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                  <tr>
+                    <th scope="row" class="px-6 py-3">
+                      No
+                    </th>
+                    <th scope="row" class="px-6 py-3">
+                      Pengabdian Kepada Masyarakat
+                    </th>
+                    <th scope="row" class="px-6 py-3">
+                      Tahun Terbit
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Luaran PKM
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="bg-white border-b">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                      1
+                    </th>
+                    <td class="px-6 py-4">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus animi accusamus recusandae temporibus velit mollitia odio consectetur quos error quis.
+                    </td>
+                    <td class="px-6 py-4">
+                      2019
+                    </td>
+                    <td class="px-6 py-4">
+                      <a href="#" className='bg-lp3i-100 hover:bg-lp3i-200 px-3 py-1 rounded-lg text-white'>
+                        <i className="fa-solid fa-eye"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
 
         {/* KKN */}
         <section id="kkn" className="hidden container mx-auto px-4 my-8">
-          <div className='flex flex-col md:flex-row items-center justify-center gap-5'>
-            <div className='w-full md:w-1/2'>
-              <iframe
-                title="Embedded PDF"
-                width="100%"
-                height="550px"
-                src={pdfBrosur}
-                className='rounded-xl'
-              ></iframe>
-            </div>
-            <div className='w-full md:w-1/2 space-y-3'>
-              <h2 className='font-bold text-2xl text-gray-800'>Panduan KKN</h2>
-              <p className='text-sm text-gray-700'>Selamat datang di Panduan KKN (Kuliah Kerja Nyata) kami! Kami dengan antusias mengajak Anda untuk menjelajahi panduan komprehensif ini, yang akan membimbing Anda melalui perjalanan bermakna dalam Kuliah Kerja Nyata. Tahap awal yang sangat kami sarankan adalah membaca dan mengunduh berkas yang telah kami sediakan di sini. Berkas ini berfungsi sebagai kunci untuk memahami seluk-beluk pelaksanaan KKN dengan lebih baik. Kami telah menyusun panduan langkah demi langkah, mulai dari perencanaan hingga pelaksanaan proyek, serta panduan bagaimana menjalin interaksi yang positif dengan komunitas yang Anda layani. Jangan lewatkan kesempatan berharga ini untuk memberikan dampak positif pada lingkungan melalui KKN Anda. Selamat membaca dan melangkah dalam pengalaman KKN yang penuh inspirasi!</p>
-            </div>
-          </div>
+          {listKknPenelitian}
         </section>
+      </section>
 
+      <section className="hidden container mx-auto px-4 my-8">
+        <div className='space-y-5'>
+          <div className='text-center space-y-1'>
+            <h2 className='font-bold text-2xl text-gray-900'>Book Chapter</h2>
+            <p className='text-base text-gray-700'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, voluptates? Quos, id. Dolorum, nemo. Nihil.</p>
+          </div>
+          <div class="relative overflow-x-auto">
+            <table class="w-full text-sm text-left text-gray-500 ">
+              <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                <tr>
+                  <th scope="row" class="px-6 py-3">
+                    No
+                  </th>
+                  <th scope="row" class="px-6 py-3">
+                    Nama Dosen
+                  </th>
+                  <th scope="row" class="px-6 py-3">
+                    Judul Buku
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Penerbit
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Tahun
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    ISBN
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    No. Reg HKI
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-white border-b">
+                  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                    1
+                  </th>
+                  <td class="px-6 py-4">
+                    Adzka Rosa Sanjayyana, S.E., Ak., M.Ak
+                  </td>
+                  <td class="px-6 py-4">
+                    Riset Pemasaran
+                  </td>
+                  <td class="px-6 py-4">
+                    PT Gobal Eksekutif Teknologi
+                  </td>
+                  <td class="px-6 py-4">
+                    2023
+                  </td>
+                  <td class="px-6 py-4">
+                    9786231980779
+                  </td>
+                  <td class="px-6 py-4">
+                    EC00202312849
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </section>
       <Footer />
     </Suspense>
