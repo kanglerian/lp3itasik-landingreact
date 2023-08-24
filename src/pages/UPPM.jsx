@@ -171,7 +171,7 @@ const UppmPage = () => {
               <h2 className='font-bold text-2xl text-gray-900'>Data Penelitian</h2>
               <p className='text-base text-gray-700'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, voluptates? Quos, id. Dolorum, nemo. Nihil.</p>
             </div>
-            <div class="relative overflow-x-auto">
+            <div class="relative overflow-x-auto h-72 shadow-sm border border-gray-200 rounded-lg">
               <table class="w-full text-sm text-left text-gray-500 ">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                   <tr>
@@ -328,7 +328,7 @@ const UppmPage = () => {
               <h2 className='font-bold text-2xl text-gray-900'>Luaran PKM</h2>
               <p className='text-base text-gray-700'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, voluptates? Quos, id. Dolorum, nemo. Nihil.</p>
             </div>
-            <div class="relative overflow-x-auto">
+            <div class="relative overflow-x-auto h-72 shadow-sm border border-gray-200 rounded-lg">
               <table class="w-full text-sm text-left text-gray-500 ">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                   <tr>
@@ -381,7 +381,7 @@ const UppmPage = () => {
             <h2 className='font-bold text-2xl text-gray-900'>Book Chapter</h2>
             <p className='text-base text-gray-700'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, voluptates? Quos, id. Dolorum, nemo. Nihil.</p>
           </div>
-          <div class="relative overflow-x-auto">
+          <div class="relative overflow-x-auto h-72 shadow-sm border border-gray-200 rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 ">
               <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
