@@ -1,9 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
-import { Document, Page } from 'react-pdf';
 import axios from 'axios'
-
-import { Viewer, Worker } from '@react-pdf-viewer/core';
-import '@react-pdf-viewer/core/lib/styles/index.css';
+import urljoin from 'url-join'
 
 import pdfBrosur from '../assets/pdf/brosur.pdf';
 
@@ -24,12 +21,7 @@ const renderLoader = () =>
   </div>;
 
 const UppmPage = () => {
-  const currentLanguage = localStorage.getItem('language') || 'id';
-  const [penelitian, setPenelitian] = useState([])
-
-  function onDocumentLoadSuccess({ numPages }) {
-    setNumPages(numPages);
-  }
+  const [penelitian, setPenelitian] = useState([]);
 
   const getPanduanUPPM = async () => {
 
@@ -46,21 +38,16 @@ const UppmPage = () => {
   const listPanduanPenelitian = penelitian.map((panduan, i) =>
     <div key={i} className='flex flex-col md:flex-row items-center justify-center gap-5'>
       <div className='w-full md:w-1/2'>
-        {/* <iframe
+        <iframe
           title="Embedded PDF"
           width="100%"
           height="550px"
-          src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/${panduan.file_uppm}`}
+          src={urljoin('https://dashboard.politekniklp3i-tasikmalaya.ac.id/', panduan.file_uppm)}
           className='rounded-xl'
-        ></iframe> */}
-        <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-          <div style={{ height:'600px' }}>
-          <Viewer fileUrl={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/${panduan.file_uppm}`} />
-          </div>
-        </Worker>
+        ></iframe>
       </div>
       <div className='w-full md:w-1/2 space-y-3'>
-        {panduan.file_uppm}
+
         <h2 className='font-bold text-2xl text-gray-800'>{panduan.title}</h2>
         <p className='text-sm text-gray-700'>{panduan.description}</p>
       </div>
