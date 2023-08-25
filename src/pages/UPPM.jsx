@@ -3,6 +3,7 @@ import axios from 'axios'
 import urljoin from 'url-join'
 
 const Navbar = lazy(() => import('../components/Navbar'))
+const ArticleComponent = lazy(() => import('../components/ArticleComponent'))
 const Footer = lazy(() => import('../components/Footer'))
 const Banner = lazy(() => import('../components/Banner'))
 
@@ -24,6 +25,8 @@ const UppmPage = () => {
   const [luaranPenelitian, setLuaranPenelitian] = useState([]);
   const [dataPkm, setDataPkm] = useState([]);
   const [luaranPkm, setLuaranPkm] = useState([]);
+
+  const [books, setBook] = useState([]);
 
   const getPanduanUPPM = async () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/panduanuppm`)
@@ -84,6 +87,17 @@ const UppmPage = () => {
       })
   }
 
+  const getBooks = async () => {
+    await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/bookchapter`)
+      .then((response) => {
+        let data = response.data.filter(content => content.status == '1');
+        setBook(data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      })
+  }
+
   const listPanduanPenelitian = penelitian.map((panpen, i) =>
     <div key={i} className='flex flex-col md:flex-row items-center justify-center gap-5'>
       <div className='w-full md:w-1/2 order-2 md:order-none'>
@@ -102,7 +116,7 @@ const UppmPage = () => {
     </div>
   );
 
-  const listPkmPenelitian = pkm.map((panpkm, i) =>
+  const listPanduanPkm = pkm.map((panpkm, i) =>
     <div key={i} className='flex flex-col md:flex-row items-center justify-center gap-5'>
       <div className='w-full md:w-1/2 order-2 md:order-none'>
         <iframe
@@ -120,7 +134,7 @@ const UppmPage = () => {
     </div>
   );
 
-  const listKknPenelitian = kkn.map((pankkn, i) =>
+  const listPanduanKkn = kkn.map((pankkn, i) =>
     <div key={i} className='flex flex-col md:flex-row items-center justify-center gap-5'>
       <div className='w-full md:w-1/2 order-2 md:order-none'>
         <iframe
@@ -145,19 +159,37 @@ const UppmPage = () => {
         $('#penelitian').show();
         $('#pkm').hide();
         $('#kkn').hide();
+        $('#book').hide();
+        $('#article').hide();
         break;
       case 'pkm':
         $('#penelitian').hide();
         $('#pkm').show();
         $('#kkn').hide();
+        $('#book').hide();
+        $('#article').hide();
         break;
       case 'kkn':
         $('#penelitian').hide();
         $('#pkm').hide();
         $('#kkn').show();
+        $('#book').hide();
+        $('#article').hide();
         break;
-      default:
-        $('#penelitian').show();
+      case 'book':
+        $('#penelitian').hide();
+        $('#pkm').hide();
+        $('#kkn').hide();
+        $('#book').show();
+        $('#article').hide();
+        break;
+      case 'article':
+        $('#penelitian').hide();
+        $('#pkm').hide();
+        $('#kkn').hide();
+        $('#book').hide();
+        $('#article').show();
+        break;
     }
   }
 
@@ -167,6 +199,7 @@ const UppmPage = () => {
     getDataPkm();
     getLuaranPkm();
     getLuaranPenelitian();
+    getBooks();
   }, []);
 
   return (
@@ -180,6 +213,8 @@ const UppmPage = () => {
             <li onClick={hiddenSection} data-name="penelitian" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">Penelitian</li>
             <li onClick={hiddenSection} data-name="pkm" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">PKM</li>
             <li onClick={hiddenSection} data-name="kkn" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">KKN</li>
+            <li onClick={hiddenSection} data-name="book" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">Book Chapter</li>
+            <li onClick={hiddenSection} data-name="article" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">Media Massa</li>
           </ul>
         </nav>
 
@@ -213,20 +248,26 @@ const UppmPage = () => {
                 </thead>
                 <tbody>
                   {
-                    dataPenelitian.map((dataPen, i) =>
-                      <tr class="bg-white border-b">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                          {i + 1}
-                        </th>
-                        <td class="px-6 py-4">
-                          {dataPen.writter}
-                        </td>
-                        <td class="px-6 py-4 text-wrap">
-                          {dataPen.title}
-                        </td>
-                        <td class="px-6 py-4">
-                          {dataPen.year}
-                        </td>
+                    dataPenelitian.length > 0 ? (
+                      dataPenelitian.map((dataPen, i) =>
+                        <tr class="bg-white border-b">
+                          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            {i + 1}
+                          </th>
+                          <td class="px-6 py-4">
+                            {dataPen.writter}
+                          </td>
+                          <td class="px-6 py-4 text-wrap">
+                            {dataPen.title}
+                          </td>
+                          <td class="px-6 py-4">
+                            {dataPen.year}
+                          </td>
+                        </tr>
+                      )
+                    ) : (
+                      <tr>
+                        <td colSpan={4} className='text-center py-4 px-6'>Data penelitian belum tersedia.</td>
                       </tr>
                     )
                   }
@@ -285,10 +326,10 @@ const UppmPage = () => {
                           {luarPen.year}
                         </td>
                         <td class="px-6 py-4">
-                        {luarPen.publication}
+                          {luarPen.publication}
                         </td>
                         <td class="px-6 py-4">
-                        {luarPen.indexjurnal}
+                          {luarPen.indexjurnal}
                         </td>
                         <td class="px-6 py-4">
                           <a href={luarPen.link} className='bg-lp3i-100 hover:bg-lp3i-200 px-3 py-1 rounded-lg text-white'>
@@ -306,7 +347,7 @@ const UppmPage = () => {
 
         {/* PKM */}
         <section id="pkm" className="hidden container mx-auto px-4 my-8 space-y-10">
-          {listPkmPenelitian}
+          {listPanduanPkm}
           <hr />
           {/* Data PKM */}
           <div className='space-y-5'>
@@ -330,19 +371,27 @@ const UppmPage = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {dataPkm.map((datPk, i) =>
-                    <tr class="bg-white border-b">
-                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        {i + 1}
-                      </th>
-                      <td class="px-6 py-4 text-wrap">
-                        {datPk.title}
-                      </td>
-                      <td class="px-6 py-4">
-                        {datPk.year}
-                      </td>
-                    </tr>
-                  )}
+                  {
+                    dataPkm.length > 0 ? (
+                      dataPkm.map((datPk, i) =>
+                        <tr class="bg-white border-b">
+                          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            {i + 1}
+                          </th>
+                          <td class="px-6 py-4 text-wrap">
+                            {datPk.title}
+                          </td>
+                          <td class="px-6 py-4">
+                            {datPk.year}
+                          </td>
+                        </tr>
+                      )
+                    ) : (
+                      <tr>
+                        <td colSpan={3} className='text-center py-4 px-6'>Data PKM belum tersedia.</td>
+                      </tr>
+                    )
+                  }
                 </tbody>
               </table>
             </div>
@@ -409,72 +458,89 @@ const UppmPage = () => {
 
         {/* KKN */}
         <section id="kkn" className="hidden container mx-auto px-4 my-8">
-          {listKknPenelitian}
+          {listPanduanKkn}
         </section>
+
+        {/* Book */}
+        <section id="book" className="hidden container mx-auto px-4 my-8">
+          <div className='space-y-5'>
+            <div className='text-center space-y-1'>
+              <h2 className='font-bold text-2xl text-gray-900'>Book Chapter</h2>
+              <p className='text-base text-gray-700'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, voluptates? Quos, id. Dolorum, nemo. Nihil.</p>
+            </div>
+            <div class="relative overflow-x-auto h-72 shadow-sm border border-gray-200 rounded-lg">
+              <table class="w-full text-sm text-left text-gray-500 ">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                  <tr>
+                    <th scope="row" class="px-6 py-3">
+                      No
+                    </th>
+                    <th scope="row" class="px-6 py-3">
+                      Nama Dosen
+                    </th>
+                    <th scope="row" class="px-6 py-3">
+                      Judul Buku
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Penerbit
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Tahun
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      ISBN
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      No. Reg HKI
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    books.length > 0 ? (
+                      books.map((book, i) =>
+                        <tr class="bg-white border-b">
+                          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            {i + 1}
+                          </th>
+                          <td class="px-6 py-4">
+                            {book.name}
+                          </td>
+                          <td class="px-6 py-4">
+                            {book.title}
+                          </td>
+                          <td class="px-6 py-4">
+                            {book.pamedal}
+                          </td>
+                          <td class="px-6 py-4">
+                            {book.year}
+                          </td>
+                          <td class="px-6 py-4">
+                            {book.isbn}
+                          </td>
+                          <td class="px-6 py-4">
+                            {book.hki}
+                          </td>
+                        </tr>
+                      )
+                    ) : (
+                      <tr>
+                        <td colSpan={7} className='text-center py-4 px-6'>Data buku belum tersedia.</td>
+                      </tr>
+                    )
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id='article' className="hidden container mx-auto px-4 my-8">
+          <ArticleComponent/>
+        </section>
+
       </section>
 
-      <section className="hidden container mx-auto px-4 my-8">
-        <div className='space-y-5'>
-          <div className='text-center space-y-1'>
-            <h2 className='font-bold text-2xl text-gray-900'>Book Chapter</h2>
-            <p className='text-base text-gray-700'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, voluptates? Quos, id. Dolorum, nemo. Nihil.</p>
-          </div>
-          <div class="relative overflow-x-auto h-72 shadow-sm border border-gray-200 rounded-lg">
-            <table class="w-full text-sm text-left text-gray-500 ">
-              <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                <tr>
-                  <th scope="row" class="px-6 py-3">
-                    No
-                  </th>
-                  <th scope="row" class="px-6 py-3">
-                    Nama Dosen
-                  </th>
-                  <th scope="row" class="px-6 py-3">
-                    Judul Buku
-                  </th>
-                  <th scope="col" class="px-6 py-3">
-                    Penerbit
-                  </th>
-                  <th scope="col" class="px-6 py-3">
-                    Tahun
-                  </th>
-                  <th scope="col" class="px-6 py-3">
-                    ISBN
-                  </th>
-                  <th scope="col" class="px-6 py-3">
-                    No. Reg HKI
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="bg-white border-b">
-                  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                    1
-                  </th>
-                  <td class="px-6 py-4">
-                    Adzka Rosa Sanjayyana, S.E., Ak., M.Ak
-                  </td>
-                  <td class="px-6 py-4">
-                    Riset Pemasaran
-                  </td>
-                  <td class="px-6 py-4">
-                    PT Gobal Eksekutif Teknologi
-                  </td>
-                  <td class="px-6 py-4">
-                    2023
-                  </td>
-                  <td class="px-6 py-4">
-                    9786231980779
-                  </td>
-                  <td class="px-6 py-4">
-                    EC00202312849
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
       <Footer />
     </Suspense>
   )

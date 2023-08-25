@@ -15,6 +15,8 @@ import Facilities from './pages/Facilities';
 import Program from './pages/Program';
 import Student from './pages/Student';
 import Media from './pages/Media';
+import Article from './pages/Article';
+import ArticleDetail from './pages/ArticleDetail';
 import ProgramDetail from './pages/ProgramDetail';
 import StudentDetail from './pages/StudentDetail';
 import MediaDetail from './pages/MediaDetail';
@@ -65,6 +67,14 @@ const router = createBrowserRouter([
   {
     path: "/career",
     element: <CareerCenter/>
+  },
+  {
+    path: "/articles",
+    element: <Article/>
+  },
+  {
+    path: "/articles/:uuid",
+    element: <ArticleDetail/>
   },
   {
     path: "/media",
