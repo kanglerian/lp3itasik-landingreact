@@ -44,7 +44,6 @@ const UppmPage = () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/datapenelitianuppm`)
       .then((response) => {
         let data = response.data.filter(content => content.status == '1');
-        console.log(data);
         setDataPenelitian(data);
       })
       .catch((error) => {
@@ -56,8 +55,29 @@ const UppmPage = () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/datapkmuppm`)
       .then((response) => {
         let data = response.data.filter(content => content.status == '1');
-        console.log(data);
         setDataPkm(data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      })
+  }
+
+  const getLuaranPkm = async () => {
+    await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/luaranpkmuppm`)
+      .then((response) => {
+        let data = response.data.filter(content => content.status == '1');
+        setLuaranPkm(data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      })
+  }
+
+  const getLuaranPenelitian = async () => {
+    await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/luaranpenelitianuppm`)
+      .then((response) => {
+        let data = response.data.filter(content => content.status == '1');
+        setLuaranPenelitian(data);
       })
       .catch((error) => {
         console.log(error.message);
@@ -145,6 +165,8 @@ const UppmPage = () => {
     getPanduanUPPM();
     getDataPenelitian();
     getDataPkm();
+    getLuaranPkm();
+    getLuaranPenelitian();
   }, []);
 
   return (
@@ -247,31 +269,35 @@ const UppmPage = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="bg-white border-b">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                      1
-                    </th>
-                    <td class="px-6 py-4">
-                      Jajang Burhanudin
-                    </td>
-                    <td class="px-6 py-4">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus animi accusamus recusandae temporibus velit mollitia odio consectetur quos error quis.
-                    </td>
-                    <td class="px-6 py-4">
-                      2019
-                    </td>
-                    <td class="px-6 py-4">
-                      Jurnal Internasional
-                    </td>
-                    <td class="px-6 py-4">
-                      Jurnal Internasional
-                    </td>
-                    <td class="px-6 py-4">
-                      <a href="#" className='bg-lp3i-100 hover:bg-lp3i-200 px-3 py-1 rounded-lg text-white'>
-                        <i className="fa-solid fa-eye"></i>
-                      </a>
-                    </td>
-                  </tr>
+                  {
+                    luaranPenelitian.map((luarPen, i) =>
+                      <tr class="bg-white border-b">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                          {i + 1}
+                        </th>
+                        <td class="px-6 py-4">
+                          {luarPen.writter}
+                        </td>
+                        <td class="px-6 py-4">
+                          {luarPen.title}
+                        </td>
+                        <td class="px-6 py-4">
+                          {luarPen.year}
+                        </td>
+                        <td class="px-6 py-4">
+                        {luarPen.publication}
+                        </td>
+                        <td class="px-6 py-4">
+                        {luarPen.indexjurnal}
+                        </td>
+                        <td class="px-6 py-4">
+                          <a href={luarPen.link} className='bg-lp3i-100 hover:bg-lp3i-200 px-3 py-1 rounded-lg text-white'>
+                            <i className="fa-solid fa-eye"></i>
+                          </a>
+                        </td>
+                      </tr>
+                    )
+                  }
                 </tbody>
               </table>
             </div>
@@ -347,22 +373,34 @@ const UppmPage = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="bg-white border-b">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                      1
-                    </th>
-                    <td class="px-6 py-4">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus animi accusamus recusandae temporibus velit mollitia odio consectetur quos error quis.
-                    </td>
-                    <td class="px-6 py-4">
-                      2019
-                    </td>
-                    <td class="px-6 py-4">
-                      <a href="#" className='bg-lp3i-100 hover:bg-lp3i-200 px-3 py-1 rounded-lg text-white'>
-                        <i className="fa-solid fa-eye"></i>
-                      </a>
-                    </td>
-                  </tr>
+                  {
+                    luaranPkm.map((luarPk, i) =>
+                      <tr class="bg-white border-b">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                          {i + 1}
+                        </th>
+                        <td class="px-6 py-4">
+                          {luarPk.title}
+                        </td>
+                        <td class="px-6 py-4">
+                          {luarPk.year}
+                        </td>
+                        <td class="px-6 py-4">
+                          {luarPk.link.startsWith('http') || luarPk.link.startsWith('https') ? (
+                            <a
+                              href={luarPk.link}
+                              target="_blank"
+                              className="bg-lp3i-100 hover:bg-lp3i-200 px-3 py-1 rounded-lg text-white"
+                            >
+                              <i className="fa-solid fa-eye"></i>
+                            </a>
+                          ) : (
+                            luarPk.link
+                          )}
+                        </td>
+                      </tr>
+                    )
+                  }
                 </tbody>
               </table>
             </div>
