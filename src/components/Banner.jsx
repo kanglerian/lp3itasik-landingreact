@@ -36,14 +36,14 @@ const Banner = ({ locate }) => {
               <OwlCarousel className='owl-theme' items={1} dots={true} loop margin={10} autoplay>
                 {banners.map((banner, i) =>
                   <div className="item" key={i}>
-                    <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + banner.image} alt={banner.title} className="rounded-lg shadow-lg aspect-w-16 aspect-h-9" />
+                    <img loading="lazy" src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + banner.image} alt={banner.title} className="rounded-lg shadow-lg aspect-w-16 aspect-h-9" />
                   </div>
                 )}
               </OwlCarousel>
             </div>
           ) : (
             <div className="flex items-center justify-center relative h-56 overflow-hidden rounded-lg md:h-[550px]">
-              <img src={bannerDefault} alt="Beasiswa LP3I" className="rounded-lg shadow-lg" />
+              <img loading="lazy" src={bannerDefault} alt="Beasiswa LP3I" className="rounded-lg shadow-lg" />
             </div>
           )}
         </div>

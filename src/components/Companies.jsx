@@ -39,7 +39,7 @@ const Companies = () => {
 
   const listCompanies = companies.map((company, i) =>
     <div className="item flex items-center justify-center" key={i} data-aos-delay={i * 5}>
-      <a href={`${company.link}`} target='_blank'><img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + company.image} alt={company.title} className="w-10 rounded-lg" /></a>
+      <a href={`${company.link}`} target='_blank'><img loading="lazy" src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + company.image} alt={company.title} className="w-10 rounded-lg" /></a>
     </div>
   )
 
@@ -55,9 +55,9 @@ const Companies = () => {
           <p className="text-gray-600 text-sm md:text-base mt-2">{currentLanguage == 'en' ? 'LP3I collaborates with hundreds of companies in Indonesia for student work placements even before graduation to ensure that we give them the opportunity for a better future' : 'LP3I berkolaborasi dengan ratusan perusahaan di Indonesia untuk penempatan kerja mahasiswa bahkan sebelum lulus untuk memastikan bahwa kami memberikan mereka kesempatan untuk masa depan yang lebih baik'}.</p>
         </div>
         <div className="text-center space-x-10">
-          <img data-aos-delay="10" src={logoKampusMerdeka} alt="Kampus Merdeka" className="inline w-32" />
-          <img data-aos-delay="20" src={logoMsib} alt="MSIB" className="inline w-32" />
-          <img data-aos-delay="30" src={logoTut} alt="Tut Wuri Handayani" className="inline w-32" />
+          <img loading="lazy" data-aos-delay="10" src={logoKampusMerdeka} alt="Kampus Merdeka" className="inline w-32" />
+          <img loading="lazy" data-aos-delay="20" src={logoMsib} alt="MSIB" className="inline w-32" />
+          <img loading="lazy" data-aos-delay="30" src={logoTut} alt="Tut Wuri Handayani" className="inline w-32" />
         </div>
         {isLoaded ? (
           <div className="mt-10 flex items-center justify-center">

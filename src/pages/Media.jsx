@@ -39,7 +39,7 @@ const Media = () => {
 
   const listMedia = medias.map((media, i) =>
     <div className="item w-96 h-auto border-8 border-white shadow rounded-lg ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300" key={i} data-aos-delay={i * 100}>
-      <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + media.image} alt={media.title} className="rounded-lg" />
+      <img loading="lazy" src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + media.image} alt={media.title} className="rounded-lg" />
       <div className="p-4">
         <h5 className="font-bold text-base mb-1 text-left text-gray-700">{media.title}</h5>
         <div className="text-sm text-gray-600" dangerouslySetInnerHTML={{ __html: media.description.slice(0, 100) + "..." }}></div>

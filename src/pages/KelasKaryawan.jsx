@@ -73,7 +73,7 @@ const CareerCenter = () => {
 
   const listDocumentation = documentations.map((doc, i) =>
     <div className="item" key={i} data-aos-delay={i * 5}>
-      <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + doc.image} alt={doc.title}
+      <img loading="lazy" src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + doc.image} alt={doc.title}
         className="rounded-lg" />
     </div>
   )
@@ -101,7 +101,7 @@ const CareerCenter = () => {
           </div>
         </div>
         <div className="w-full md:w-2/6">
-          <img src={imageKaryawan} alt="" />
+          <img loading="lazy" src={imageKaryawan} alt="" />
         </div>
       </section>
       {/* 
@@ -114,7 +114,7 @@ const CareerCenter = () => {
           <div className='flex flex-col md:flex-row w-full md:w-2/3 text-white gap-5 md:gap-3'>
             <div className='w-full md:w-1/2 flex gap-2'>
               <div className='w-1/3 flex flex-col items-center'>
-                <img src={onlineTeach} alt="" className='w-16 h-16' />
+                <img loading="lazy" src={onlineTeach} alt="" className='w-16 h-16' />
                 <span className='text-xs text-center bg-emerald-500 px-2 py-0.5 rounded'>Online</span>
               </div>
               <div className='w-full md:w-auto space-y-1'>
@@ -124,7 +124,7 @@ const CareerCenter = () => {
             </div>
             <div className='w-full md:w-1/2 flex gap-2'>
               <div className='w-1/3 flex flex-col items-center'>
-                <img src={offlineTeach} alt="" className='w-16 h-16' />
+                <img loading="lazy" src={offlineTeach} alt="" className='w-16 h-16' />
                 <span className='text-xs text-center bg-red-500 px-2 py-0.5 rounded'>Offline</span>
               </div>
               <div className='w-full md:w-auto space-y-1'>
@@ -144,17 +144,17 @@ const CareerCenter = () => {
         </div>
         <div className='flex flex-col md:flex-row mt-10 gap-5'>
           <div className='w-full md:w-1/3 flex flex-col items-center text-center'>
-            <img src={onlineTeach} alt="" className='w-14 h-14 mb-2' />
+            <img loading="lazy" src={onlineTeach} alt="" className='w-14 h-14 mb-2' />
             <h4 className='text-lg font-bold text-gray-800'>Bisa Sambil Bekerja</h4>
             <p className='text-sm font-light text-gray-700'>Nikmati Waktu kuliah sambil bekerja, atur belajar sesuai kebutuhan Anda.</p>
           </div>
           <div className='w-full md:w-1/3 flex flex-col items-center text-center'>
-            <img src={budgetIcon} alt="" className='w-14 h-14 mb-2' />
+            <img loading="lazy" src={budgetIcon} alt="" className='w-14 h-14 mb-2' />
             <h4 className='text-lg font-bold text-gray-800'>Biaya Terjangkau</h4>
             <p className='text-sm font-light text-gray-700'>Hanya Rp600.000/bulan. Akses pendidikan berkualitas tanpa beban finansial berlebih.</p>
           </div>
           <div className='w-full md:w-1/3 flex flex-col items-center text-center'>
-            <img src={documentIcon} alt="" className='w-14 h-14 mb-2' />
+            <img loading="lazy" src={documentIcon} alt="" className='w-14 h-14 mb-2' />
             <h4 className='text-lg font-bold text-gray-800'>Kuota Terbatas</h4>
             <p className='text-sm font-light text-gray-700'>Kuota Terbatas, hanya 30 orang. Segera daftar untuk mendapatkan kursi!</p>
           </div>
@@ -172,7 +172,7 @@ const CareerCenter = () => {
               <div className="flex flex-wrap flex-col md:flex-row justify-center gap-5 my-8">
                 {tasikPrograms.map((tasik, i) =>
                   <div className="bg-lp3i-400 rounded-xl p-4 relative w-1/1 md:w-1/3" key={i} data-aos-delay={i * 5}>
-                    <img className="w-full rounded-lg" alt={tasik.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + tasik.image} />
+                    <img loading="lazy" className="w-full rounded-lg" alt={tasik.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + tasik.image} />
                     <div className="pt-4 text-left">
                       <h5 className="font-bold text-sm mb-1 text-left text-white">{tasik.level} {tasik.title}</h5>
                       <span className="inline-block bg-lp3i-200 text-white text-xs py-1 px-3 rounded-md mb-3">{tasik.campus}</span>
@@ -248,7 +248,7 @@ const CareerCenter = () => {
               </ul>
             </div>
             <div className='flex flex-col md:items-end md:text-right'>
-              <img src={logoLP3I} alt="Politeknik LP3I Kampus Tasikmalaya" className="w-52" />
+              <img loading="lazy" src={logoLP3I} alt="Politeknik LP3I Kampus Tasikmalaya" className="w-52" />
               <a role="button" target="_blank" href="https://goo.gl/maps/1dxJCzGBDvgNje8cA" className="block text-sm text-gray-700 my-3" rel="noreferrer">Jl. Ir. H. Juanda No.106, Panglayungan, Kec. Cipedes<br />Kota Tasikmalaya, Jawa Barat 46151</a>
               <div className="flex gap-4 justify-start text-gray-600">
                 <a target="_blank" href="https://www.facebook.com/lp3itasik" rel="noreferrer"><i className="fa-brands fa-facebook-f" /></a>

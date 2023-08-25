@@ -73,7 +73,7 @@ const StudentDetail = () => {
         <div className="container mx-auto px-4">
           <header>
             <div className="group relative">
-              <img className="w-full object-cover rounded-xl h-80" alt={student.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + student.image} />
+              <img loading="lazy" className="w-full object-cover rounded-xl h-80" alt={student.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + student.image} />
               <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-lp3i-200 rounded-xl opacity-90 h-full">
                 <div className="space-y-3 text-center text-white px-3">
                   <h1 className="text-4xl">{student.title}</h1>

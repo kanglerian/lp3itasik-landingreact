@@ -63,7 +63,7 @@ const Testimoni = () => {
                     <div key={i} data-aos-delay={i * 5} className="p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
                       <div className="flex flex-col items-center justify-center text-center bg-white border border-gray-100 rounded-xl p-5 space-y-2">
                         <div className='w-28 h-28'>
-                          <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-full" />
+                          <img loading="lazy" src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-full" />
                         </div>
                         <h3 className="text-lg">{alumni.name}</h3>
                         <ul className="text-sm text-slate-800">

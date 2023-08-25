@@ -69,7 +69,7 @@ const Program = () => {
       <section className='bg-[#fcfcfc] static'>
         <header style={{ backgroundImage: `url(${complaintCover})`, backgroundSize: 'cover' }} className="py-10 md:pt-24 md:pb-14 px-4">
           <div className='flex flex-col justify-center items-center text-center space-y-5'>
-            <a href={'/'}><img src={lp3i} alt="Politeknik LP3I Kampus Tasikmalaya" className='w-44' /></a>
+            <a href={'/'}><img loading="lazy" src={lp3i} alt="Politeknik LP3I Kampus Tasikmalaya" className='w-44' /></a>
             <div className='space-y-3'>
               <h1 className="text-3xl font-bold text-white">
                 {currentLanguage == 'en' ? "Criticism and Suggestions" : "Kritik dan Saran"}

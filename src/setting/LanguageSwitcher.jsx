@@ -27,12 +27,12 @@ const LanguageSwitcher = () => {
         {currentLanguage == 'id' ? (
           <div className='flex items-center gap-2'>
             <i className="fa-solid fa-repeat"></i>
-            <img src={ENFlag} alt="Indonesia" className="border border-white inline-block w-8 rounded mr-2" />
+            <img loading="lazy" src={ENFlag} alt="Indonesia" className="border border-white inline-block w-8 rounded mr-2" />
           </div>
         ) : (
           <div className='flex items-center gap-2'>
             <i className="fa-solid fa-repeat"></i>
-            <img src={IDFlag} alt="Indonesia" className="border border-white inline-block w-8 rounded mr-2" />
+            <img loading="lazy" src={IDFlag} alt="Indonesia" className="border border-white inline-block w-8 rounded mr-2" />
           </div>
         )}
       </button>

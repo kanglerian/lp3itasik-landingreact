@@ -33,7 +33,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-center items-center gap-8">
             <div className="basis-1/3">
-              <img src={kepalaKampus} alt className="bg-white p-2 rounded-2xl shadow" />
+              <img loading="lazy" src={kepalaKampus} alt className="bg-white p-2 rounded-2xl shadow" />
             </div>
             <div className="basis-1/2">
               <h5 className="font-bold" data-aos-delay="100">Sambutan Kepala Kampus</h5>
@@ -66,7 +66,7 @@ const About = () => {
               </p>
             </div>
             <div className="basis-1/3">
-              <img src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" />
+              <img loading="lazy" src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" />
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-center items-center gap-8">
             <div className="basis-1/3">
-              <img src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" />
+              <img loading="lazy" src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" />
             </div>
             <div className="basis-1/2">
               <h3 className="font-bold text-3xl mt-2" data-aos-delay="100">Apa itu Pendidikan Vokasi?</h3>
@@ -105,7 +105,7 @@ const About = () => {
               </a> */}
             </div>
             <div className="basis-1/3">
-              <img src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" />
+              <img loading="lazy" src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" />
             </div>
           </div>
         </div>
@@ -115,7 +115,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-center items-center gap-8">
             <div className="basis-1/3">
-              <img src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" />
+              <img loading="lazy" src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" />
             </div>
             <div className="basis-1/2">
               <h3 className="font-bold text-3xl mt-2" data-aos-delay="100">Visi</h3>
@@ -126,7 +126,7 @@ const About = () => {
           </div>
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-8">
             <div className="basis-1/3">
-              <img src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" />
+              <img loading="lazy" src={bannerDefault} alt className="bg-white p-2 rounded-2xl shadow" />
             </div>
             <div className="basis-1/2">
               <h3 className="font-bold text-3xl mt-2" data-aos-delay="100">Misi</h3>

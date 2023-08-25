@@ -49,7 +49,7 @@ const Information = (props) => {
 
   const listDocumentation = documentations.map((doc, i) =>
     <div className="item" key={i} data-aos-delay={i * 5}>
-      <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + doc.image} alt={doc.title}
+      <img loading="lazy" src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + doc.image} alt={doc.title}
         className="rounded-lg" />
     </div>
   )

@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="flex md:flex-row flex-col justify-between gap-5">
           <div>
-            <img src={logoLP3I} alt="Politeknik LP3I Kampus Tasikmalaya" className="w-52" />
+            <img loading="lazy" src={logoLP3I} alt="Politeknik LP3I Kampus Tasikmalaya" className="w-52" />
             <a role="button" target="_blank" href="https://goo.gl/maps/1dxJCzGBDvgNje8cA" className="block text-sm text-gray-700 my-3" rel="noreferrer">Jl. Ir. H. Juanda No.106, Panglayungan, Kec. Cipedes<br />Kota Tasikmalaya, Jawa Barat 46151</a>
             <div className="flex gap-4 justify-start text-gray-600">
               <a target="_blank" href="https://www.facebook.com/lp3itasik" rel="noreferrer"><i className="fa-brands fa-facebook-f" /></a>

@@ -191,7 +191,7 @@ const ProgramDetail = () => {
         <div className="container mx-auto px-4">
           <header>
             <div className="group relative">
-              <img className="w-full object-cover rounded-xl h-80" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
+              <img loading="lazy" className="w-full object-cover rounded-xl h-80" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
               <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-lp3i-200 rounded-xl opacity-90 h-full">
                 <div className="space-y-3 text-center text-white px-3">
                   <h1 className="text-4xl">{program.level} {program.title}</h1>
@@ -221,7 +221,7 @@ const ProgramDetail = () => {
                       )}
                     </div>
                     <div className="w-full md:w-1/2 order-1 md:order-none">
-                      <img className="w-full object-cover rounded-xl" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
+                      <img loading="lazy" className="w-full object-cover rounded-xl" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
                     </div>
                   </div>
                 }
@@ -229,7 +229,7 @@ const ProgramDetail = () => {
                 {misions.length > 0 &&
                   <div className="flex flex-col md:flex-row items-center gap-5">
                     <div className="w-full md:w-1/2 order-1 md:order-none">
-                      <img className="w-full object-cover rounded-xl" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
+                      <img loading="lazy" className="w-full object-cover rounded-xl" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
                     </div>
                     <div className="w-full md:w-1/2 space-y-3 order-2 md:order-none">
                       <h3 className="font-bold text-3xl">{currentLanguage == 'en' ? 'Mision' : 'Misi'}</h3>
@@ -259,7 +259,7 @@ const ProgramDetail = () => {
             {benefits.length > 0 ? (
               <div className="flex flex-col md:flex-row items-center gap-5">
                 <div className="w-full md:w-1/2 order-1 md:order-none">
-                  <img className="w-full object-cover rounded-xl" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
+                  <img loading="lazy" className="w-full object-cover rounded-xl" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
                 </div>
                 <div className="w-full md:w-1/2 space-y-3 order-2 md:order-none">
                   <h3 className="font-bold text-3xl">{currentLanguage == 'en' ? 'Superiority' : 'Keunggulan'}</h3>
@@ -287,7 +287,7 @@ const ProgramDetail = () => {
             {competences.length > 0 ? (
               <div className="flex flex-col md:flex-row items-center gap-5">
                 <div className="w-full md:w-1/2 order-1 md:order-none">
-                  <img className="w-full object-cover rounded-xl" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
+                  <img loading="lazy" className="w-full object-cover rounded-xl" alt={program.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + program.image} />
                 </div>
                 <div className="w-full md:w-1/2 space-y-3 order-2 md:order-none">
                   <h3 className="font-bold text-3xl">{currentLanguage == 'en' ? 'Competence' : 'Kompetensi'}</h3>
@@ -353,7 +353,7 @@ const ProgramDetail = () => {
                           <div key={i} data-aos-delay={i * 5} className="p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
                             <div className="flex flex-col items-center justify-center text-center bg-white border border-slate-200 rounded-xl p-5 space-y-2">
                               <div className='w-28 h-28'>
-                                <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-full" />
+                                <img loading="lazy" src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-full" />
                               </div>
                               <h3 className="text-lg">{alumni.name}</h3>
                               <ul className="text-sm text-slate-800">
@@ -388,7 +388,7 @@ const ProgramDetail = () => {
                           <div className="w-full md:w-1/4 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
                             <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
                               <div className='flex justify-center items-center'>
-                                <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
+                                <img loading="lazy" src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
                               </div>
                               <hr />
                               <h3 className="text-lg">{alumni.name}</h3>
@@ -421,7 +421,7 @@ const ProgramDetail = () => {
                           <div className="w-full md:w-1/4 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
                             <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
                               <div className='flex justify-center items-center'>
-                                <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
+                                <img loading="lazy" src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
                               </div>
                               <hr />
                               <h3 className="text-lg">{alumni.name}</h3>

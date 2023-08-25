@@ -59,7 +59,7 @@ const Program = () => {
               <div className="flex flex-wrap flex-col md:flex-row justify-center gap-5 my-8">
                 {tasikPrograms.map((tasik, i) =>
                   <div className="bg-lp3i-400 rounded-xl p-4 relative w-1/1 md:w-1/3" key={i} data-aos-delay={i * 5}>
-                    <img className="w-full rounded-lg" alt={tasik.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + tasik.image} />
+                    <img loading="lazy" className="w-full rounded-lg" alt={tasik.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + tasik.image} />
                     <div className="pt-4 text-left">
                       <h5 className="font-bold text-sm mb-1 text-left text-white">{tasik.level} {tasik.title}</h5>
                       <span className="inline-block bg-lp3i-200 text-white text-xs py-1 px-3 rounded-md mb-3">{tasik.campus}</span>
@@ -88,7 +88,7 @@ const Program = () => {
               <div className="flex flex-col md:flex-row justify-center gap-5 my-8">
                 {vokasiPrograms.map((vokasi, i) =>
                   <div className="bg-lp3i-400 rounded-xl p-4 relative w-1/1 md:w-1/3" key={i} data-aos-delay={i * 5}>
-                    <img className="w-full rounded-lg" alt={vokasi.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + vokasi.image} />
+                    <img loading="lazy" className="w-full rounded-lg" alt={vokasi.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + vokasi.image} />
                     <div className="pt-4 text-left">
                       <h5 className="font-bold text-sm mb-1 text-left text-white">{vokasi.level} {vokasi.title}</h5>
                       <span className="inline-block bg-lp3i-200 text-white text-xs py-1 px-3 rounded-md mb-3">{vokasi.campus}</span>
@@ -122,7 +122,7 @@ const Program = () => {
               <div className="flex flex-wrap flex-col md:flex-row justify-center gap-5 my-8">
                 {utamaPrograms.map((utama, i) =>
                   <div className="bg-lp3i-400 rounded-xl p-4 relative w-1/1 md:w-1/3" key={i} data-aos-delay={i * 5}>
-                  <img className="w-full rounded-lg" alt={utama.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + utama.image} />
+                  <img loading="lazy" className="w-full rounded-lg" alt={utama.title} src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + utama.image} />
                   <div className="pt-4 text-left">
                     <h5 className="font-bold text-sm mb-1 text-left text-white">{utama.level} {utama.title}</h5>
                     <span className="inline-block bg-lp3i-200 text-white text-xs py-1 px-3 rounded-md mb-3">{utama.campus}</span>

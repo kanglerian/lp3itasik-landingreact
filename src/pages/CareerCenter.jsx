@@ -88,13 +88,13 @@ const CareerCenter = () => {
 
   const listCompanies = companies.map((company, i) =>
     <div className="w-1/2 md:w-1/6 p-4 item" key={i} data-aos-delay={i * 5}>
-      <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + company.image} alt={company.title} className="rounded-lg" />
+      <img loading="lazy" src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + company.image} alt={company.title} className="rounded-lg" />
     </div>
   )
 
   const listDocumentation = documentations.map((doc, i) =>
     <div className="item" key={i} data-aos-delay={i * 5}>
-      <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + doc.image} alt={doc.title}
+      <img loading="lazy" src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + doc.image} alt={doc.title}
         className="rounded-lg" />
     </div>
   )
@@ -161,9 +161,9 @@ const CareerCenter = () => {
               </ul>
             </div>
             <div className='w-full md:w-4/6 order-1 md:order-none flex gap-3 justify-center px-2'>
-              <img src={asdanPhoto} alt="Asdan" data-aos-delay="10" className='block w-1/3 rounded-lg' />
-              <img src={biniPhoto} alt="Bini" data-aos-delay="20" className='block w-1/3 rounded-lg' />
-              <img src={ginaPhoto} alt="Gina" data-aos-delay="30" className='block w-1/3 rounded-lg' />
+              <img loading="lazy" src={asdanPhoto} alt="Asdan" data-aos-delay="10" className='block w-1/3 rounded-lg' />
+              <img loading="lazy" src={biniPhoto} alt="Bini" data-aos-delay="20" className='block w-1/3 rounded-lg' />
+              <img loading="lazy" src={ginaPhoto} alt="Gina" data-aos-delay="30" className='block w-1/3 rounded-lg' />
             </div>
           </div>
           <div className='space-y-6 px-4 mt-10'>
@@ -237,7 +237,7 @@ const CareerCenter = () => {
                         <div className="w-full md:w-1/4 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
                           <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
                             <div className='flex justify-center items-center'>
-                              <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
+                              <img loading="lazy" src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
                             </div>
                             <hr />
                             <h3 className="text-lg">{alumni.name}</h3>
@@ -298,7 +298,7 @@ const CareerCenter = () => {
                         <div key={i} data-aos-delay={i * 5} className="p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
                           <div className="flex flex-col items-center justify-center text-center bg-white border border-slate-200 rounded-xl p-5 space-y-2">
                             <div className='w-28 h-28'>
-                              <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-full" />
+                              <img loading="lazy" src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-full" />
                             </div>
                             <h3 className="text-lg">{alumni.name}</h3>
                             <ul className="text-sm text-slate-800">
@@ -333,7 +333,7 @@ const CareerCenter = () => {
                         <div className="w-full md:w-1/4 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
                           <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
                             <div className='flex justify-center items-center'>
-                              <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
+                              <img loading="lazy" src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
                             </div>
                             <hr />
                             <h3 className="text-lg">{alumni.name}</h3>
@@ -366,7 +366,7 @@ const CareerCenter = () => {
                         <div className="w-full md:w-1/4 p-2 transition ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
                           <div className="text-center bg-white border border-slate-200 rounded-xl p-5 space-y-3">
                             <div className='flex justify-center items-center'>
-                              <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
+                              <img loading="lazy" src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + alumni.image} alt={alumni.title} className="text-center rounded-full h-20" />
                             </div>
                             <hr />
                             <h3 className="text-lg">{alumni.name}</h3>

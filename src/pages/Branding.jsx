@@ -45,13 +45,13 @@ const Branding = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-center gap-8">
             <div className="basis-1/3">
-              <img src={lp3iColor} alt />
+              <img loading="lazy" src={lp3iColor} alt />
               <div className="mt-5 space-x-2">
                 <a href={lp3iColor} className="bg-gray-500 hover:bg-gray-600 text-white rounded-lg text-xs px-4 py-2" download="logo-svg.svg">Download .svg</a>
                 <a href={lp3iPngColor} className="bg-gray-500 hover:bg-gray-600 text-white rounded-lg text-xs px-4 py-2" download="logo-png.png">Download .png</a>
               </div>
               <hr className="my-5" />
-              <img src={lp3iWhite} alt className="bg-lp3i-500 px-5 py-3 rounded-xl" />
+              <img loading="lazy" src={lp3iWhite} alt className="bg-lp3i-500 px-5 py-3 rounded-xl" />
               <div className="mt-5 space-x-2">
                 <a href={lp3iWhite} className="bg-gray-500 hover:bg-gray-600 text-white rounded-lg text-xs px-4 py-2" download="logo-svg.svg">Download .svg</a>
                 <a href={lp3iPngWhite} className="bg-gray-500 hover:bg-gray-600 text-white rounded-lg text-xs px-4 py-2" download="logo-png.png">Download .png</a>

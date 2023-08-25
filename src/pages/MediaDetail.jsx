@@ -93,7 +93,7 @@ const Media = () => {
                     </div>
                   </div>
                   <div className="w-full md:w-2/3 order-1 md:order-none">
-                    <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + media.image} alt={media.title} className="rounded-xl shadow border-8 border-white" />
+                    <img loading="lazy" src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + media.image} alt={media.title} className="rounded-xl shadow border-8 border-white" />
                     <div className="space-y-5 mt-4 bg-gray-100 p-5 rounded-xl">
                       <h1 className="text-4xl font-bold text-gray-800">{media.title}</h1>
                       <span className="inline-block bg-sky-200 text-sky-700 text-sm py-1 px-5 rounded-md mb-3"><i className="fa-solid fa-calendar-days mr-2" />{moment.tz(media.date, 'Asia/Jakarta').format('LL')}</span>

@@ -39,7 +39,7 @@ const NavbarKaryawan = () => {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between md:flex-wrap">
             <div className="flex justify-between items-center">
               <span>
-                <a href={`/`}><img src={lp3i} width="200px" alt="Politeknik LP3I Kampus Tasikmalaya" /></a>
+                <a href={`/`}><img loading="lazy" src={lp3i} width="200px" alt="Politeknik LP3I Kampus Tasikmalaya" /></a>
               </span>
               <span className="text-3xl cursor-pointer mx-2 md:hidden block">
                 <button id="navbarMenu" onClick={toggleNavbar} type="button" className="p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">

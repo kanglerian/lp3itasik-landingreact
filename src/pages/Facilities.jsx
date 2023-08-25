@@ -37,7 +37,7 @@ const Facilities = () => {
 
   const listFacilities = facilities.map((facility, i) =>
     <div key={i} data-aos-delay={i * 100} className="item w-96 h-auto border-8 border-white shadow rounded-lg ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300">
-      <img src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + facility.image} alt={facility.title} className="rounded-lg" />
+      <img loading="lazy" src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + facility.image} alt={facility.title} className="rounded-lg" />
       <h5 className="bg-white block font-bold text-sm py-2 text-center text-gray-700">{facility.title}</h5>
     </div>
   )
