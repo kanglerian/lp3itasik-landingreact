@@ -207,7 +207,7 @@ const UppmPage = () => {
       <Navbar />
       <style dangerouslySetInnerHTML={{ __html: "\n\t#media p a {\n\t\tcolor: #0284c7;\n\t\ttext-decoration: underline;\n\t}\n" }} />
       <section className="container mx-auto my-8">
-        <Banner locate="C" />
+        <Banner locate="U" />
         <nav className="my-5 mx-4 bg-slate-100 border border-slate-200 py-3 rounded-xl" data-aos-delay="100">
           <ul className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-5 text-sm text-center px-4">
             <li onClick={hiddenSection} data-name="penelitian" className="w-full md:w-auto bg-slate-200 hover:bg-slate-300 px-3 py-2 rounded-lg text-slate-900" role="button">Penelitian</li>
@@ -226,7 +226,7 @@ const UppmPage = () => {
           <div className='space-y-5'>
             <div className='text-center space-y-1'>
               <h2 className='font-bold text-2xl text-gray-900'>Data Penelitian</h2>
-              <p className='text-base text-gray-700'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, voluptates? Quos, id. Dolorum, nemo. Nihil.</p>
+              <p className='text-base text-gray-700'>Berikut ini adalah data-data penelitian:</p>
             </div>
             <div class="relative overflow-x-auto h-72 shadow-sm border border-gray-200 rounded-lg">
               <table class="w-full text-sm text-left text-gray-500 ">
@@ -280,7 +280,7 @@ const UppmPage = () => {
           <div className='space-y-5'>
             <div className='text-center space-y-1'>
               <h2 className='font-bold text-2xl text-gray-900'>Luaran Penelitian</h2>
-              <p className='text-base text-gray-700'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, voluptates? Quos, id. Dolorum, nemo. Nihil.</p>
+              <p className='text-base text-gray-700'>Berikut ini adalah luaran penelitian:</p>
             </div>
             <div class="relative overflow-x-auto h-72 shadow-sm border border-gray-200 rounded-lg">
               <table class="w-full text-sm text-left text-gray-500 ">
@@ -353,7 +353,7 @@ const UppmPage = () => {
           <div className='space-y-5'>
             <div className='text-center space-y-1'>
               <h2 className='font-bold text-2xl text-gray-900'>Data PKM</h2>
-              <p className='text-base text-gray-700'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, voluptates? Quos, id. Dolorum, nemo. Nihil.</p>
+              <p className='text-base text-gray-700'>Berikut ini adalah data-data PKM:</p>
             </div>
             <div class="relative overflow-x-auto h-72 shadow-sm border border-gray-200 rounded-lg">
               <table class="w-full text-sm text-left text-gray-500 ">
@@ -401,7 +401,7 @@ const UppmPage = () => {
           <div className='space-y-5'>
             <div className='text-center space-y-1'>
               <h2 className='font-bold text-2xl text-gray-900'>Luaran PKM</h2>
-              <p className='text-base text-gray-700'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, voluptates? Quos, id. Dolorum, nemo. Nihil.</p>
+              <p className='text-base text-gray-700'>Berikut ini adalah luaran PKM:</p>
             </div>
             <div class="relative overflow-x-auto h-72 shadow-sm border border-gray-200 rounded-lg">
               <table class="w-full text-sm text-left text-gray-500 ">
@@ -466,7 +466,7 @@ const UppmPage = () => {
           <div className='space-y-5'>
             <div className='text-center space-y-1'>
               <h2 className='font-bold text-2xl text-gray-900'>Book Chapter</h2>
-              <p className='text-base text-gray-700'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, voluptates? Quos, id. Dolorum, nemo. Nihil.</p>
+              <p className='text-base text-gray-700'>Berikut ini adalah data-data Book Chapter:</p>
             </div>
             <div class="relative overflow-x-auto h-72 shadow-sm border border-gray-200 rounded-lg">
               <table class="w-full text-sm text-left text-gray-500 ">

@@ -40,6 +40,7 @@ const ArticleDetail = () => {
   const getArticle = async () => {
     await axios.get(`https://dashboard.politekniklp3i-tasikmalaya.ac.id/api/articles/${uuid}`)
       .then((response) => {
+        console.log(response.data);
         setArticle(response.data)
         setIsLoaded(true)
       })
@@ -89,6 +90,7 @@ const ArticleDetail = () => {
                       <h1 className="text-4xl font-bold text-gray-800">{article.title}</h1>
                       <span className="inline-block bg-sky-200 text-sky-700 text-sm py-1 px-5 rounded-md mb-3"><i className="fa-solid fa-calendar-days mr-2" />{moment.tz(article.date, 'Asia/Jakarta').format('LL')}</span>
                       <div className="text-gray-700 leading-6 space-y-5" dangerouslySetInnerHTML={{ __html: article.description }}></div>
+                      <a href={article.source} className='block underline italic text-gray-700 mt-5'>Sumber</a>
                     </div>
                   </div>
                 </div>
