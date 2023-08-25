@@ -220,7 +220,9 @@ const UppmPage = () => {
 
         {/* Penelitian */}
         <section id="penelitian" className="container mx-auto px-4 my-8 space-y-10">
-          {listPanduanPenelitian}
+          <div className='space-y-5'>
+            {listPanduanPenelitian}
+          </div>
           <hr />
           {/* Data Penelitian */}
           <div className='space-y-5'>
@@ -347,7 +349,9 @@ const UppmPage = () => {
 
         {/* PKM */}
         <section id="pkm" className="hidden container mx-auto px-4 my-8 space-y-10">
-          {listPanduanPkm}
+          <div className='space-y-5'>
+            {listPanduanPkm}
+          </div>
           <hr />
           {/* Data PKM */}
           <div className='space-y-5'>
@@ -458,7 +462,9 @@ const UppmPage = () => {
 
         {/* KKN */}
         <section id="kkn" className="hidden container mx-auto px-4 my-8">
-          {listPanduanKkn}
+          <div className='space-y-5'>
+            {listPanduanKkn}
+          </div>
         </section>
 
         {/* Book */}
@@ -536,7 +542,7 @@ const UppmPage = () => {
         </section>
 
         <section id='article' className="hidden container mx-auto px-4 my-8">
-          <ArticleComponent/>
+          <ArticleComponent />
         </section>
 
       </section>
