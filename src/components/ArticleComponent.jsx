@@ -24,7 +24,13 @@ const ArticleComponent = () => {
 
   const listArticle = articles.map((article, i) =>
     <div className="item w-96 h-auto border-8 border-white shadow rounded-lg ease-in-out delay-50 md:hover:-translate-y-1 md:hover:scale-105 duration-300" key={i} data-aos-delay={i * 100}>
-      <img loading="lazy" src={`https://dashboard.politekniklp3i-tasikmalaya.ac.id/` + article.image} alt={article.title} className="rounded-lg" />
+      <div style={{
+        width: '100%',
+        paddingTop: '56.25%', // Rasio 16:9
+        backgroundImage: `url('https://dashboard.politekniklp3i-tasikmalaya.ac.id/${article.image}')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }} className="article-image rounded-lg"></div>
       <div className="p-4">
         <h5 className="font-bold text-base mb-1 text-left text-gray-700">{article.title}</h5>
         <div className="text-sm text-gray-600" dangerouslySetInnerHTML={{ __html: article.description.slice(0, 100) + "..." }}></div>
