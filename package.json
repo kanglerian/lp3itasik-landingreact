@@ -25,6 +25,7 @@
     "owl.carousel": "^2.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet-async": "^1.3.0",
     "react-owl-carousel": "^2.3.3",
     "react-router-dom": "^6.11.1",
     "sort-by": "^1.2.0",
