@@ -15,9 +15,9 @@ const PenerimaanMahasiswa = () => {
   return (
     <div className='bg-gray-100'>
       <div className='max-w-lg mx-auto flex flex-col h-screen justify-center items-center space-y-5'>
-        <img src={Logo} width={300} alt="" srcset="" />
+        <img src={Logo} width={300} alt="Logo Politeknik LP3I Kampus Tasikmalaya" loading='lazy' />
         <div className='flex flex-col justify-center items-center text-center' style={{ marginTop: '-50px' }}>
-          <Lottie animationData={LoadingAnimation} style={{ width: 220, height: 220 }} />
+          <Lottie animationData={LoadingAnimation} style={{ width: 220, height: 220 }} loading='lazy' />
           <p className='text-base' style={{ marginTop: '-50px' }}>Hey! Kami sedang menyiapkan jalur langsung ke pesan WhatsApp. Kami akan segera menyambut Anda. Mohon tunggu sebentar!</p>
         </div>
       </div>
