@@ -26,6 +26,7 @@ import Complaint from './pages/Complaint';
 import Redirect from './pages/Redirect';
 import UPPM from './pages/UPPM';
 import NotFound from './pages/NotFound';
+import PenerimaanMahasiswa from './pages/PenerimaanMahasiswa';
 
 const router = createBrowserRouter([
   {
@@ -99,6 +100,10 @@ const router = createBrowserRouter([
   {
     path: "/uppm",
     element: <UPPM/>
+  },
+  {
+    path: "/penerimaan-mahasiswa",
+    element: <PenerimaanMahasiswa/>
   },
 ]);
 
