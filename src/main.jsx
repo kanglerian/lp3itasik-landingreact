@@ -27,6 +27,7 @@ import Redirect from './pages/Redirect';
 import UPPM from './pages/UPPM';
 import NotFound from './pages/NotFound';
 import PenerimaanMahasiswa from './pages/PenerimaanMahasiswa';
+import ConflictRegister from './pages/ConflictRegister';
 
 const router = createBrowserRouter([
   {
@@ -104,6 +105,10 @@ const router = createBrowserRouter([
   {
     path: "/penerimaan-mahasiswa",
     element: <PenerimaanMahasiswa/>
+  },
+  {
+    path: "/conflict-register",
+    element: <ConflictRegister/>
   },
 ]);
 
