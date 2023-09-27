@@ -62,7 +62,7 @@ const Navbar = () => {
               <div className="flex gap-3">
                 <a href={`/uppm`}>UPPM</a>
                 <a href={`/suggestion`}>{currentLanguage == 'en' ? 'Criticism and Suggestions' : 'Kritik & Saran'}</a>
-                <a href="https://brosur.politekniklp3i-tasikmalaya.ac.id/" target="_blank" rel="noreferrer">{currentLanguage == 'en' ? 'Digital Brochures' : 'Brosur Digital'}</a>
+                <a href="https://brosur.politekniklp3i-tasikmalaya.ac.id/" target="_blank" className='hidden' rel="noreferrer">{currentLanguage == 'en' ? 'Digital Brochures' : 'Brosur Digital'}</a>
                 <a href="https://virtualkampus.politekniklp3i-tasikmalaya.ac.id/" target="_blank" className="hidden md:inline" rel="noreferrer">{currentLanguage == 'en' ? 'Virtual Kampus' : 'Virtual Campus'}</a>
               </div>
             </div>
