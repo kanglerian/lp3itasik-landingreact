@@ -55,8 +55,8 @@ const Information = (props) => {
   )
 
   const listYoutube = youtube.map((yt, i) =>
-    <>
-      <div className="w-full md:w-1/2 h-auto" key={i}>
+    <div key={i}>
+      <div className="w-full md:w-1/2">
         <iframe width="100%" height="350px" className="rounded-2xl border-4 border-lp3i-400"
           src={`https://www.youtube.com/embed/` + yt.youtube} title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -75,7 +75,7 @@ const Information = (props) => {
           )
         }
       </div>
-    </>
+    </div>
   )
 
   useEffect(() => {

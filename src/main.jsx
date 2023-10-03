@@ -4,10 +4,13 @@ import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
-import Home from './pages/Home'
-
 import 'flowbite'
 import './index.css'
+
+import { I18nextProvider } from 'react-i18next';
+import i18n from '../i18n';
+
+import Home from './pages/Home'
 import About from './pages/About';
 import Branding from './pages/Branding';
 import Organization from './pages/Organization';
@@ -25,7 +28,6 @@ import KelasKaryawan from './pages/KelasKaryawan';
 import Complaint from './pages/Complaint';
 import Redirect from './pages/Redirect';
 import UPPM from './pages/UPPM';
-import NotFound from './pages/NotFound';
 import PenerimaanMahasiswa from './pages/PenerimaanMahasiswa';
 import ConflictRegister from './pages/ConflictRegister';
 
@@ -113,7 +115,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <I18nextProvider i18n={i18n}>
     <RouterProvider router={router} />
-  </React.StrictMode>,
+  </I18nextProvider>,
 )

@@ -1,38 +1,39 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+
+import i18n from '../../i18n';
 
 import IDFlag from '../assets/flag/id.gif'
 import ENFlag from '../assets/flag/en.gif'
 
 const LanguageSwitcher = () => {
-  const [currentLanguage, setCurrentLanguage] = useState('');
+  
+  const [lang, setLang] = useState('id');
+  const selectedLanguage = localStorage.getItem('language') || 'id';
 
-  useEffect(() => {
-    const savedLanguage = localStorage.getItem('language');
-    if (savedLanguage) {
-      setCurrentLanguage(savedLanguage);
-    } else {
-      setCurrentLanguage('id');
-    }
-  }, []);
+  const setLanguage = () => {
+    changeLanguage();
+    setLang(lang == 'id' ? 'en' : 'id' )
+    localStorage.setItem('language', lang);
+    changeLanguage();
+    changeLanguage();
+  }
 
-  const handleChangeLanguage = () => {
-    const newLanguage = currentLanguage === 'en' ? 'id' : 'en';
-    setCurrentLanguage(newLanguage);
-    localStorage.setItem('language', newLanguage);
-    window.location.reload();
-  };
+  const changeLanguage = () => {
+    i18n.changeLanguage(selectedLanguage);
+  }
+
   return (
     <div>
-      <button onClick={handleChangeLanguage} className="flex relative items-center justify-start w-auto py-2 text-white rounded">
-        {currentLanguage == 'id' ? (
+      <button onClick={setLanguage} className="flex relative items-center justify-start w-auto py-2 text-white rounded">
+        {selectedLanguage == 'id' ? (
           <div className='flex items-center gap-2'>
             <i className="fa-solid fa-repeat"></i>
-            <img loading="lazy" src={ENFlag} alt="Indonesia" className="border border-white inline-block w-8 rounded mr-2" />
+            <img loading="lazy" src={IDFlag} alt="Indonesia" className="border border-white inline-block w-8 rounded mr-2" />
           </div>
         ) : (
           <div className='flex items-center gap-2'>
             <i className="fa-solid fa-repeat"></i>
-            <img loading="lazy" src={IDFlag} alt="Indonesia" className="border border-white inline-block w-8 rounded mr-2" />
+            <img loading="lazy" src={ENFlag} alt="Indonesia" className="border border-white inline-block w-8 rounded mr-2" />
           </div>
         )}
       </button>

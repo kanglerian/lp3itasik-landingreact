@@ -156,8 +156,8 @@ const CareerCenter = () => {
                 <h5 className='text-base' data-aos-delay="10">{currentLanguage == 'en' ? 'Division of Cooperation and Placement' : 'Bidang Kerjasama dan Penempatan'}</h5>
               </div>
               <ul className='space-y-1'>
-                <li className='text-base flex items-center gap-2' data-aos-delay="20"><i class="fa-brands fa-whatsapp fa-2x"></i><span>0853-3702-0801</span></li>
-                <li className='text-base flex items-center gap-2' data-aos-delay="30"><i class="fa-solid fa-envelope fa-2x"></i><span>cnptasik@gmail.com</span></li>
+                <li className='text-base flex items-center gap-2' data-aos-delay="20"><i className="fa-brands fa-whatsapp fa-2x"></i><span>0853-3702-0801</span></li>
+                <li className='text-base flex items-center gap-2' data-aos-delay="30"><i className="fa-solid fa-envelope fa-2x"></i><span>cnptasik@gmail.com</span></li>
               </ul>
             </div>
             <div className='w-full md:w-4/6 order-1 md:order-none flex gap-3 justify-center px-2'>
