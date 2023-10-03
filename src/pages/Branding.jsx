@@ -17,6 +17,7 @@ const Footer = lazy(() => import("../components/Footer"));
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import axios from "axios";
 
 const renderLoader = () => (
   <div role="status" className="flex justify-center items-center h-screen">
@@ -48,6 +49,16 @@ const Branding = () => {
     });
   };
 
+  const getCoba = async () => {
+    await axios.get('https://script.google.com/macros/s/AKfycbyS0Ct4gXG2JbO5NOYqSMrOZbH4wJo-cMmABmOQc-HfuDsG8TjgOQ8yenJBaMI8Yr0B/exec')
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -55,6 +66,7 @@ const Branding = () => {
       offset: 100,
       once: true,
     });
+    getCoba();
   }, []);
 
   return (
