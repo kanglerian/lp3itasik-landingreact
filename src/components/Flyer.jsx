@@ -43,7 +43,7 @@ const Flyer = () => {
       pmb: startYear
     })
     .then((res) => {
-      handleWhatsapp();
+      // handleWhatsapp();
       setName('');
       setPhone('');
       setSuccess(true);
