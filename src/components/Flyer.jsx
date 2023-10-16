@@ -68,7 +68,7 @@ const Flyer = () => {
         }
       )
       .then((res) => {
-        console.log(res);
+        console.log(res.data.message);
         setName("");
         setPhone("");
         setSuccess(true);
