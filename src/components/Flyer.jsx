@@ -47,6 +47,7 @@ const Flyer = () => {
       pmb: startYear
     })
     .then((res) => {
+      console.log(res);
       setName('');
       setPhone('');
       setSuccess(true);
