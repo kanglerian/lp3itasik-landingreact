@@ -68,7 +68,6 @@ const Flyer = () => {
         }
       )
       .then((res) => {
-        console.log(res.data.message);
         setName("");
         setPhone("");
         setSuccess(true);
@@ -76,8 +75,7 @@ const Flyer = () => {
         setFailed(false);
         setFailedMessage(res.data.message);
         if (res.data.status) {
-          // handleWhatsapp('6281220662033-1586400908@g.us');
-          handleWhatsapp("6281286501015@c.us", res.data.status, res.data.data );
+          handleWhatsapp('6281220662033-1586400908@g.us', res.data.status, res.data.data);
         } else {
           handleWhatsapp("120363146792473866@g.us", res.data.status, data);
         }
