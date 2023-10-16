@@ -159,7 +159,7 @@ const Flyer = () => {
                     <div className="bg-emerald-500 py-1 px-3 text-white rounded-lg">
                       <h2 className="text-sm">
                         <i className="fa-solid fa-circle-check"></i>{" "}
-                        {successMessage}
+                        message success {successMessage}
                       </h2>
                     </div>
                   )}
@@ -167,7 +167,7 @@ const Flyer = () => {
                     <div className="bg-red-500 py-1 px-3 text-white rounded-lg">
                       <h2 className="text-sm">
                         <i className="fa-solid fa-circle-xmark"></i>{" "}
-                        {failedMessage}
+                        message failder {failedMessage}
                       </h2>
                     </div>
                   )}
