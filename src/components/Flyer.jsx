@@ -7,19 +7,23 @@ const Flyer = () => {
   const [isVisible, setVisible] = useState(false);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+
   const [success, setSuccess] = useState(false);
   const [failed, setFailed] = useState(false);
+
+  const [successMessage, setSuccessMessage] = useState('');
+  const [failedMessage, setFailedMessage] = useState('');
 
   const [headline, setHeadline] = useState('');
   const [paragraph, setParagraph] = useState('');
   const [image, setImage] = useState('');
 
-  const handleWhatsapp = async () => {
+  const handleWhatsapp = async (target) => {
     if(phone.length < 10) {
       alert('Nomor telpon tidak benar!');
     } else {
       await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/whatsappbot/send`,{
-        target: '120363146792473866@g.us',
+        target: target,
         name: name,
         whatsapp: phone
       })
@@ -43,11 +47,17 @@ const Flyer = () => {
       pmb: startYear
     })
     .then((res) => {
-      handleWhatsapp();
       setName('');
       setPhone('');
       setSuccess(true);
+      setSuccessMessage(res.data.message);
       setFailed(false);
+      setFailedMessage(res.data.message);
+      if(res.data.status){
+        handleWhatsapp('6281220662033-1586400908@g.us');
+      }else{
+        handleWhatsapp('120363146792473866@g.us');
+      }
     })
     .catch((err) => {
       setFailed(true);
@@ -103,14 +113,14 @@ const Flyer = () => {
                   {
                     success && (
                       <div className='bg-emerald-500 py-1 px-3 text-white rounded-lg'>
-                        <h2 className='text-sm'><i className="fa-solid fa-circle-check"></i> Terima kasih telah mengisi data, mohon ditunggu ya!</h2>
+                        <h2 className='text-sm'><i className="fa-solid fa-circle-check"></i> {successMessage}</h2>
                       </div>
                     )
                   }
                   {
                     failed && (
                       <div className='bg-red-500 py-1 px-3 text-white rounded-lg'>
-                        <h2 className='text-sm'><i className="fa-solid fa-circle-xmark"></i> Mohon isi data dengan benar</h2>
+                        <h2 className='text-sm'><i className="fa-solid fa-circle-xmark"></i> {failedMessage}</h2>
                       </div>
                     )
                   }
