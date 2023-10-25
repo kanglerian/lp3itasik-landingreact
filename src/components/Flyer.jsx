@@ -149,6 +149,18 @@ const Flyer = () => {
       });
   };
 
+  const handlePhoneChange = (e) => {
+    let input = e.target.value;
+
+    if (input.startsWith("62")) {
+      setPhone(input);
+    } else if (input.startsWith("0")) {
+      setPhone("62" + input.substring(1));
+    } else {
+      setPhone("62");
+    }
+  };
+
   const schoolHandle = (selectedOption) => {
     if (selectedOption) {
       setSchool(selectedOption.value);
@@ -232,9 +244,9 @@ const Flyer = () => {
                     required
                   />
                   <input
-                    type="text"
+                    type="number"
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    onChange={handlePhoneChange}
                     placeholder="No whatsapp"
                     className="w-full border text-sm border-gray-200 rounded-lg"
                     required
