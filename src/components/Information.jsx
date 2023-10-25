@@ -55,7 +55,7 @@ const Information = (props) => {
   )
 
   const listYoutube = youtube.map((yt, i) =>
-    <div key={i}>
+    <div key={i} className='flex items-center gap-5'>
       <div className="w-full md:w-1/2">
         <iframe width="100%" height="350px" className="rounded-2xl border-4 border-lp3i-400"
           src={`https://www.youtube.com/embed/` + yt.youtube} title="YouTube video player"

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import CreatableSelect from "react-select/creatable";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -7,6 +8,8 @@ const Flyer = () => {
   const [isVisible, setVisible] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [year, setYear] = useState("");
+  const [school, setSchool] = useState("");
 
   const [success, setSuccess] = useState(false);
   const [failed, setFailed] = useState(false);
@@ -18,14 +21,28 @@ const Flyer = () => {
   const [paragraph, setParagraph] = useState("");
   const [image, setImage] = useState("");
 
+  const [selectedSchool, setSelectedSchool] = useState(null);
+  const [schoolsAPI, setSchoolsAPI] = useState([]);
+
   const handleWhatsapp = async (target, status, data) => {
     if (phone.length < 10) {
       alert("Nomor telpon tidak benar!");
     } else {
       let message;
       let feedback;
-      if(status){
-        message = `*Data calon mahasiswa baru dari Website LP3I!*\nKami dengan senang hati menginformasikan bahwa data calon mahasiswa telah menghubungi di website kami:\n\n*Nama lengkap:* ${data.name}\n*Asal sekolah:* ${data.school_applicant ? data.school_applicant.name : 'Tidak diketahui'}\n*Kelas / Jurusan:* ${data.major ? data.major : 'Tidak diketahui'}\n*Tahun lulus:* ${data.year ? data.year : 'Tidak diketahui'}\n*Whatsapp:* ${data.phone}\n*Presenter:* ${data.presenter.name}\n\nMohon maaf jika pesan ini terkesan otomatis, namun kami ingin memastikan informasi ini tersampaikan dengan tepat dan cepat kepada Anda.\nTerima kasih.`;
+
+      if (status) {
+        message = `*Data calon mahasiswa baru dari Website LP3I!*\nKami dengan senang hati menginformasikan bahwa data calon mahasiswa telah menghubungi di website kami:\n\n*Nama lengkap:* ${
+          data.name
+        }\n*Asal sekolah:* ${
+          data.school_applicant ? data.school_applicant.name : "Tidak diketahui"
+        }\n*Kelas / Jurusan:* ${
+          data.major ? data.major : "Tidak diketahui"
+        }\n*Tahun lulus:* ${
+          data.year ? data.year : "Tidak diketahui"
+        }\n*Whatsapp:* ${data.phone}\n*Presenter:* ${
+          data.presenter.name
+        }\n\nMohon maaf jika pesan ini terkesan otomatis, namun kami ingin memastikan informasi ini tersampaikan dengan tepat dan cepat kepada Anda.\nTerima kasih.`;
         feedback = `Halo ${data.name}!\nTerima kasih telah mengisi data, kami senang bisa berkomunikasi dengan Anda. Kami adalah Panitia PMB Politeknik LP3I Kampus Tasikmalaya. Ada yang bisa kami bantu?`;
       } else {
         message = `*Data terbaru dari Website LP3I!*\nKami dengan senang hati menginformasikan bahwa data terbaru telah tersedia di website kami:\n\n*Nama lengkap:* ${name}\n*Whatsapp:* ${phone}\n\nMohon maaf jika pesan ini terkesan otomatis, namun kami ingin memastikan informasi ini tersampaikan dengan tepat dan cepat kepada Anda.\nTerima kasih.`;
@@ -38,7 +55,7 @@ const Flyer = () => {
           name: name,
           whatsapp: phone,
           message: message,
-          feedback: feedback
+          feedback: feedback,
         })
         .then((res) => {
           console.log(res);
@@ -57,7 +74,7 @@ const Flyer = () => {
     let data = {
       name: name,
       phone: phone,
-    }
+    };
     await axios
       .post(
         `https://database.politekniklp3i-tasikmalaya.ac.id/api/storewebsite`,
@@ -65,17 +82,25 @@ const Flyer = () => {
           name: name,
           phone: phone,
           pmb: startYear,
+          school: school,
+          year: year,
         }
       )
       .then((res) => {
         setName("");
         setPhone("");
+        setSchool("");
+        setYear("");
         setSuccess(true);
         setSuccessMessage(res.data.message);
         setFailed(false);
         setFailedMessage(res.data.message);
         if (res.data.status) {
-          handleWhatsapp('6281220662033-1586400908@g.us', res.data.status, res.data.data);
+          handleWhatsapp(
+            "6281220662033-1586400908@g.us",
+            res.data.status,
+            res.data.data
+          );
         } else {
           handleWhatsapp("120363146792473866@g.us", res.data.status, data);
         }
@@ -103,6 +128,34 @@ const Flyer = () => {
       });
   };
 
+  const getSchools = async () => {
+    await axios
+      .get(
+        `https://database.politekniklp3i-tasikmalaya.ac.id/api/school/getall`
+      )
+      .then((res) => {
+        let bucket = [];
+        let dataSchools = res.data.schools;
+        dataSchools.forEach((data) => {
+          bucket.push({
+            value: data.id,
+            label: data.name,
+          });
+        });
+        setSchoolsAPI(bucket);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
+  const schoolHandle = (selectedOption) => {
+    if (selectedOption) {
+      setSchool(selectedOption.value);
+      setSelectedSchool(selectedOption);
+    }
+  };
+
   const handleVisible = () => {
     setVisible(!isVisible);
   };
@@ -120,6 +173,7 @@ const Flyer = () => {
     });
     AOS.refresh();
     getFlyer();
+    getSchools();
   }, []);
 
   return (
@@ -170,20 +224,37 @@ const Flyer = () => {
                     </div>
                   )}
                   <input
-                    data-aos-delay="1400"
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Nama lengkap kamu"
                     className="w-full border text-sm border-gray-200 rounded-lg"
+                    required
                   />
                   <input
-                    data-aos-delay="1500"
                     type="text"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="No whatsapp"
                     className="w-full border text-sm border-gray-200 rounded-lg"
+                    required
+                  />
+
+                  <CreatableSelect
+                    options={schoolsAPI}
+                    value={selectedSchool}
+                    onChange={schoolHandle}
+                    placeholder="Isi dengan nama sekolah anda..."
+                    className="text-sm"
+                    required
+                  />
+                  <input
+                    type="number"
+                    value={year}
+                    onChange={(e) => setYear(e.target.value)}
+                    placeholder="Tahun lulus"
+                    className="w-full border text-sm border-gray-200 rounded-lg"
+                    required
                   />
                   <button
                     data-aos-delay="1700"
