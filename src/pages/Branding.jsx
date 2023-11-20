@@ -16,6 +16,9 @@ import GlobalMandiriSolid from '../assets/logo/global-mandiri-solid.png'
 import GlobalMandiriYellow from '../assets/logo/global-mandiri-yellow.png'
 import GlobalMandiriWhite from '../assets/logo/global-mandiri-white.png'
 
+import MayasariSolid from '../assets/logo/mayasari-solid.png'
+import MayasariWhite from '../assets/logo/mayasari-white.png'
+
 const Navbar = lazy(() => import("../components/Navbar"));
 const Footer = lazy(() => import("../components/Footer"));
 
@@ -234,6 +237,42 @@ const Branding = () => {
               <div className="mt-5 space-x-2">
                 <a
                   href={GlobalMandiriWhite}
+                  className="bg-gray-500 hover:bg-gray-600 text-white rounded-lg text-xs px-4 py-2"
+                  download="tagline-warna.png"
+                >
+                  Download .png
+                </a>
+              </div>
+            </div>
+
+            <div className="w-1/4 p-2">
+              <img
+                loading="lazy"
+                src={MayasariSolid}
+                alt
+                className="bg-lp3i-500 px-5 py-3 rounded-xl"
+              />
+              <div className="mt-5 space-x-2">
+                <a
+                  href={MayasariSolid}
+                  className="bg-gray-500 hover:bg-gray-600 text-white rounded-lg text-xs px-4 py-2"
+                  download="tagline-warna.png"
+                >
+                  Download .png
+                </a>
+              </div>
+            </div>
+
+            <div className="w-1/4 p-2">
+              <img
+                loading="lazy"
+                src={MayasariWhite}
+                alt
+                className="bg-lp3i-500 px-5 py-3 rounded-xl"
+              />
+              <div className="mt-5 space-x-2">
+                <a
+                  href={MayasariWhite}
                   className="bg-gray-500 hover:bg-gray-600 text-white rounded-lg text-xs px-4 py-2"
                   download="tagline-warna.png"
                 >
