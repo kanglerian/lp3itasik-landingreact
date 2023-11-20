@@ -250,7 +250,7 @@ const Branding = () => {
                 loading="lazy"
                 src={MayasariSolid}
                 alt
-                className="bg-lp3i-500 px-5 py-3 rounded-xl"
+                className="px-5 py-3"
               />
               <div className="mt-5 space-x-2">
                 <a
