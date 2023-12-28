@@ -26,7 +26,7 @@ const Navbar = () => {
         );
         let foundTasik = programs.filter(
           (program) =>
-            program.campus == "Politeknik LP3I Kampus Tasikmalaya" &&
+            program.campus == "Kampus Tasikmalaya" &&
             program.status == "1"
         );
         let foundVokasi = programs.filter(
@@ -258,13 +258,13 @@ const Navbar = () => {
                           <>
                             <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
                               <div className="font-medium truncate">
-                                LP3I Tasikmalaya
+                                Vokasi 2 Tahun
                               </div>
                             </div>
                             <ul className="py-2 text-sm text-gray-900">
                               {vokasiPrograms.map((vokasi, i) => (
                                 <li
-                                  key={importScripts}
+                                  key={i}
                                   className="flex items-center px-4 hover:bg-gray-100 gap-2"
                                 >
                                   <i className="fa-regular fa-circle-dot"></i>
