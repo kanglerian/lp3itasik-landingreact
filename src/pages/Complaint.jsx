@@ -19,29 +19,20 @@ const Program = () => {
 
   const currentLanguage = localStorage.getItem('language') || 'id';
 
-  const [nim, setNim] = useState('');
   const [name, setName] = useState('');
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
-  const [categories, setCategories] = useState(0);
 
   const [success, setSuccess] = useState(false);
   const [failed, setFailed] = useState(false);
 
-  const handleCategories = async (id) => {
-    setCategories(id);
-  }
-
   const handleWhatsapp = async () => {
     await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/complaint/report`, {
-      nim: nim,
       name: name,
       title: title,
-      categories: categories,
       message: message,
     })
       .then((res) => {
-        setNim('');
         setName('');
         setTitle('');
         setMessage('');
@@ -94,70 +85,34 @@ const Program = () => {
               )
             }
 
-            <ul className="flex flex-wrap text-sm font-medium justify-center text-center text-gray-500 mb-6">
-              <li className="mr-2">
-                <button onClick={() => handleCategories(0)} className={`inline-block px-4 py-3 rounded-lg ${categories === 0 ? 'bg-blue-600 text-white' : 'hover:text-gray-900 hover:bg-gray-100'}`}>Mahasiswa</button>
-              </li>
-              <li className="mr-2">
-                <button onClick={() => handleCategories(1)} className={`inline-block px-4 py-3 rounded-lg ${categories === 1 ? 'bg-blue-600 text-white' : 'hover:text-gray-900 hover:bg-gray-100'}`}>Alumni</button>
-              </li>
-              <li className="mr-2">
-                <button onClick={() => handleCategories(2)} className={`inline-block px-4 py-3 rounded-lg ${categories === 2 ? 'bg-blue-600 text-white' : 'hover:text-gray-900 hover:bg-gray-100'}`}>Dosen</button>
-              </li>
-              <li className="mr-2">
-                <button onClick={() => handleCategories(3)} className={`inline-block px-4 py-3 rounded-lg ${categories === 3 ? 'bg-blue-600 text-white' : 'hover:text-gray-900 hover:bg-gray-100'}`}>Umum</button>
-              </li>
-            </ul>
-
-            <div>
-              <div className='space-y-4' id='mahasiswa'>
-                {
-                  categories == 2 &&
-                  <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-900">Nama Dosen</label>
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tulis nama anda disini disini..." required />
-                  </div>
-                }
-                {
-                  categories == 3 &&
-                  <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-900">Nama Lengkap</label>
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tulis nama anda disini disini..." required />
-                  </div>
-                }
-                {
-                  categories != 2 && categories != 3 &&
-                  <>
-                    <div>
-                      <label className="block mb-2 text-sm font-medium text-gray-900">Tuliskan NIM</label>
-                      <input type="text" value={nim} onChange={(e) => setNim(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tulis nomor induk mahasiswa disini..." required />
-                    </div>
-                  </>
-                }
-                <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-900">Judul Masukan</label>
-                  <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tulis judul masukan disini..." required />
-                </div>
-                <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Isi Masukan dan Solusi</label>
-                  <textarea onChange={(e) => setMessage(e.target.value)} rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tulis isi masukan dan solusi anda disini..." value={message} />
-                </div>
+            <div className='space-y-3'>
+              <div>
+                <label className="block mb-2 text-sm font-medium text-gray-900">Nama Lengkap</label>
+                <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tulis nama anda disini disini..." required />
               </div>
-              <button onClick={handleWhatsapp} className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center mt-3"><i className="fa-solid fa-paper-plane"></i> Kirim sekarang!</button>
+              <div>
+                <label className="block mb-2 text-sm font-medium text-gray-900">Judul Masukan</label>
+                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tulis judul masukan disini..." required />
+              </div>
+              <div>
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Isi Masukan dan Solusi</label>
+                <textarea onChange={(e) => setMessage(e.target.value)} rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tulis isi masukan dan solusi anda disini..." value={message} />
+              </div>
             </div>
+            <button onClick={handleWhatsapp} className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center mt-3"><i className="fa-solid fa-paper-plane"></i> Kirim sekarang!</button>
+          </div>
 
-          </div>
-        </section>
-        <footer className='container mx-auto pb-3 px-4'>
-          <p className='text-xs text-center text-gray-800'>Kami berkomitmen untuk melindungi kerahasiaan data Anda dan memastikan bahwa informasi yang Anda sampaikan akan ditangani dengan penuh keamanan.<br />Anda dapat memiliki keyakinan bahwa laporan Anda akan diperlakukan secara rahasia dan sesuai dengan ketentuan yang berlaku.<br />
-            Terima kasih atas kepercayaan Anda dalam menggunakan layanan kami. Kami siap untuk melayani Anda dan menangani setiap pengaduan atau pertanyaan yang Anda miliki.</p>
-          <hr className='my-2' />
-          <div className="bg-white text-gray-400 text-xs text-center">
-            <p>Copyright © 2023 Politeknik LP3I Kampus Tasikmalaya</p>
-          </div>
-        </footer>
       </section>
-    </Suspense>
+      <footer className='container mx-auto pb-3 px-4'>
+        <p className='text-xs text-center text-gray-800'>Kami berkomitmen untuk melindungi kerahasiaan data Anda dan memastikan bahwa informasi yang Anda sampaikan akan ditangani dengan penuh keamanan.<br />Anda dapat memiliki keyakinan bahwa laporan Anda akan diperlakukan secara rahasia dan sesuai dengan ketentuan yang berlaku.<br />
+          Terima kasih atas kepercayaan Anda dalam menggunakan layanan kami. Kami siap untuk melayani Anda dan menangani setiap pengaduan atau pertanyaan yang Anda miliki.</p>
+        <hr className='my-2' />
+        <div className="bg-white text-gray-400 text-xs text-center">
+          <p>Copyright © 2023 Politeknik LP3I Kampus Tasikmalaya</p>
+        </div>
+      </footer>
+    </section>
+    </Suspense >
   )
 }
 

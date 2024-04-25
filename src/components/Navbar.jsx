@@ -79,7 +79,6 @@ const Navbar = () => {
               </div>
               <div className="flex gap-3">
                 <a href={`/uppm`}>UPPM</a>
-                <a href={`/suggestion`}>{t("suggestion")}</a>
                 <a
                   href="https://brosur.politekniklp3i-tasikmalaya.ac.id/"
                   target="_blank"
