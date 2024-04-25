@@ -34,7 +34,6 @@ const Program = () => {
 
   const handleWhatsapp = async () => {
     await axios.post(`https://api.politekniklp3i-tasikmalaya.ac.id/complaint/report`, {
-      target: '120363251698947275@g.us',
       nim: nim,
       name: name,
       title: title,
