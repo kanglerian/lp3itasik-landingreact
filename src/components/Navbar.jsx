@@ -74,7 +74,7 @@ const Navbar = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <i className="fa-brands fa-whatsapp" /> 0813-1360-8558
+                  <i className="fa-brands fa-whatsapp" /> 08126-1122-555
                 </a>
               </div>
               <div className="flex gap-3">
