@@ -5,7 +5,7 @@ import Lottie from 'lottie-react'
 import LoadingAnimation from '../assets/animations/loading.json'
 
 const PenerimaanMahasiswa = () => {
-  let phoneNUmber = '6281313608558';
+  let phoneNUmber = '6281261122555';
   let text = "Halo, saya ingin menanyakan tentang penerimaan mahasiswa baru. Apakah pendaftaran masih dibuka?"
   useEffect(() => {
     setTimeout(() => {
