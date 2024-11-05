@@ -9,7 +9,7 @@ const PenerimaanMahasiswa = () => {
   let text = "Halo, saya ingin menanyakan tentang penerimaan mahasiswa baru. Apakah pendaftaran masih dibuka?"
   useEffect(() => {
     setTimeout(() => {
-      window.location.href=`https://api.whatsapp.com/send/?phone=${phoneNUmber}&text=${encodeURIComponent(text)}&type=phone_number&app_absent=0`;
+      window.location.href=`https://api.whatsapp.com/send/?phone=6281261122555&text=${encodeURIComponent(text)}&type=phone_number&app_absent=0`;
     }, 2000);
   }, []);
   return (
