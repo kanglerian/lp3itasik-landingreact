@@ -6,7 +6,7 @@ import LoadingAnimation from '../assets/animations/loading.json'
 
 const ConflictRegister = () => {
   let phoneNUmber = '6281286501015';
-  let text = "Saya ingin mendaftar sebagai mahasiswa baru. Namun, saya melihat bahwa data email dan nomor WhatsApp saya sudah terdaftar. Bagaimana?"
+  let text = "Saya ingin mendaftar sebagai mahasiswa baru. Namun, saya melihat bahwa data email dan nomor WhatsApp saya sudah terdaftar?"
   useEffect(() => {
     setTimeout(() => {
       window.location.href=`https://api.whatsapp.com/send/?phone=${phoneNUmber}&text=${encodeURIComponent(text)}&type=phone_number&app_absent=0`;
