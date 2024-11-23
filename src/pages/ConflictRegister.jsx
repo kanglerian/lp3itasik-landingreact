@@ -5,7 +5,7 @@ import Lottie from 'lottie-react'
 import LoadingAnimation from '../assets/animations/loading.json'
 
 const ConflictRegister = () => {
-  let phoneNUmber = '6281313608558';
+  let phoneNUmber = '6281286501015';
   let text = "Saya ingin mendaftar sebagai mahasiswa baru. Namun, saya melihat bahwa data email dan nomor WhatsApp saya sudah terdaftar. Bagaimana?"
   useEffect(() => {
     setTimeout(() => {
